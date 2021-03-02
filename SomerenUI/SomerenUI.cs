@@ -19,41 +19,40 @@ namespace SomerenUI
 
         private void showPanel(string panelName)
         {
-
-            if(panelName == "Dashboard")
+            switch (panelName)
             {
+                case "Dashboard":
+                    // hide all other panels
+                    pnl_Students.Hide();
 
-                // hide all other panels
-                pnl_Students.Hide();
+                    // show dashboard
+                    pnl_Dashboard.Show();
+                    img_Dashboard.Show();
+                    break;
+                case "Students":
+                    // hide all other panels
+                    pnl_Dashboard.Hide();
+                    img_Dashboard.Hide();
 
-                // show dashboard
-                pnl_Dashboard.Show();
-                img_Dashboard.Show();
-            }
-            else if(panelName == "Students")
-            {
-                // hide all other panels
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
+                    // show students
+                    pnl_Students.Show();
 
-                // show students
-                pnl_Students.Show();
+                    // fill the students listview within the students panel with a list of students
+                    SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+                    List<Student> studentList = studService.GetStudents();
 
-                
+                    // clear the listview before filling it again
+                    listViewStudents.Clear();
 
-                // fill the students listview within the students panel with a list of students
-                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
-                List<Student> studentList = studService.GetStudents();
+                    foreach (SomerenModel.Student s in studentList)
+                    {
 
-                // clear the listview before filling it again
-                listViewStudents.Clear();
-
-                foreach (SomerenModel.Student s in studentList)
-                {
-
-                    ListViewItem li = new ListViewItem(s.Name);
-                    listViewStudents.Items.Add(li);
-                }
+                        ListViewItem li = new ListViewItem(s.Name);
+                        listViewStudents.Items.Add(li);
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
