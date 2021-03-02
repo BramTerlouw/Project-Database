@@ -22,3 +22,12 @@ C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenDAL\obj\D
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenDAL\obj\Debug\SomerenDAL.pdb

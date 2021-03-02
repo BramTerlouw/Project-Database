@@ -27,3 +27,14 @@ C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenLogic\obj
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\Gebruiker\Desktop\School\Project Database\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenLogic.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenModel.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenDAL.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\bin\Debug\SomerenModel.pdb
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csprojAssemblyReference.cache
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.dll
+C:\Users\merli\Source\Repos\Project-Database\SomerenLogic\obj\Debug\SomerenLogic.pdb
