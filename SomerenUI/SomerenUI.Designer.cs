@@ -48,6 +48,7 @@
             this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
+            this.teachersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -71,7 +72,8 @@
             this.studentsToolStripMenuItem,
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
-            this.roomsToolStripMenuItem});
+            this.roomsToolStripMenuItem,
+            this.teachersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(962, 24);
@@ -207,6 +209,13 @@
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
+            // teachersToolStripMenuItem
+            // 
+            this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.teachersToolStripMenuItem.Text = "Teachers";
+            this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +264,7 @@
         private System.Windows.Forms.ColumnHeader studentID;
         private System.Windows.Forms.ColumnHeader studentName;
         private System.Windows.Forms.ColumnHeader studentDOB;
+        private System.Windows.Forms.ToolStripMenuItem teachersToolStripMenuItem;
     }
 }
 

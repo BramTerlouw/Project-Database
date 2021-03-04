@@ -11,7 +11,7 @@ namespace SomerenDAL
 
         public List<Teacher> Db_Get_All_Teachers()
         {
-            string query = "SELECT id,  FROM teacher";
+            string query = "SELECT id, name FROM teacher";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

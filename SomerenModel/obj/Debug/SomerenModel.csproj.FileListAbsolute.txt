@@ -20,3 +20,8 @@ C:\Users\merli\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel
 C:\Users\merli\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\merli\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\merli\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
+C:\Users\mjdam\Source\Repos\Project-Database\SomerenModel\bin\Debug\SomerenModel.dll
+C:\Users\mjdam\Source\Repos\Project-Database\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\mjdam\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+C:\Users\mjdam\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.dll
+C:\Users\mjdam\Source\Repos\Project-Database\SomerenModel\obj\Debug\SomerenModel.pdb
