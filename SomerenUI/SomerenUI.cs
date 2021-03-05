@@ -25,7 +25,7 @@ namespace SomerenUI
 
         private void show_pnl_Students()
         {
-            pnl_Students.Show();
+            pnl_DisplayData.Show();
 
             // fill the students listview within the students panel with a list of students
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
@@ -42,7 +42,7 @@ namespace SomerenUI
 
         private void show_pnl_Teachers()
         {
-            pnl_Students.Show();
+            pnl_DisplayData.Show();
 
             // fill the teachers listview within the teachers panel with a list of teachers
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
@@ -62,12 +62,14 @@ namespace SomerenUI
         {
             pnl_Dashboard.Hide();
             img_Dashboard.Hide();
-            pnl_Students.Hide();
+            pnl_DisplayData.Hide();
         }
 
         private void showPanel(string panelName)
         {
             hide_pnl();
+
+            lbl_Header_Name.Text = panelName.Split('_')[1];
 
             var show = new Dictionary<string, Action>() {
                   {"pnl_Dashboard", () =>  show_pnl_Dashboard()},
@@ -114,6 +116,11 @@ namespace SomerenUI
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("pnl_Teachers");
+        }
+
+        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
