@@ -68,17 +68,15 @@ namespace SomerenUI
         private void showPanel(string panelName)
         {
             hide_pnl();
-
             lbl_Header_Name.Text = panelName.Split('_')[1];
 
             var show = new Dictionary<string, Action>() {
                   {"pnl_Dashboard", () =>  show_pnl_Dashboard()},
                   {"pnl_Students", () => show_pnl_Students()},
-                  {"pnl_Teachers", () => show_pnl_Teachers()}
+                  {"pnl_Teachers", () => show_pnl_Teachers()},
             };
 
-            if (panelName != null)
-            {
+            if (panelName != null) {
                 show[panelName]();
             }
         }
@@ -112,6 +110,7 @@ namespace SomerenUI
         {
             showPanel("pnl_Students");
         }
+        
 
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {

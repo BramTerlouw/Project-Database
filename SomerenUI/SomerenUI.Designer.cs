@@ -49,6 +49,8 @@
             this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Header_Name = new System.Windows.Forms.Label();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -166,6 +168,8 @@
             this.pnl_DisplayData.Controls.Add(this.listViewStudents);
             this.pnl_DisplayData.Controls.Add(this.pictureBox1);
             this.pnl_DisplayData.Controls.Add(this.lbl_Header_Name);
+            this.pnl_DisplayData.Controls.Add(this.searchBox);
+            this.pnl_DisplayData.Controls.Add(this.searchButton);
             this.pnl_DisplayData.Location = new System.Drawing.Point(12, 27);
             this.pnl_DisplayData.Name = "pnl_DisplayData";
             this.pnl_DisplayData.Size = new System.Drawing.Size(938, 463);
@@ -217,6 +221,27 @@
             this.lbl_Header_Name.TabIndex = 3;
             this.lbl_Header_Name.Text = "Place holder";
             // 
+            // searchBox
+            // 
+            this.searchBox.AcceptsReturn = true;
+            this.searchBox.AcceptsTab = true;
+            this.searchBox.Location = new System.Drawing.Point(586, 15);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.searchBox.Size = new System.Drawing.Size(118, 20);
+            this.searchBox.TabIndex = 6;
+            // 
+            // searchButton
+            // 
+            this.searchButton.AutoSize = true;
+            this.searchButton.BackColor = System.Drawing.Color.LightBlue;
+            this.searchButton.Location = new System.Drawing.Point(710, 13);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(72, 23);
+            this.searchButton.TabIndex = 7;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = false;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +291,8 @@
         private System.Windows.Forms.ColumnHeader studentID;
         private System.Windows.Forms.ColumnHeader studentName;
         private System.Windows.Forms.ColumnHeader studentDOB;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }
 
