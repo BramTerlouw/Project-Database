@@ -26,6 +26,7 @@ namespace SomerenUI
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
+            TestGrid(2, new string[] { "Student id", "Name" });
 
             // fill the students listview within the students panel with a list of students
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
@@ -45,10 +46,10 @@ namespace SomerenUI
         private void show_pnl_Teachers()
         {
             pnl_DisplayData.Show();
-
+            TestGrid(2, new string[] { "Teacher id", "Name" });
             // fill the teachers listview within the teachers panel with a list of teachers
-            SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
-            List<Teacher> teacherList = teachService.GetTeachers();
+            //SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
+            //List<Teacher> teacherList = teachService.GetTeachers();
 
             // clear the listview before filling it again
             /*listViewStudents.Clear();
