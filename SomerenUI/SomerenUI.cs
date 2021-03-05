@@ -14,67 +14,70 @@ namespace SomerenUI
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
-            showPanel("Dashboard");
+            showPanel("pnl_Dashboard");
+        }
+
+        private void show_pnl_Dashboard()
+        {
+            pnl_Dashboard.Show();
+            img_Dashboard.Show();
+        }
+
+        private void show_pnl_Students()
+        {
+            pnl_Students.Show();
+
+            // fill the students listview within the students panel with a list of students
+            SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+            List<Student> studentList = studService.GetStudents();
+
+            // clear the listview before filling it again
+            listViewStudents.Clear();
+            foreach (SomerenModel.Student s in studentList)
+            {
+                ListViewItem li = new ListViewItem(s.Name);
+                listViewStudents.Items.Add(li);
+            }
+        }
+
+        private void show_pnl_Teachers()
+        {
+            pnl_Students.Show();
+
+            // fill the teachers listview within the teachers panel with a list of teachers
+            SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
+            List<Teacher> teacherList = teachService.GetTeachers();
+
+            // clear the listview before filling it again
+            listViewStudents.Clear();
+
+            foreach (SomerenModel.Teacher s in teacherList)
+            {
+                ListViewItem li = new ListViewItem(s.Name);
+                listViewStudents.Items.Add(li);
+            }
+        }
+
+        private void hide_pnl()
+        {
+            pnl_Dashboard.Hide();
+            img_Dashboard.Hide();
+            pnl_Students.Hide();
         }
 
         private void showPanel(string panelName)
         {
-            switch (panelName)
+            hide_pnl();
+
+            var show = new Dictionary<string, Action>() {
+                  {"pnl_Dashboard", () =>  show_pnl_Dashboard()},
+                  {"pnl_Students", () => show_pnl_Students()},
+                  {"pnl_Teachers", () => show_pnl_Teachers()}
+            };
+
+            if (panelName != null)
             {
-                case "Dashboard":
-                    // hide all other panels
-                    pnl_Students.Hide();
-
-                    // show dashboard
-                    pnl_Dashboard.Show();
-                    img_Dashboard.Show();
-                    break;
-                case "Students":
-                    // hide all other panels
-                    pnl_Dashboard.Hide();
-                    img_Dashboard.Hide();
-
-                    // show students
-                    pnl_Students.Show();
-
-                    // fill the students listview within the students panel with a list of students
-                    SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
-                    List<Student> studentList = studService.GetStudents();
-
-                    // clear the listview before filling it again
-                    listViewStudents.Clear();
-
-                    foreach (SomerenModel.Student s in studentList)
-                    {
-
-                        ListViewItem li = new ListViewItem(s.Name);
-                        listViewStudents.Items.Add(li);
-                    }
-                    break;
-                case "Teachers":
-                    // hide all other panels
-                    pnl_Dashboard.Hide();
-                    img_Dashboard.Hide();
-
-                    // show teachers
-                    pnl_Students.Show();
-
-                    // fill the teachers listview within the teachers panel with a list of teachers
-                    SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
-                    List<Teacher> teacherList = teachService.GetTeachers();
-
-                    // clear the listview before filling it again
-                    listViewStudents.Clear();
-
-                    foreach (SomerenModel.Teacher s in teacherList)
-                    {
-
-                        ListViewItem li = new ListViewItem(s.Name);
-                        listViewStudents.Items.Add(li);
-                    }
-                    break;
-                default:
-                    break;
+                show[panelName]();
             }
         }
 
@@ -83,14 +86,14 @@ namespace SomerenUI
            //
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            showPanel("Dashboard");
+            showPanel("pnl_Dashboard");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,12 +108,12 @@ namespace SomerenUI
 
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("Students");
+            showPanel("pnl_Students");
         }
 
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("Teachers");
+            showPanel("pnl_Teachers");
         }
     }
 }
