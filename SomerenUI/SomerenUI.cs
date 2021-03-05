@@ -1,6 +1,9 @@
 ﻿using SomerenModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -26,21 +29,19 @@ namespace SomerenUI
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
-
+            
             // fill the students listview within the students panel with a list of students
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
             List<Student> studentList = studService.GetStudents();
+            ClearDataGridView();
+            generateGridLayout(studentList.FirstOrDefault().dataGridList());
 
-            // clear the listview before filling it again
-
-            /*string StringData = "";
-            foreach (SomerenModel.Student s in studentList)
+            foreach (var student in studentList)
             {
-                StringData += String.Format("{0,-15}", s.Id) + String.Format("{0,27}", s.Name);
-                StringData += "\n";
+                FillDataInGridView(student.dataGrid(student));
             }
-            displayDataResult.Text = StringData;*/
         }
+
 
         private void show_pnl_Teachers()
         {
@@ -50,6 +51,7 @@ namespace SomerenUI
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
             List<Teacher> teacherList = teachService.GetTeachers();
 
+            ClearDataGridView();
             // clear the listview before filling it again
             /*listViewStudents.Clear();
 

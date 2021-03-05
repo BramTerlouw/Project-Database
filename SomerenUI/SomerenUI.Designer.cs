@@ -246,15 +246,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            TestGrid(5, new string[] { "Release Date", "Track", "Title", "Artist", "Album" });
         }
 
-        private void TestGrid(int columnCount, string[] columnArr)
+        public void generateGridLayout(string[] columnArr)
         {
-            //TestGrid(5, new string[] { "Release Date", "Track", "Title", "Artist", "Album" });
-
-            this.dataDisplayGridView.ColumnCount = columnCount;
+            this.dataDisplayGridView.ColumnCount = columnArr.Length;
 
             this.dataDisplayGridView.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.Navy;
             this.dataDisplayGridView.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
@@ -269,41 +265,16 @@
             
 
             this.dataDisplayGridView.MultiSelect = false;
-
-            PopulateDataGridView();
         }
 
-        private void PopulateDataGridView()
+        public void FillDataInGridView(string[] dataString)
         {
+            dataDisplayGridView.Rows.Add(dataString);
+        }
 
-            string[] row0 = { "11/22/1968", "29", "Revolution 9",
-            "Beatles", "The Beatles [White Album]" };
-            string[] row1 = { "1960", "6", "Fools Rush In",
-            "Frank Sinatra", "Nice 'N' Easy" };
-            string[] row2 = { "11/11/1971", "1", "One of These Days",
-            "Pink Floyd", "Meddle" };
-            string[] row3 = { "1988", "7", "Where Is \nMy Mind?",
-            "Pixies", "Surfer Rosa" };
-            string[] row4 = { "5/1981", "9", "Can't Find My Mind",
-            "Cramps", "Psychedelic Jungle" };
-            string[] row5 = { "6/10/2003", "13",
-            "Scatterbrain. (As Dead As Leaves.)",
-            "Radiohead", "Hail to the Thief" };
-            string[] row6 = { "6/30/1992", "3", "Dress", "P J Harvey", "Dry" };
-
-            dataDisplayGridView.Rows.Add(row0);
-            dataDisplayGridView.Rows.Add(row1);
-            dataDisplayGridView.Rows.Add(row2);
-            dataDisplayGridView.Rows.Add(row3);
-            dataDisplayGridView.Rows.Add(row4);
-            dataDisplayGridView.Rows.Add(row5);
-            dataDisplayGridView.Rows.Add(row6);
-
-            dataDisplayGridView.Columns[0].DisplayIndex = 3;
-            dataDisplayGridView.Columns[1].DisplayIndex = 4;
-            dataDisplayGridView.Columns[2].DisplayIndex = 0;
-            dataDisplayGridView.Columns[3].DisplayIndex = 1;
-            dataDisplayGridView.Columns[4].DisplayIndex = 2;
+        public void ClearDataGridView()
+        {
+            this.dataDisplayGridView.Columns.Clear();
         }
         #endregion
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
