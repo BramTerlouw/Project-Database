@@ -32,12 +32,14 @@ namespace SomerenUI
             List<Student> studentList = studService.GetStudents();
 
             // clear the listview before filling it again
-            listViewStudents.Clear();
+
+            /*string StringData = "";
             foreach (SomerenModel.Student s in studentList)
             {
-                ListViewItem li = new ListViewItem(s.Name);
-                listViewStudents.Items.Add(li);
+                StringData += String.Format("{0,-15}", s.Id) + String.Format("{0,27}", s.Name);
+                StringData += "\n";
             }
+            displayDataResult.Text = StringData;*/
         }
 
         private void show_pnl_Teachers()
@@ -49,13 +51,13 @@ namespace SomerenUI
             List<Teacher> teacherList = teachService.GetTeachers();
 
             // clear the listview before filling it again
-            listViewStudents.Clear();
+            /*listViewStudents.Clear();
 
             foreach (SomerenModel.Teacher s in teacherList)
             {
                 ListViewItem li = new ListViewItem(s.Name);
                 listViewStudents.Items.Add(li);
-            }
+            }*/
         }
 
         private void hide_pnl()
