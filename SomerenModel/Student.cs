@@ -33,6 +33,7 @@ namespace SomerenModel
         public string[] dataGrid(Student student)
         {
             string dutchStudent = this.dutchStudent(student.dutch_student);
+
             return new string[] {
                 student.Id.ToString(),
                 student.Name,

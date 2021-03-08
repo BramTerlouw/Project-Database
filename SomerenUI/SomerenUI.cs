@@ -52,14 +52,12 @@ namespace SomerenUI
             List<Teacher> teacherList = teachService.GetTeachers();
 
             ClearDataGridView();
-            // clear the listview before filling it again
-            /*listViewStudents.Clear();
+            generateGridLayout(teacherList.FirstOrDefault().dataGridList());
 
-            foreach (SomerenModel.Teacher s in teacherList)
+            foreach (var teacher in teacherList)
             {
-                ListViewItem li = new ListViewItem(s.Name);
-                listViewStudents.Items.Add(li);
-            }*/
+                FillDataInGridView(teacher.dataGrid(teacher));
+            }
         }
 
         private void hide_pnl()

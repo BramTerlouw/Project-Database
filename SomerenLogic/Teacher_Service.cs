@@ -23,11 +23,8 @@ namespace SomerenLogic
             catch (Exception)
             {
                 // something went wrong connecting to the database, so we will add a fake student to the list to make sure the rest of the application continues working!
-                List<Teacher> teacher = new List<Teacher>();
-                for (int i = 0; i < 4; i++)
-                    teacher.Add(new Teacher(474791, ("Mr. Test Teacher" + i)));
 
-                return teacher;
+                return null;
             }
         }
     }

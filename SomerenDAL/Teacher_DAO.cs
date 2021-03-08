@@ -11,7 +11,7 @@ namespace SomerenDAL
 
         public List<Teacher> Db_Get_All_Teachers()
         {
-            string query = "SELECT id, name FROM teacher";
+            string query = "SELECT id, name, lastname, group_id, room_id FROM teacher";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -22,7 +22,13 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Teacher teacher = new Teacher(Convert.ToInt32(dr["id"]), dr["name"].ToString());
+                Teacher teacher = new Teacher(
+                    Convert.ToInt32(dr["id"]), 
+                    dr["name"].ToString(),
+                    dr["lastname"].ToString(),
+                    Convert.ToInt32(dr["group_id"]),
+                    Convert.ToInt32(dr["room_id"])
+                );
                 teachers.Add(teacher);
             }
             return teachers;
