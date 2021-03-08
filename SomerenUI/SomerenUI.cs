@@ -60,6 +60,23 @@ namespace SomerenUI
             }
         }
 
+        private void show_pnl_Rooms()
+        {
+            pnl_DisplayData.Show();
+
+            // fill the rooms listview within the rooms panel with a list of rooms
+            SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
+            List<Room> roomList = roomService.GetRooms();
+
+            ClearDataGridView();
+            generateGridLayout(roomList.FirstOrDefault().dataGridList());
+
+            foreach (var room in roomList)
+            {
+                FillDataInGridView(room.dataGrid(room));
+            }
+        }
+
         private void hide_pnl()
         {
             pnl_Dashboard.Hide();
@@ -76,6 +93,7 @@ namespace SomerenUI
                   {"pnl_Dashboard", () =>  show_pnl_Dashboard()},
                   {"pnl_Students", () => show_pnl_Students()},
                   {"pnl_Teachers", () => show_pnl_Teachers()},
+                  {"pnl_Rooms", () => show_pnl_Rooms()},
             };
 
             if (panelName != null) {
@@ -122,6 +140,11 @@ namespace SomerenUI
         private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Rooms");
         }
     }
 }

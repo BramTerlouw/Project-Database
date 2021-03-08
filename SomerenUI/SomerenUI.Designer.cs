@@ -110,6 +110,7 @@
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
+            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
@@ -246,6 +247,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         public void generateGridLayout(string[] columnArr)

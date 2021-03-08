@@ -8,9 +8,33 @@ namespace SomerenModel
 {
     public class Room
     {
-        public int Number { get; set; } // RoomNumber, e.g. 206
-        public int Capacity { get; set;  } // number of beds, either 4,6,8,12 or 16
-        public bool Type { get; set; } // student = false, teacher = true
+        public readonly int Id;
+        public readonly string Type;
+        public readonly int Size;
+        public readonly int Location_Id;
 
+        // Id , Type , Size, Location_Id
+        public Room(int v1, string v2,int v3, int v4)
+        {
+            Id = v1;
+            Type = v2;
+            Size = v3;
+            Location_Id = v4;
+        }
+
+        public string[] dataGridList()
+        {
+            return new string[] { "id", "type", "size", "location" };
+        }
+
+        public string[] dataGrid(Room room)
+        {
+            return new string[] {
+                room.Id.ToString(),
+                room.Type,
+                room.Size.ToString(),
+                room.Location_Id.ToString(),
+            };
+        }
     }
 }
