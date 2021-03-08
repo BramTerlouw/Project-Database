@@ -17,6 +17,7 @@ namespace SomerenModel
         // id , name , lastname, group_id, room_id
         public Teacher(int v1, string v2, string v3, int v4, int v5)
         {
+            // constructor for the class teacher
             Id = v1;
             Name = v2;
             Last_Name = v3;
@@ -26,11 +27,13 @@ namespace SomerenModel
 
         public string[] dataGridList()
         {
+            // return the column names
             return new string[] { "id", "name", "lastname", "group", "room" };
         }
 
         public string[] dataGrid(Teacher teacher)
         {
+            // return an array with all the teacher properties
             return new string[] {
                 teacher.Id.ToString(),
                 teacher.Name,

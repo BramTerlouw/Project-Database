@@ -16,6 +16,7 @@ namespace SomerenModel
         // Id , Type , Size, Location_Id
         public Room(int v1, string v2,int v3, int v4)
         {
+            // constructor for the class room
             Id = v1;
             Type = v2;
             Size = v3;
@@ -24,11 +25,13 @@ namespace SomerenModel
 
         public string[] dataGridList()
         {
+            // return the column names
             return new string[] { "id", "type", "size", "location" };
         }
 
         public string[] dataGrid(Room room)
         {
+            // return array with all the room properties
             return new string[] {
                 room.Id.ToString(),
                 room.Type,

@@ -11,8 +11,11 @@ namespace SomerenDAL
       
         public List<Student> Db_Get_All_Students()
         {
+            // query for selecting the database
             string query = "SELECT id, name, email, age, dutch_student, group_id, room_id FROM student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // return a list with students
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -20,6 +23,7 @@ namespace SomerenDAL
         {
             List<Student> students = new List<Student>();
 
+            // retrieve all data from database and convert if needed
             foreach (DataRow dr in dataTable.Rows) //@todo fix potential rows null references?
             {
                 Student student = new Student(
@@ -31,8 +35,12 @@ namespace SomerenDAL
                     Convert.ToInt32(dr["group_id"]),
                     Convert.ToInt32(dr["room_id"])
                 );
+
+                // add student to the list
                 students.Add(student);
             }
+
+            // return the list with students
             return students;
         }
     }

@@ -17,8 +17,9 @@ namespace SomerenLogic
         {
             try
             {
+                // get the list with teachers by calling a function from the DAL layer
                 List<Teacher> teacher = dao.Db_Get_All_Teachers();
-                return teacher;
+                return teacher; // return list
             }
             catch (Exception)
             {

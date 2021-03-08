@@ -16,6 +16,7 @@ namespace SomerenModel
         //id , name, email, age , dutch_student, group_id. room_id
         public Student(int v1, string v2, string v3, int v4, bool v5, int v6, int v7)
         {
+            // constructor for student
             this.Id = v1;
             this.Name = v2;
             this.Email = v3;
@@ -27,13 +28,16 @@ namespace SomerenModel
 
         public string[] dataGridList()
         {
+            // return the column names for the DatagridView
             return new string[] { "id", "name", "email", "age", "dutch_student", "group", "room" };
         }
 
         public string[] dataGrid(Student student)
         {
+            // check the nationality of the student
             string dutchStudent = this.dutchStudent(student.dutch_student);
 
+            // return the array with all the studentproperties
             return new string[] {
                 student.Id.ToString(),
                 student.Name,
@@ -47,6 +51,7 @@ namespace SomerenModel
 
         public string dutchStudent(bool b)
         {
+            // check if the student is dutch or foreign
             return b ? "true" : "false";
         }
     }

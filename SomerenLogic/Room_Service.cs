@@ -17,6 +17,7 @@ namespace SomerenLogic
         {
             try
             {
+                // get the list with rooms by calling a function from the DAL layer
                 List<Room> room = dao.Db_Get_All_Rooms();
                 return room;
             }

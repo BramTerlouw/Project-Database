@@ -13,8 +13,8 @@ namespace SomerenLogic
         {
             try
             {
-                List<Student> student = student_db.Db_Get_All_Students();
-                return student;
+                List<Student> student = student_db.Db_Get_All_Students(); // get the list with students from the DAL layer
+                return student; // return the list
             }
             catch (Exception)
             {

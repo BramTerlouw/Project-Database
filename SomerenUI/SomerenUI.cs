@@ -30,12 +30,15 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
             
-            // fill the students listview within the students panel with a list of students
+            // fill a list with students by calling a function from the service layer
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
             List<Student> studentList = studService.GetStudents();
+            
+            // clear the DataGridView and fill the column names
             ClearDataGridView();
             generateGridLayout(studentList.FirstOrDefault().dataGridList());
 
+            // Fill the DatagridView with all the students using a foreach
             foreach (var student in studentList)
             {
                 FillDataInGridView(student.dataGrid(student));
@@ -47,13 +50,15 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
 
-            // fill the teachers listview within the teachers panel with a list of teachers
+            // fill a list with teachers by calling a function from the service layer
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
             List<Teacher> teacherList = teachService.GetTeachers();
 
+            // clear the DataGridView and fill the column names
             ClearDataGridView();
             generateGridLayout(teacherList.FirstOrDefault().dataGridList());
 
+            // Fill the DataGridView with all the teachers using a foreach
             foreach (var teacher in teacherList)
             {
                 FillDataInGridView(teacher.dataGrid(teacher));
@@ -64,13 +69,14 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
 
-            // fill the rooms listview within the rooms panel with a list of rooms
+            // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
             List<Room> roomList = roomService.GetRooms();
 
-            ClearDataGridView();
+            ClearDataGridView(); // clear the DataGridView and fill the column names
             generateGridLayout(roomList.FirstOrDefault().dataGridList());
 
+            // Fill the DataGridView with all the rooms using a foreach
             foreach (var room in roomList)
             {
                 FillDataInGridView(room.dataGrid(room));
@@ -79,6 +85,7 @@ namespace SomerenUI
 
         private void hide_pnl()
         {
+            // Hide the panels below
             pnl_Dashboard.Hide();
             img_Dashboard.Hide();
             pnl_DisplayData.Hide();
@@ -89,6 +96,7 @@ namespace SomerenUI
             hide_pnl();
             lbl_Header_Name.Text = panelName.Split('_')[1];
 
+            // A dictionary with panelnames and a function linked together
             var show = new Dictionary<string, Action>() {
                   {"pnl_Dashboard", () =>  show_pnl_Dashboard()},
                   {"pnl_Students", () => show_pnl_Students()},
@@ -96,6 +104,7 @@ namespace SomerenUI
                   {"pnl_Rooms", () => show_pnl_Rooms()},
             };
 
+            // depending on the panelname, call the function
             if (panelName != null) {
                 show[panelName]();
             }
@@ -108,11 +117,13 @@ namespace SomerenUI
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // exit the application
             Application.Exit();
         }
 
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Dashboard");
         }
 
@@ -128,12 +139,14 @@ namespace SomerenUI
 
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Students");
         }
         
 
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Teachers");
         }
 
@@ -144,6 +157,7 @@ namespace SomerenUI
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Rooms");
         }
     }
