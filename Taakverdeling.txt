@@ -1,0 +1,9 @@
+Taakverdeling Week 1:
+Opdracht A (ERD): Bram Terlouw, Rick van Dam, Merlijn Busch
+Opdracht B (Relationeel model): Bram Terlouw, Rick van Dam
+Opdracht C (DB connectie + inrichten DB): Merlijn Busch
+
+Taakverdeling Week 2:
+Opdracht A (Studenten): Bram Terlouw, Rick van Dam, Merlijn Busch
+Opdracht B (Docenten): Bram Terlouw, Rick van Dam, Merlijn Busch
+Opdracht C (Kamers): Bram Terlouw, Rick van Dam, Merlijn Busch
