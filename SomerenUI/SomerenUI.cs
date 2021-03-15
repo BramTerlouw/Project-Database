@@ -83,6 +83,32 @@ namespace SomerenUI
             }
         }
 
+        private void show_pnl_Drinks()
+        {
+            pnl_DisplayData.Show();
+
+            // fill a list with rooms by calling a function from the service layer
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            List<Drink> drinkList = drinkService.GetDrinks();
+
+            
+        
+            ClearDataGridView(); // clear the DataGridView and fill the column names
+            generateGridLayout(drinkList.FirstOrDefault().dataGridList());
+
+            // Fill the DataGridView with all the rooms using a foreach
+            foreach (var drink in drinkList)
+            {
+                FillDataInGridView(drink.dataGrid(drink, soldDrinks(drink.Id)));
+            }
+        }
+
+        private int soldDrinks(int id){
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            int amount = drinkService.GetSold(id);
+            return amount;
+        }
+
         private void hide_pnl()
         {
             // Hide the panels below
@@ -102,6 +128,7 @@ namespace SomerenUI
                   {"pnl_Students", () => show_pnl_Students()},
                   {"pnl_Teachers", () => show_pnl_Teachers()},
                   {"pnl_Rooms", () => show_pnl_Rooms()},
+                  {"pnl_Drinks", () => show_pnl_Drinks()},
             };
 
             // depending on the panelname, call the function
@@ -148,6 +175,12 @@ namespace SomerenUI
         {
             // call the function showPanel with the parameter
             showPanel("pnl_Teachers");
+        }
+
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // call the function showPanel with the parameter
+            showPanel("pnl_Drinks");
         }
 
         private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)

@@ -38,6 +38,7 @@
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teachersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
@@ -119,6 +120,13 @@
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
+            // drinksToolStripMenuItem
+            // 
+            this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.drinksToolStripMenuItem.Text = "Drinks";
+            this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,7 +135,8 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.teachersToolStripMenuItem});
+            this.teachersToolStripMenuItem,
+            this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(976, 24);
@@ -264,7 +273,6 @@
 
             for (int i =0; i < columnArr.Length; i++)
                 this.dataDisplayGridView.Columns[i].Name = columnArr[i];
-            
 
             this.dataDisplayGridView.MultiSelect = false;
         }
@@ -288,6 +296,7 @@
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teachersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.Panel pnl_Dashboard;
