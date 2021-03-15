@@ -22,11 +22,22 @@ namespace SomerenUI
 
         private void btnChangeStock_Click(object sender, EventArgs e)
         {
-            int drinkId = int.Parse(txtChangeStockDrink.Text);
-            int stock = int.Parse(txtChangeStockStock.Text);
+            try
+            {
+                if (String.IsNullOrEmpty(txtChangeStockDrink.Text))
+                    throw new Exception("Empty drink id!");
+                else if (String.IsNullOrEmpty(txtChangeStockStock.Text))
+                    throw new Exception("Empty stock amount!");
 
-            if ((drinkId > 0) && stock > 0)
+                int drinkId = int.Parse(txtChangeStockDrink.Text);
+                int stock = int.Parse(txtChangeStockStock.Text);
+
                 drink_Service.ModifyStock(drinkId, stock);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnChangeName_Click(object sender, EventArgs e)
@@ -34,8 +45,16 @@ namespace SomerenUI
             string oldName = txtChangeNameOld.Text;
             string newName = txtChangeNameNew.Text;
 
-            if ((!String.IsNullOrEmpty(oldName)) && !String.IsNullOrEmpty(newName))
+            try
+            {
                 drink_Service.ModifyName(oldName, newName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
         }
     }
 }

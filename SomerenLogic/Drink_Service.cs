@@ -47,28 +47,18 @@ namespace SomerenLogic
 
         public void ModifyStock(int drinkid, int stock)
         {
-            try
-            {
-                dao.ModifyStock(drinkid, stock);
-            }
-            catch (Exception)
-            {
-
-                
-            }
+            if ((drinkid < 1) || stock < 0)
+                throw new Exception("invalid id or stock");
+            
+            dao.ModifyStock(drinkid, stock);
         }
 
         public void ModifyName(string oldName, string newName)
         {
-            try
-            {
-                dao.ModifyName(oldName, newName);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            if ((String.IsNullOrEmpty(oldName)) || String.IsNullOrEmpty(newName))
+                throw new Exception("Old or new name are empty");
+            
+            dao.ModifyName(oldName, newName);
         }
     }
 }
