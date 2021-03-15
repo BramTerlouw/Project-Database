@@ -59,14 +59,14 @@ namespace SomerenUI
 
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtAddId.Text);
-            string type = txtAddType.Text;
-            int amount = int.Parse(txtAddAmount.Text);
-            string price = txtAddPrice.Text;
-            bool alcohol = bool.Parse(txtAddAlcohol.Text);
-
             try
             {
+                int id = int.Parse(txtAddId.Text);
+                string type = txtAddType.Text;
+                int amount = int.Parse(txtAddAmount.Text);
+                string price = txtAddPrice.Text;
+                bool alcohol = bool.Parse(txtAddAlcohol.Text);
+
                 drink_Service.addDrink(id, type, amount, price, alcohol);
             }
             catch (Exception ex)
