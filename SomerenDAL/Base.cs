@@ -65,7 +65,7 @@ namespace SomerenDAL
             catch (SqlException e)
             {
                 Console.Write(e);
-                throw;
+                throw new Exception("Not succesfull");
             }
             finally
             {
