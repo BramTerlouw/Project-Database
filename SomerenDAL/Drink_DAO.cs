@@ -91,5 +91,35 @@ namespace SomerenDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        public void addDrink(int id, string type, int amount, string price, bool alcohol)
+        {
+            // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
+            string query = "INSERT INTO drinks VALUES(@id, @type, @amount, @price, @alcohol)";
+
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+
+            SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
+            paraId.Value = id;
+            sqlParameters[0] = paraId;
+
+            SqlParameter paraType = new SqlParameter("@type", SqlDbType.VarChar);
+            paraType.Value = type;
+            sqlParameters[1] = paraType;
+
+            SqlParameter paraAmount = new SqlParameter("@amount", SqlDbType.Int);
+            paraAmount.Value = amount;
+            sqlParameters[2] = paraAmount;
+
+            SqlParameter paraPrice = new SqlParameter("@price", SqlDbType.Float);
+            paraPrice.Value = price;
+            sqlParameters[3] = paraPrice;
+
+            SqlParameter paraAlcohol = new SqlParameter("@alcohol", SqlDbType.Bit);
+            paraAlcohol.Value = alcohol;
+            sqlParameters[4] = paraAlcohol;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
