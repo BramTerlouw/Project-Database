@@ -56,7 +56,7 @@ namespace SomerenDAL
             return drinks;
         }
 
-        public void modifyStock(int drinkId, int stock)
+        public void ModifyStock(int drinkId, int stock)
         {
             // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
             string query = "UPDATE drinks SET amount = @Stock WHERE id = @Id";
@@ -70,6 +70,24 @@ namespace SomerenDAL
             SqlParameter paraDrink = new SqlParameter("@Id", SqlDbType.BigInt);
             paraDrink.Value = drinkId;
             sqlParameters[1] = paraDrink;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void ModifyName(string oldName, string newName)
+        {
+            // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
+            string query = "UPDATE drinks SET type = @New WHERE type = @Old";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraOld = new SqlParameter("@Old", SqlDbType.VarChar);
+            paraOld.Value = oldName;
+            sqlParameters[0] = paraOld;
+
+            SqlParameter paraNew = new SqlParameter("@New", SqlDbType.VarChar);
+            paraNew.Value = newName;
+            sqlParameters[1] = paraNew;
 
             ExecuteEditQuery(query, sqlParameters);
         }

@@ -45,16 +45,29 @@ namespace SomerenLogic
             }
         }
 
-        public void modifyStock(int drinkid, int stock)
+        public void ModifyStock(int drinkid, int stock)
         {
             try
             {
-                dao.modifyStock(drinkid, stock);
+                dao.ModifyStock(drinkid, stock);
             }
             catch (Exception)
             {
 
                 
+            }
+        }
+
+        public void ModifyName(string oldName, string newName)
+        {
+            try
+            {
+                dao.ModifyName(oldName, newName);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
