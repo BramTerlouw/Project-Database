@@ -25,12 +25,14 @@ namespace SomerenUI
             pnl_Dashboard.Show();
             img_Dashboard.Show();
             btnModify.Hide();
+            btnRefresh.Hide();
         }
 
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
             btnModify.Hide();
+            btnRefresh.Hide();
 
             // fill a list with students by calling a function from the service layer
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
@@ -52,6 +54,7 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
             btnModify.Hide();
+            btnRefresh.Hide();
 
             // fill a list with teachers by calling a function from the service layer
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
@@ -72,6 +75,7 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
             btnModify.Hide();
+            btnRefresh.Hide();
 
             // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
@@ -91,6 +95,7 @@ namespace SomerenUI
         {
             pnl_DisplayData.Show();
             btnModify.Show();
+            btnRefresh.Show();
 
             // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
@@ -204,6 +209,11 @@ namespace SomerenUI
         {
             var Drinks_Modify = new Drinks_Modify();
             Drinks_Modify.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Drinks");
         }
     }
 }

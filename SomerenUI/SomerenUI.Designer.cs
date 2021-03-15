@@ -48,8 +48,9 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
-            this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
             this.btnModify = new System.Windows.Forms.Button();
+            this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -215,6 +216,7 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.pictureBox1);
             this.pnl_DisplayData.Controls.Add(this.lbl_Header_Name);
@@ -226,13 +228,6 @@
             this.pnl_DisplayData.Size = new System.Drawing.Size(938, 463);
             this.pnl_DisplayData.TabIndex = 4;
             // 
-            // dataDisplayGridView
-            // 
-            this.dataDisplayGridView.Location = new System.Drawing.Point(16, 58);
-            this.dataDisplayGridView.Name = "dataDisplayGridView";
-            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 305);
-            this.dataDisplayGridView.TabIndex = 8;
-            // 
             // btnModify
             // 
             this.btnModify.Location = new System.Drawing.Point(16, 395);
@@ -242,6 +237,23 @@
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // dataDisplayGridView
+            // 
+            this.dataDisplayGridView.Location = new System.Drawing.Point(16, 58);
+            this.dataDisplayGridView.Name = "dataDisplayGridView";
+            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 305);
+            this.dataDisplayGridView.TabIndex = 8;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(723, 395);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(59, 31);
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // SomerenUI
             // 
@@ -320,6 +332,7 @@
         private System.Windows.Forms.Panel pnl_DisplayData;
         private System.Windows.Forms.DataGridView dataDisplayGridView;
         private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 
