@@ -11,10 +11,10 @@ namespace SomerenModel
         public readonly int age;
         public readonly bool dutch_student;
         public readonly int group_id;
-        public readonly int room_id;
+        public readonly string room_name;
 
         //id , name, email, age , dutch_student, group_id. room_id
-        public Student(int v1, string v2, string v3, int v4, bool v5, int v6, int v7)
+        public Student(int v1, string v2, string v3, int v4, bool v5, int v6, string v7)
         {
             // constructor for student
             this.Id = v1;
@@ -23,7 +23,7 @@ namespace SomerenModel
             this.age = v4;
             this.dutch_student = v5;
             this.group_id = v6;
-            this.room_id = v7;
+            this.room_name = v7;
         }
 
         public string[] dataGridList()
@@ -45,7 +45,7 @@ namespace SomerenModel
                 student.age.ToString(),
                 dutchStudent,
                 student.group_id.ToString(),
-                student.room_id.ToString(),
+                student.room_name,
             };
         }
 
