@@ -53,6 +53,7 @@ namespace SomerenUI
             this.label5 = new System.Windows.Forms.Label();
             this.lblModifyStockHeaderlblModifyStockHeader = new System.Windows.Forms.Label();
             this.lblModifyNameHeader = new System.Windows.Forms.Label();
+            this.btnCloseModify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblChangeStock1
@@ -259,11 +260,22 @@ namespace SomerenUI
             this.lblModifyNameHeader.TabIndex = 23;
             this.lblModifyNameHeader.Text = "Modify drink name:";
             // 
+            // btnCloseModify
+            // 
+            this.btnCloseModify.Location = new System.Drawing.Point(464, 326);
+            this.btnCloseModify.Name = "btnCloseModify";
+            this.btnCloseModify.Size = new System.Drawing.Size(114, 38);
+            this.btnCloseModify.TabIndex = 24;
+            this.btnCloseModify.Text = "Close";
+            this.btnCloseModify.UseVisualStyleBackColor = true;
+            this.btnCloseModify.Click += new System.EventHandler(this.btnCloseModify_Click);
+            // 
             // Drinks_Modify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 394);
+            this.Controls.Add(this.btnCloseModify);
             this.Controls.Add(this.lblModifyNameHeader);
             this.Controls.Add(this.lblModifyStockHeaderlblModifyStockHeader);
             this.Controls.Add(this.label5);
@@ -321,5 +333,6 @@ namespace SomerenUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblModifyStockHeaderlblModifyStockHeader;
         private System.Windows.Forms.Label lblModifyNameHeader;
+        private System.Windows.Forms.Button btnCloseModify;
     }
 }
