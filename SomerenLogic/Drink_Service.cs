@@ -44,5 +44,18 @@ namespace SomerenLogic
                 return 0;
             }
         }
+
+        public void modifyStock(int drinkid, int stock)
+        {
+            try
+            {
+                dao.modifyStock(drinkid, stock);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        }
     }
 }

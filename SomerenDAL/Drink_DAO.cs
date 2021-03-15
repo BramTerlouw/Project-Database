@@ -55,5 +55,23 @@ namespace SomerenDAL
             // return the list with drinks
             return drinks;
         }
+
+        public void modifyStock(int drinkId, int stock)
+        {
+            // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
+            string query = "UPDATE drinks SET amount = @Stock WHERE id = @Id";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraStock = new SqlParameter("@Stock", SqlDbType.Int);
+            paraStock.Value = stock;
+            sqlParameters[0] = paraStock;
+
+            SqlParameter paraDrink = new SqlParameter("@Id", SqlDbType.BigInt);
+            paraDrink.Value = drinkId;
+            sqlParameters[1] = paraDrink;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

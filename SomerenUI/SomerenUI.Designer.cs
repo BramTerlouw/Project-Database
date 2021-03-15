@@ -49,6 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
             this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
+            this.btnModify = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -123,7 +124,7 @@
             // drinksToolStripMenuItem
             // 
             this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             // 
@@ -214,6 +215,7 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.pictureBox1);
             this.pnl_DisplayData.Controls.Add(this.lbl_Header_Name);
             this.pnl_DisplayData.Controls.Add(this.searchBox);
@@ -228,8 +230,18 @@
             // 
             this.dataDisplayGridView.Location = new System.Drawing.Point(16, 58);
             this.dataDisplayGridView.Name = "dataDisplayGridView";
-            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 378);
+            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 305);
             this.dataDisplayGridView.TabIndex = 8;
+            // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(16, 395);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(170, 31);
+            this.btnModify.TabIndex = 9;
+            this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // SomerenUI
             // 
@@ -307,6 +319,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnl_DisplayData;
         private System.Windows.Forms.DataGridView dataDisplayGridView;
+        private System.Windows.Forms.Button btnModify;
     }
 }
 

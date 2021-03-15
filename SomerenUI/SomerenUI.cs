@@ -24,12 +24,14 @@ namespace SomerenUI
         {
             pnl_Dashboard.Show();
             img_Dashboard.Show();
+            btnModify.Hide();
         }
 
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
-            
+            btnModify.Hide();
+
             // fill a list with students by calling a function from the service layer
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
             List<Student> studentList = studService.GetStudents();
@@ -49,6 +51,7 @@ namespace SomerenUI
         private void show_pnl_Teachers()
         {
             pnl_DisplayData.Show();
+            btnModify.Hide();
 
             // fill a list with teachers by calling a function from the service layer
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
@@ -68,6 +71,7 @@ namespace SomerenUI
         private void show_pnl_Rooms()
         {
             pnl_DisplayData.Show();
+            btnModify.Hide();
 
             // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
@@ -86,6 +90,7 @@ namespace SomerenUI
         private void show_pnl_Drinks()
         {
             pnl_DisplayData.Show();
+            btnModify.Show();
 
             // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
@@ -101,6 +106,7 @@ namespace SomerenUI
             {
                 FillDataInGridView(drink.dataGrid(drink, soldDrinks(drink.Id)));
             }
+            
         }
 
         private int soldDrinks(int id){
@@ -192,6 +198,12 @@ namespace SomerenUI
         {
             // call the function showPanel with the parameter
             showPanel("pnl_Rooms");
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            var Drinks_Modify = new Drinks_Modify();
+            Drinks_Modify.ShowDialog();
         }
     }
 }
