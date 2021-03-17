@@ -230,9 +230,6 @@
             // 
             // pnl_DisplayData
             // 
-            this.pnl_DisplayData.Controls.Add(this.btnSubmitOrder);
-            this.pnl_DisplayData.Controls.Add(this.cmbDrinks);
-            this.pnl_DisplayData.Controls.Add(this.cmbStudents);
             this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.dataDisplayGridView);
@@ -272,8 +269,9 @@
             // 
             this.pnl_Order.Controls.Add(this.pictureBox1);
             this.pnl_Order.Controls.Add(this.lbl_Header_Name);
-            this.pnl_Order.Controls.Add(this.searchBox);
-            this.pnl_Order.Controls.Add(this.searchButton);
+            this.pnl_Order.Controls.Add(this.btnSubmitOrder);
+            this.pnl_Order.Controls.Add(this.cmbDrinks);
+            this.pnl_Order.Controls.Add(this.cmbStudents);
             this.pnl_Order.Location = new System.Drawing.Point(12, 27);
             this.pnl_Order.Name = "pnl_Order";
             this.pnl_Order.Size = new System.Drawing.Size(938, 466);
