@@ -24,15 +24,11 @@ namespace SomerenUI
         {
             pnl_Dashboard.Show();
             img_Dashboard.Show();
-            btnModify.Hide();
-            btnRefresh.Hide();
         }
 
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
-            btnModify.Hide();
-            btnRefresh.Hide();
 
             // fill a list with students by calling a function from the service layer
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
@@ -53,8 +49,6 @@ namespace SomerenUI
         private void show_pnl_Teachers()
         {
             pnl_DisplayData.Show();
-            btnModify.Hide();
-            btnRefresh.Hide();
 
             // fill a list with teachers by calling a function from the service layer
             SomerenLogic.Teacher_Service teachService = new SomerenLogic.Teacher_Service();
@@ -74,8 +68,6 @@ namespace SomerenUI
         private void show_pnl_Rooms()
         {
             pnl_DisplayData.Show();
-            btnModify.Hide();
-            btnRefresh.Hide();
 
             // fill a list with rooms by calling a function from the service layer
             SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
@@ -114,6 +106,10 @@ namespace SomerenUI
             
         }
 
+        private void show_pnl_Order(){
+            pnl_Order.Show();
+        }
+
         private int soldDrinks(int id){
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             int amount = drinkService.GetSold(id);
@@ -126,6 +122,9 @@ namespace SomerenUI
             pnl_Dashboard.Hide();
             img_Dashboard.Hide();
             pnl_DisplayData.Hide();
+            pnl_Order.Hide();
+            btnModify.Hide();
+            btnRefresh.Hide();
         }
 
         public void showPanel(string panelName)
@@ -140,6 +139,7 @@ namespace SomerenUI
                   {"pnl_Teachers", () => show_pnl_Teachers()},
                   {"pnl_Rooms", () => show_pnl_Rooms()},
                   {"pnl_Drinks", () => show_pnl_Drinks()},
+                  {"pnl_Order", () => show_pnl_Order()},
             };
 
             // depending on the panelname, call the function
@@ -214,6 +214,11 @@ namespace SomerenUI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showPanel("pnl_Drinks");
+        }
+        
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Order");
         }
     }
 }

@@ -39,6 +39,7 @@
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teachersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
+            this.pnl_Order = new System.Windows.Forms.Panel();
             this.btnModify = new System.Windows.Forms.Button();
             this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_DisplayData.SuspendLayout();
+            this.pnl_Order.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +132,13 @@
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             // 
+            // orderToolStripMenuItem
+            // 
+            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.orderToolStripMenuItem.Text = "Order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -138,7 +148,8 @@
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
             this.teachersToolStripMenuItem,
-            this.drinksToolStripMenuItem});
+            this.drinksToolStripMenuItem,
+            this.orderToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(976, 24);
@@ -163,6 +174,7 @@
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(938, 466);
             this.pnl_Dashboard.TabIndex = 2;
+            
             // 
             // img_Dashboard
             // 
@@ -228,6 +240,17 @@
             this.pnl_DisplayData.Size = new System.Drawing.Size(938, 463);
             this.pnl_DisplayData.TabIndex = 4;
             // 
+            // pnl_Order
+            // 
+            this.pnl_Order.Controls.Add(this.pictureBox1);
+            this.pnl_Order.Controls.Add(this.lbl_Header_Name);
+            this.pnl_Order.Controls.Add(this.searchBox);
+            this.pnl_Order.Controls.Add(this.searchButton);
+            this.pnl_Order.Location = new System.Drawing.Point(12, 27);
+            this.pnl_Order.Name = "pnl_Order";
+            this.pnl_Order.Size = new System.Drawing.Size(938, 466);
+            this.pnl_Order.TabIndex = 4;
+            // 
             // btnModify
             // 
             this.btnModify.Location = new System.Drawing.Point(16, 395);
@@ -262,6 +285,7 @@
             this.ClientSize = new System.Drawing.Size(976, 505);
             this.Controls.Add(this.pnl_DisplayData);
             this.Controls.Add(this.pnl_Dashboard);
+            this.Controls.Add(this.pnl_Order);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -277,6 +301,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_DisplayData.ResumeLayout(false);
             this.pnl_DisplayData.PerformLayout();
+            this.pnl_Order.PerformLayout();
+            this.pnl_Order.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -321,6 +347,7 @@
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teachersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.Panel pnl_Dashboard;
@@ -330,6 +357,7 @@
         private System.Windows.Forms.Label lbl_Header_Name;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnl_DisplayData;
+        private System.Windows.Forms.Panel pnl_Order;
         private System.Windows.Forms.DataGridView dataDisplayGridView;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnRefresh;
