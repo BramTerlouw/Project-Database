@@ -128,7 +128,7 @@ namespace SomerenUI
             pnl_DisplayData.Hide();
         }
 
-        private void showPanel(string panelName)
+        public void showPanel(string panelName)
         {
             hide_pnl();
             lbl_Header_Name.Text = panelName.Split('_')[1];

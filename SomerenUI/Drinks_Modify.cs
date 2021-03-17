@@ -68,6 +68,7 @@ namespace SomerenUI
                 bool alcohol = bool.Parse(txtAddAlcohol.Text);
 
                 drink_Service.addDrink(id, type, amount, price, alcohol);
+                
             }
             catch (Exception ex)
             {
