@@ -49,17 +49,20 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
-            this.pnl_Order = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.pnl_Order = new System.Windows.Forms.Panel();
+            this.cmbStudents = new System.Windows.Forms.ComboBox();
+            this.cmbDrinks = new System.Windows.Forms.ComboBox();
+            this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_DisplayData.SuspendLayout();
-            this.pnl_Order.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).BeginInit();
+            this.pnl_Order.SuspendLayout();
             this.SuspendLayout();
             // 
             // dashboardToolStripMenuItem
@@ -135,7 +138,7 @@
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.orderToolStripMenuItem.Text = "Order";
             this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
@@ -174,7 +177,6 @@
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(938, 466);
             this.pnl_Dashboard.TabIndex = 2;
-            
             // 
             // img_Dashboard
             // 
@@ -228,28 +230,26 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnSubmitOrder);
+            this.pnl_DisplayData.Controls.Add(this.cmbDrinks);
+            this.pnl_DisplayData.Controls.Add(this.cmbStudents);
             this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
-            this.pnl_DisplayData.Controls.Add(this.pictureBox1);
-            this.pnl_DisplayData.Controls.Add(this.lbl_Header_Name);
-            this.pnl_DisplayData.Controls.Add(this.searchBox);
-            this.pnl_DisplayData.Controls.Add(this.searchButton);
             this.pnl_DisplayData.Controls.Add(this.dataDisplayGridView);
             this.pnl_DisplayData.Location = new System.Drawing.Point(12, 27);
             this.pnl_DisplayData.Name = "pnl_DisplayData";
             this.pnl_DisplayData.Size = new System.Drawing.Size(938, 463);
             this.pnl_DisplayData.TabIndex = 4;
             // 
-            // pnl_Order
+            // btnRefresh
             // 
-            this.pnl_Order.Controls.Add(this.pictureBox1);
-            this.pnl_Order.Controls.Add(this.lbl_Header_Name);
-            this.pnl_Order.Controls.Add(this.searchBox);
-            this.pnl_Order.Controls.Add(this.searchButton);
-            this.pnl_Order.Location = new System.Drawing.Point(12, 27);
-            this.pnl_Order.Name = "pnl_Order";
-            this.pnl_Order.Size = new System.Drawing.Size(938, 466);
-            this.pnl_Order.TabIndex = 4;
+            this.btnRefresh.Location = new System.Drawing.Point(723, 395);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(59, 31);
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnModify
             // 
@@ -268,15 +268,41 @@
             this.dataDisplayGridView.Size = new System.Drawing.Size(766, 305);
             this.dataDisplayGridView.TabIndex = 8;
             // 
-            // btnRefresh
+            // pnl_Order
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(723, 395);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(59, 31);
-            this.btnRefresh.TabIndex = 10;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.pnl_Order.Controls.Add(this.pictureBox1);
+            this.pnl_Order.Controls.Add(this.lbl_Header_Name);
+            this.pnl_Order.Controls.Add(this.searchBox);
+            this.pnl_Order.Controls.Add(this.searchButton);
+            this.pnl_Order.Location = new System.Drawing.Point(12, 27);
+            this.pnl_Order.Name = "pnl_Order";
+            this.pnl_Order.Size = new System.Drawing.Size(938, 466);
+            this.pnl_Order.TabIndex = 5;
+            // 
+            // cmbStudents
+            // 
+            this.cmbStudents.FormattingEnabled = true;
+            this.cmbStudents.Location = new System.Drawing.Point(63, 78);
+            this.cmbStudents.Name = "cmbStudents";
+            this.cmbStudents.Size = new System.Drawing.Size(318, 21);
+            this.cmbStudents.TabIndex = 11;
+            // 
+            // cmbDrinks
+            // 
+            this.cmbDrinks.FormattingEnabled = true;
+            this.cmbDrinks.Location = new System.Drawing.Point(430, 78);
+            this.cmbDrinks.Name = "cmbDrinks";
+            this.cmbDrinks.Size = new System.Drawing.Size(293, 21);
+            this.cmbDrinks.TabIndex = 12;
+            // 
+            // btnSubmitOrder
+            // 
+            this.btnSubmitOrder.Location = new System.Drawing.Point(294, 164);
+            this.btnSubmitOrder.Name = "btnSubmitOrder";
+            this.btnSubmitOrder.Size = new System.Drawing.Size(231, 23);
+            this.btnSubmitOrder.TabIndex = 13;
+            this.btnSubmitOrder.Text = "Submit order";
+            this.btnSubmitOrder.UseVisualStyleBackColor = true;
             // 
             // SomerenUI
             // 
@@ -300,10 +326,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_DisplayData.ResumeLayout(false);
-            this.pnl_DisplayData.PerformLayout();
-            this.pnl_Order.PerformLayout();
-            this.pnl_Order.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).EndInit();
+            this.pnl_Order.ResumeLayout(false);
+            this.pnl_Order.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +386,9 @@
         private System.Windows.Forms.DataGridView dataDisplayGridView;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnSubmitOrder;
+        private System.Windows.Forms.ComboBox cmbDrinks;
+        private System.Windows.Forms.ComboBox cmbStudents;
     }
 }
 
