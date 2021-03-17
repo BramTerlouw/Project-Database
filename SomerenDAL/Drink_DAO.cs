@@ -136,8 +136,8 @@ namespace SomerenDAL
 
         public void insertSold(int studentId, int drinkId)
         {
-            string query = "INSERT INTO sold (drink_id, student_id) VALUES(@drinkId, @studentId)";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
+            string query = "INSERT INTO sold (drink_id, student_id, date) VALUES(@drinkId, @studentId, @date)";
+            SqlParameter[] sqlParameters = new SqlParameter[3];
 
             SqlParameter paraDrinkId = new SqlParameter("@drinkId", SqlDbType.BigInt);
             paraDrinkId.Value = drinkId;
@@ -146,6 +146,10 @@ namespace SomerenDAL
             SqlParameter paraStudentId = new SqlParameter("@studentId", SqlDbType.BigInt);
             paraStudentId.Value = studentId;
             sqlParameters[1] = paraStudentId;
+
+            SqlParameter paraDate = new SqlParameter("@date", SqlDbType.VarChar);
+            paraDate.Value = DateTime.Now.ToString("hh/mm/ss/dd/mm/yyyy");
+            sqlParameters[2] = paraDate;
 
             ExecuteEditQuery(query, sqlParameters);
         }

@@ -246,18 +246,17 @@ namespace SomerenUI
             int drinkId = cmbDrinks.SelectedIndex + 1;
 
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
-
             try
             {
                 drinkService.decreaseStock(drinkId);
                 drinkService.addTransaction(studentId, drinkId);
                 MessageBox.Show("Transaction succeeded");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Transaction failure");
+                MessageBox.Show(ex.Message);
             }
-            
+
         }
     }
 }
