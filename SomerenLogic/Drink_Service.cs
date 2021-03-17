@@ -65,5 +65,15 @@ namespace SomerenLogic
         {
             dao.addDrink(id, type, amount, price, alcohol);
         }
+
+        public void decreaseStock(int drinkId)
+        {
+            dao.decreaseStock(drinkId);
+        }
+
+        public void addTransaction(int studentId, int drinkId)
+        {
+            dao.insertSold(studentId, drinkId);
+        }
     }
 }

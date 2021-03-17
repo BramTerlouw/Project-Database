@@ -53,9 +53,9 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
             this.pnl_Order = new System.Windows.Forms.Panel();
-            this.cmbStudents = new System.Windows.Forms.ComboBox();
-            this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.btnSubmitOrder = new System.Windows.Forms.Button();
+            this.cmbDrinks = new System.Windows.Forms.ComboBox();
+            this.cmbStudents = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -260,9 +260,9 @@
             // 
             // dataDisplayGridView
             // 
-            this.dataDisplayGridView.Location = new System.Drawing.Point(16, 58);
+            this.dataDisplayGridView.Location = new System.Drawing.Point(16, 60);
             this.dataDisplayGridView.Name = "dataDisplayGridView";
-            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 305);
+            this.dataDisplayGridView.Size = new System.Drawing.Size(766, 304);
             this.dataDisplayGridView.TabIndex = 8;
             // 
             // pnl_Order
@@ -277,30 +277,31 @@
             this.pnl_Order.Size = new System.Drawing.Size(938, 466);
             this.pnl_Order.TabIndex = 5;
             // 
-            // cmbStudents
+            // btnSubmitOrder
             // 
-            this.cmbStudents.FormattingEnabled = true;
-            this.cmbStudents.Location = new System.Drawing.Point(63, 78);
-            this.cmbStudents.Name = "cmbStudents";
-            this.cmbStudents.Size = new System.Drawing.Size(318, 21);
-            this.cmbStudents.TabIndex = 11;
+            this.btnSubmitOrder.Location = new System.Drawing.Point(627, 144);
+            this.btnSubmitOrder.Name = "btnSubmitOrder";
+            this.btnSubmitOrder.Size = new System.Drawing.Size(96, 23);
+            this.btnSubmitOrder.TabIndex = 13;
+            this.btnSubmitOrder.Text = "Submit order";
+            this.btnSubmitOrder.UseVisualStyleBackColor = true;
+            this.btnSubmitOrder.Click += new System.EventHandler(this.btnSubmitOrder_Click);
             // 
             // cmbDrinks
             // 
             this.cmbDrinks.FormattingEnabled = true;
-            this.cmbDrinks.Location = new System.Drawing.Point(430, 78);
+            this.cmbDrinks.Location = new System.Drawing.Point(404, 78);
             this.cmbDrinks.Name = "cmbDrinks";
-            this.cmbDrinks.Size = new System.Drawing.Size(293, 21);
+            this.cmbDrinks.Size = new System.Drawing.Size(319, 21);
             this.cmbDrinks.TabIndex = 12;
             // 
-            // btnSubmitOrder
+            // cmbStudents
             // 
-            this.btnSubmitOrder.Location = new System.Drawing.Point(294, 164);
-            this.btnSubmitOrder.Name = "btnSubmitOrder";
-            this.btnSubmitOrder.Size = new System.Drawing.Size(231, 23);
-            this.btnSubmitOrder.TabIndex = 13;
-            this.btnSubmitOrder.Text = "Submit order";
-            this.btnSubmitOrder.UseVisualStyleBackColor = true;
+            this.cmbStudents.FormattingEnabled = true;
+            this.cmbStudents.Location = new System.Drawing.Point(16, 78);
+            this.cmbStudents.Name = "cmbStudents";
+            this.cmbStudents.Size = new System.Drawing.Size(318, 21);
+            this.cmbStudents.TabIndex = 11;
             // 
             // SomerenUI
             // 

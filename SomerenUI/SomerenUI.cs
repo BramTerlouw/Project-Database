@@ -108,6 +108,25 @@ namespace SomerenUI
 
         private void show_pnl_Order(){
             pnl_Order.Show();
+
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            List<Drink> drinkList = drinkService.GetDrinks();
+            SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+            List<Student> studentList = studService.GetStudents();
+
+            cmbDrinks.Items.Clear();
+            cmbStudents.Items.Clear();
+            foreach (Drink drink in drinkList)
+            {
+                cmbDrinks.Items.Add(drink.type);
+            }
+            cmbDrinks.SelectedIndex = 0;
+
+            foreach (Student student in studentList)
+            {
+                cmbStudents.Items.Add(student.Name);
+            }
+            cmbStudents.SelectedIndex = 0;
         }
 
         private int soldDrinks(int id){
@@ -221,5 +240,24 @@ namespace SomerenUI
             showPanel("pnl_Order");
         }
 
+        private void btnSubmitOrder_Click(object sender, EventArgs e)
+        {
+            int studentId = cmbStudents.SelectedIndex + 1;
+            int drinkId = cmbDrinks.SelectedIndex + 1;
+
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+
+            try
+            {
+                drinkService.decreaseStock(drinkId);
+                drinkService.addTransaction(studentId, drinkId);
+                MessageBox.Show("Transaction succeeded");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Transaction failure");
+            }
+            
+        }
     }
 }

@@ -121,5 +121,33 @@ namespace SomerenDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        public void decreaseStock(int drinkId)
+        {
+            string query = "UPDATE drinks SET amount = amount - 1 WHERE id = @Id";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraId = new SqlParameter("@Id", SqlDbType.BigInt);
+            paraId.Value = drinkId;
+            sqlParameters[0] = paraId;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void insertSold(int studentId, int drinkId)
+        {
+            string query = "INSERT INTO sold (drink_id, student_id) VALUES(@drinkId, @studentId)";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraDrinkId = new SqlParameter("@drinkId", SqlDbType.BigInt);
+            paraDrinkId.Value = drinkId;
+            sqlParameters[0] = paraDrinkId;
+            
+            SqlParameter paraStudentId = new SqlParameter("@studentId", SqlDbType.BigInt);
+            paraStudentId.Value = studentId;
+            sqlParameters[1] = paraStudentId;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
