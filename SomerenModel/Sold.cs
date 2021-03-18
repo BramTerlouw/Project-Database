@@ -1,5 +1,5 @@
 ﻿namespace SomerenModel
-{//SELECT id, [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
+{
     public class Sold
     {
         public readonly int afzet;

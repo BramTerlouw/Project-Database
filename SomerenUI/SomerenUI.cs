@@ -176,7 +176,6 @@ namespace SomerenUI
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
 

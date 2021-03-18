@@ -146,7 +146,7 @@ namespace SomerenDAL
             }
             catch (Exception)
             {
-                throw new Exception("could not get afzet");
+                throw new Exception("No revenue!");
             }
             finally
             {
