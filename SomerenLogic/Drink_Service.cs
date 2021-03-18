@@ -75,5 +75,21 @@ namespace SomerenLogic
         {
             dao.insertSold(studentId, drinkId);
         }
+        
+        public List<Sold> getRevenue(long startDate, long endDate)
+        {
+            try
+            {
+                // get the list with rooms by calling a function from the DAL layer
+                List<Sold> list = dao.getRevenueSold(startDate, endDate);
+                return list;
+            }
+            catch (Exception)
+            {
+                // something went wrong connecting to the database, so we will add a fake room to the list to make sure the rest of the application continues working!
+
+                return null;
+            }
+        }
     }
 }

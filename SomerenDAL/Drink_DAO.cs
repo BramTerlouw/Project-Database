@@ -18,6 +18,15 @@ namespace SomerenDAL
             // return a list with drinks
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        
+        public List<Sold> getRevenueSold(long startDate, long endDate)
+        {
+            string query = "SELECT id, drink_id, student_id FROM sold WHERE date > "+startDate.ToString()+" AND date < " + endDate.ToString();
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            return ReadRevenue(ExecuteSelectQuery(query, sqlParameters));
+        }
 
         public int Db_Get_Sold_Drinks(int drinkId){
             // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
@@ -54,6 +63,27 @@ namespace SomerenDAL
 
             // return the list with drinks
             return drinks;
+        }
+        
+        private List<Sold> ReadRevenue(DataTable dataTable)
+        {
+            List<Sold> list = new List<Sold>();
+
+            // retrieve all data and convert if needed using a foreach
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Sold sold = new Sold(
+                    Convert.ToInt32(dr["id"]),
+                    Convert.ToInt32(dr["drink_id"]),
+                    Convert.ToInt32(dr["student_id"])
+                );
+
+                // add drink to the list
+                list.Add(sold);
+            }
+
+            // return the list with drinks
+            return list;
         }
 
         public void ModifyStock(int drinkId, int stock)

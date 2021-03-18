@@ -129,6 +129,52 @@ namespace SomerenUI
             cmbStudents.SelectedIndex = 0;
         }
 
+
+        public struct totalListPrice
+        {
+            public int drank_id;
+            public float total_price;
+            public int customer_amount;
+
+            public totalListPrice(int v1, float v2, int v3){
+                drank_id = v1;
+                total_price = v2;
+                customer_amount = v3;
+            }
+        }
+
+        private void show_pnl_Revenue(){
+            pnl_DisplayData.Show();
+
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            List<Drink> drinkList = drinkService.GetDrinks();
+            List<Sold> soldList = drinkService.getRevenue(637516731784124020, 637516731885973093);
+
+
+            // create new object heeft drank_id, total_price, ->
+            // Daarna deze list loopen en perm id sold drinks op halen en daar totaal van pakken
+
+            List<totalListPrice> list = new List<totalListPrice>();
+
+            foreach (Drink d in drinkList)
+                list.Add(new totalListPrice(d.Id, 0.00f, 0));
+            
+            for(int i = 0; i < list.Count; i++){
+                foreach(Sold s in soldList){
+                    if(s.Drink_id == list[i].drank_id){
+                        var values = drinkList
+                            .Where(drinkList => drinkList.id == s.Drink_id)
+                            .Select(drinkList => new { price = drinkList.price});
+
+                        list[i].total_price = list[i].total_price + values.price;
+                    }
+                } 
+                System.Console.WriteLine(list[i].total_price);
+            }
+                    
+            
+        }
+
         private int soldDrinks(int id){
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             int amount = drinkService.GetSold(id);
@@ -159,6 +205,7 @@ namespace SomerenUI
                   {"pnl_Rooms", () => show_pnl_Rooms()},
                   {"pnl_Drinks", () => show_pnl_Drinks()},
                   {"pnl_Order", () => show_pnl_Order()},
+                  {"pnl_Revenue", () => show_pnl_Revenue()},
             };
 
             // depending on the panelname, call the function
@@ -238,6 +285,11 @@ namespace SomerenUI
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("pnl_Order");
+        } 
+
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Revenue");
         }
 
         private void btnSubmitOrder_Click(object sender, EventArgs e)
