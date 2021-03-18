@@ -26,6 +26,8 @@ namespace SomerenUI
             img_Dashboard.Show();
         }
 
+        
+        
         private void show_pnl_Students()
         {
             pnl_DisplayData.Show();
@@ -46,6 +48,8 @@ namespace SomerenUI
         }
 
 
+        
+        
         private void show_pnl_Teachers()
         {
             pnl_DisplayData.Show();
@@ -65,6 +69,9 @@ namespace SomerenUI
             }
         }
 
+        
+        
+        
         private void show_pnl_Rooms()
         {
             pnl_DisplayData.Show();
@@ -83,6 +90,9 @@ namespace SomerenUI
             }
         }
 
+        
+        
+        
         private void show_pnl_Drinks()
         {
             pnl_DisplayData.Show();
@@ -105,6 +115,27 @@ namespace SomerenUI
             }
             
         }
+        
+        private int soldDrinks(int id)
+        {
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            int amount = drinkService.GetSold(id);
+            return amount;
+        }
+        
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            var Drinks_Modify = new Drinks_Modify();
+            Drinks_Modify.ShowDialog();
+        }
+        
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Drinks");
+        }
+
+
+
 
         private void show_pnl_Order(){
             pnl_Order.Show();
@@ -128,58 +159,60 @@ namespace SomerenUI
             }
             cmbStudents.SelectedIndex = 0;
         }
-
-
-        public struct totalListPrice
+        
+        private void btnSubmitOrder_Click(object sender, EventArgs e)
         {
-            public int drank_id;
-            public float total_price;
-            public int customer_amount;
+            int studentId = cmbStudents.SelectedIndex + 1;
+            int drinkId = cmbDrinks.SelectedIndex + 1;
 
-            public totalListPrice(int v1, float v2, int v3){
-                drank_id = v1;
-                total_price = v2;
-                customer_amount = v3;
+            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+            try
+            {
+                drinkService.decreaseStock(drinkId);
+                drinkService.addTransaction(studentId, drinkId);
+                MessageBox.Show("Transaction succeeded");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
-        private void show_pnl_Revenue(){
+
+
+
+
+        private void show_pnl_Revenue()
+        {
             pnl_DisplayData.Show();
+            btngetRapport.Show();
+            RapportCalender.Show();
+        }
 
-            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
-            List<Drink> drinkList = drinkService.GetDrinks();
-            List<Sold> soldList = drinkService.getRevenue(637516731784124020, 637516731885973093);
+        private void btngetRapport_Click(object sender, EventArgs e)
+        {
+            DateTime start = RapportCalender.SelectionRange.Start;
+            DateTime end = RapportCalender.SelectionRange.End;
+            try
+            {
+                SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+                Sold sold = drinkService.getRapport(start.Ticks, end.Ticks);
 
+                ClearDataGridView(); // clear the DataGridView and fill the column names
+                generateGridLayout(sold.dataGridList());
 
-            // create new object heeft drank_id, total_price, ->
-            // Daarna deze list loopen en perm id sold drinks op halen en daar totaal van pakken
-
-            List<totalListPrice> list = new List<totalListPrice>();
-
-            foreach (Drink d in drinkList)
-                list.Add(new totalListPrice(d.Id, 0.00f, 0));
-            
-            for(int i = 0; i < list.Count; i++){
-                foreach(Sold s in soldList){
-                    if(s.Drink_id == list[i].drank_id){
-                        var values = drinkList
-                            .Where(drinkList => drinkList.id == s.Drink_id)
-                            .Select(drinkList => new { price = drinkList.price});
-
-                        list[i].total_price = list[i].total_price + values.price;
-                    }
-                } 
-                System.Console.WriteLine(list[i].total_price);
+                // Fill the DataGridView with all the rooms using a foreach
+                FillDataInGridView(sold.dataGrid(sold));
             }
-                    
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private int soldDrinks(int id){
-            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
-            int amount = drinkService.GetSold(id);
-            return amount;
-        }
+
+
 
         private void hide_pnl()
         {
@@ -190,6 +223,8 @@ namespace SomerenUI
             pnl_Order.Hide();
             btnModify.Hide();
             btnRefresh.Hide();
+            btngetRapport.Hide();
+            RapportCalender.Hide();
         }
 
         public void showPanel(string panelName)
@@ -260,28 +295,12 @@ namespace SomerenUI
             showPanel("pnl_Drinks");
         }
 
-        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // call the function showPanel with the parameter
             showPanel("pnl_Rooms");
         }
 
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            var Drinks_Modify = new Drinks_Modify();
-            Drinks_Modify.ShowDialog();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            showPanel("pnl_Drinks");
-        }
-        
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("pnl_Order");
@@ -292,23 +311,6 @@ namespace SomerenUI
             showPanel("pnl_Revenue");
         }
 
-        private void btnSubmitOrder_Click(object sender, EventArgs e)
-        {
-            int studentId = cmbStudents.SelectedIndex + 1;
-            int drinkId = cmbDrinks.SelectedIndex + 1;
-
-            SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
-            try
-            {
-                drinkService.decreaseStock(drinkId);
-                drinkService.addTransaction(studentId, drinkId);
-                MessageBox.Show("Transaction succeeded");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
+        
     }
 }

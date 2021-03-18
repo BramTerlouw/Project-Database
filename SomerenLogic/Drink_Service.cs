@@ -45,11 +45,16 @@ namespace SomerenLogic
             }
         }
 
+
+
+
+
+        // Drinks modify and add
         public void ModifyStock(int drinkid, int stock)
         {
             if ((drinkid < 1) || stock < 0)
                 throw new Exception("invalid id or stock");
-            
+
             dao.ModifyStock(drinkid, stock);
         }
 
@@ -57,7 +62,7 @@ namespace SomerenLogic
         {
             if ((String.IsNullOrEmpty(oldName)) || String.IsNullOrEmpty(newName))
                 throw new Exception("Old or new name are empty");
-            
+
             dao.ModifyName(oldName, newName);
         }
 
@@ -66,6 +71,11 @@ namespace SomerenLogic
             dao.addDrink(id, type, amount, price, alcohol);
         }
 
+
+
+
+
+        // Kassa
         public void decreaseStock(int drinkId)
         {
             dao.decreaseStock(drinkId);
@@ -75,21 +85,21 @@ namespace SomerenLogic
         {
             dao.insertSold(studentId, drinkId);
         }
-        
-        public List<Sold> getRevenue(long startDate, long endDate)
-        {
-            try
-            {
-                // get the list with rooms by calling a function from the DAL layer
-                List<Sold> list = dao.getRevenueSold(startDate, endDate);
-                return list;
-            }
-            catch (Exception)
-            {
-                // something went wrong connecting to the database, so we will add a fake room to the list to make sure the rest of the application continues working!
 
-                return null;
-            }
+
+
+
+
+        // Omzet rapport
+        public Sold getRapport(long startDate, long endDate)
+        {
+            Int32 afzet = dao.getAfzet(startDate, endDate);
+            double omzet = dao.getOmzet(startDate, endDate);
+            Int32 aantal_klanten = dao.getSoldCustomers(startDate, endDate);
+
+            Sold sold = new Sold(afzet, omzet, aantal_klanten);
+            return sold;
         }
+
     }
 }

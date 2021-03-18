@@ -57,6 +57,8 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
+            this.RapportCalender = new System.Windows.Forms.MonthCalendar();
+            this.btngetRapport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -146,7 +148,7 @@
             // revenueToolStripMenuItem
             // 
             this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
-            this.revenueToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.revenueToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.revenueToolStripMenuItem.Text = "Revenue";
             this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
             // 
@@ -182,9 +184,9 @@
             // 
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
             this.pnl_Dashboard.Controls.Add(this.img_Dashboard);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(12, 27);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(12, 37);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
-            this.pnl_Dashboard.Size = new System.Drawing.Size(938, 466);
+            this.pnl_Dashboard.Size = new System.Drawing.Size(938, 456);
             this.pnl_Dashboard.TabIndex = 2;
             // 
             // img_Dashboard
@@ -239,14 +241,16 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btngetRapport);
+            this.pnl_DisplayData.Controls.Add(this.RapportCalender);
             this.pnl_DisplayData.Controls.Add(this.pictureBox1);
             this.pnl_DisplayData.Controls.Add(this.lbl_Header_Name);
             this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.dataDisplayGridView);
-            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 27);
+            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 37);
             this.pnl_DisplayData.Name = "pnl_DisplayData";
-            this.pnl_DisplayData.Size = new System.Drawing.Size(938, 463);
+            this.pnl_DisplayData.Size = new System.Drawing.Size(952, 453);
             this.pnl_DisplayData.TabIndex = 4;
             // 
             // btnRefresh
@@ -281,9 +285,9 @@
             this.pnl_Order.Controls.Add(this.btnSubmitOrder);
             this.pnl_Order.Controls.Add(this.cmbDrinks);
             this.pnl_Order.Controls.Add(this.cmbStudents);
-            this.pnl_Order.Location = new System.Drawing.Point(12, 27);
+            this.pnl_Order.Location = new System.Drawing.Point(12, 37);
             this.pnl_Order.Name = "pnl_Order";
-            this.pnl_Order.Size = new System.Drawing.Size(938, 466);
+            this.pnl_Order.Size = new System.Drawing.Size(938, 456);
             this.pnl_Order.TabIndex = 5;
             // 
             // btnSubmitOrder
@@ -312,6 +316,22 @@
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
             // 
+            // RapportCalender
+            // 
+            this.RapportCalender.Location = new System.Drawing.Point(781, 202);
+            this.RapportCalender.Name = "RapportCalender";
+            this.RapportCalender.TabIndex = 11;
+            // 
+            // btngetRapport
+            // 
+            this.btngetRapport.Location = new System.Drawing.Point(781, 377);
+            this.btngetRapport.Name = "btngetRapport";
+            this.btngetRapport.Size = new System.Drawing.Size(171, 23);
+            this.btngetRapport.TabIndex = 12;
+            this.btngetRapport.Text = "Get rapport";
+            this.btngetRapport.UseVisualStyleBackColor = true;
+            this.btngetRapport.Click += new System.EventHandler(this.btngetRapport_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,9 +354,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_DisplayData.ResumeLayout(false);
+            this.pnl_DisplayData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDisplayGridView)).EndInit();
             this.pnl_Order.ResumeLayout(false);
-            this.pnl_Order.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,6 +418,8 @@
         private System.Windows.Forms.Button btnSubmitOrder;
         private System.Windows.Forms.ComboBox cmbDrinks;
         private System.Windows.Forms.ComboBox cmbStudents;
+        private System.Windows.Forms.MonthCalendar RapportCalender;
+        private System.Windows.Forms.Button btngetRapport;
     }
 }
 

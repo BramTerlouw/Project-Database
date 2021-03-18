@@ -18,29 +18,6 @@ namespace SomerenDAL
             // return a list with drinks
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        
-        public List<Sold> getRevenueSold(long startDate, long endDate)
-        {
-            string query = "SELECT id, drink_id, student_id FROM sold WHERE date > "+startDate.ToString()+" AND date < " + endDate.ToString();
-
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-
-            return ReadRevenue(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        public int Db_Get_Sold_Drinks(int drinkId){
-            // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
-            string query = "SELECT id FROM sold WHERE drink_id = " + drinkId;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-
-            // return a list with drinks
-            return getCount(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        private int getCount(DataTable dataTable){
-            //return dataTable.Rows.Count;
-            return dataTable.Rows.Count;
-        }
 
         private List<Drink> ReadTables(DataTable dataTable)
         {
@@ -64,28 +41,34 @@ namespace SomerenDAL
             // return the list with drinks
             return drinks;
         }
+
         
-        private List<Sold> ReadRevenue(DataTable dataTable)
-        {
-            List<Sold> list = new List<Sold>();
 
-            // retrieve all data and convert if needed using a foreach
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                Sold sold = new Sold(
-                    Convert.ToInt32(dr["id"]),
-                    Convert.ToInt32(dr["drink_id"]),
-                    Convert.ToInt32(dr["student_id"])
-                );
 
-                // add drink to the list
-                list.Add(sold);
-            }
 
-            // return the list with drinks
-            return list;
+
+
+
+        public int Db_Get_Sold_Drinks(int drinkId){
+            // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
+            string query = "SELECT id FROM sold WHERE drink_id = " + drinkId;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // return a list with drinks
+            return getCount(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        private int getCount(DataTable dataTable){
+            //return dataTable.Rows.Count;
+            return dataTable.Rows.Count;
+        }
+
+
+
+
+
+
+        // Drinks
         public void ModifyStock(int drinkId, int stock)
         {
             // the query for the database, selecting [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
@@ -152,6 +135,9 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        
+        
+        // Kassa
         public void decreaseStock(int drinkId)
         {
             string query = "UPDATE drinks SET amount = amount - 1 WHERE id = @Id";
@@ -182,6 +168,56 @@ namespace SomerenDAL
             sqlParameters[2] = paraDate;
 
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+
+
+
+
+        // Get omzetrapport
+        public Int32 getAfzet(long startDate, long endDate)
+        {
+            string query = "SELECT COUNT(id) FROM sold WHERE date > @start AND date < @end";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraStart = new SqlParameter("@start", SqlDbType.BigInt);
+            paraStart.Value = startDate;
+            sqlParameters[0] = paraStart;
+
+            SqlParameter paraEnd = new SqlParameter("@end", SqlDbType.BigInt);
+            paraEnd.Value = endDate;
+            sqlParameters[1] = paraEnd;
+            return ExecuteCountInteger(query, sqlParameters);
+        }
+
+        public double getOmzet(long startDate, long endDate)
+        {
+            string query = "SELECT SUM(count) FROM ( SELECT COUNT(drinks.type)*drinks.price AS[count] FROM sold JOIN drinks ON sold.drink_id = drinks.id WHERE date > @start AND date < @end GROUP BY drinks.price) AS[all]";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraStart = new SqlParameter("@start", SqlDbType.BigInt);
+            paraStart.Value = startDate;
+            sqlParameters[0] = paraStart;
+
+            SqlParameter paraEnd = new SqlParameter("@end", SqlDbType.BigInt);
+            paraEnd.Value = endDate;
+            sqlParameters[1] = paraEnd;
+            return ExecuteCountDouble(query, sqlParameters);
+        }
+
+        public Int32 getSoldCustomers(long startDate, long endDate)
+        {
+            string query = "SELECT COUNT(count) FROM ( SELECT COUNT(sold.student_id) AS [count] FROM sold WHERE date > @start AND date < @end GROUP BY student_id) AS[all]";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraStart = new SqlParameter("@start", SqlDbType.BigInt);
+            paraStart.Value = startDate;
+            sqlParameters[0] = paraStart;
+
+            SqlParameter paraEnd = new SqlParameter("@end", SqlDbType.BigInt);
+            paraEnd.Value = endDate;
+            sqlParameters[1] = paraEnd;
+            return ExecuteCountInteger(query, sqlParameters);
         }
     }
 }

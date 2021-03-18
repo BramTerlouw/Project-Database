@@ -2,17 +2,31 @@
 {//SELECT id, [type], amount, price, alcohol FROM drinks WHERE amount > 1 AND price > 1.00
     public class Sold
     {
-        public readonly int Id;
-        public readonly int Drink_id;
-        public readonly int Student_id;
+        public readonly int afzet;
+        public readonly double omzet;
+        public readonly int aantal_klanten;
 
-        // id, [type], amount, price, alcohol
-        public Sold(int v1, int v2, int v3)
+        public Sold(int v1, double v2, int v3)
         {
-            // constructor for the class Drink
-            Id = v1;
-            Drink_id = v2;
-            Student_id = v3;
+            afzet = v1;
+            omzet = v2;
+            aantal_klanten = v3;
+        }
+
+        public string[] dataGridList()
+        {
+            // return the column names
+            return new string[] { "Afzet", "Omzet", "Aantal klanten"};
+        }
+
+        public string[] dataGrid(Sold sold)
+        {
+            // return array with all the room properties
+            return new string[] {
+                sold.afzet.ToString(),
+                sold.omzet.ToString(),
+                sold.aantal_klanten.ToString()
+            };
         }
     }
 }

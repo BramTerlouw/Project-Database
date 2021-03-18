@@ -104,5 +104,55 @@ namespace SomerenDAL
             }
             return dataTable;
         }
+
+        
+        
+        // Select query with count
+        protected double ExecuteCountDouble(string query, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+            double value = 0;
+            try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.Parameters.AddRange(sqlParameters);
+                value = (double) command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw new Exception("No revenue!");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return value;
+        }
+
+
+
+        // Select query with count
+        protected Int32 ExecuteCountInteger(string query, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+            Int32 value = 0;
+            try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.Parameters.AddRange(sqlParameters);
+                value = (Int32)command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw new Exception("could not get afzet");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return value;
+        }
     }
 }
