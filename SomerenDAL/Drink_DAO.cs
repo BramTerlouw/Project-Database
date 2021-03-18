@@ -147,8 +147,8 @@ namespace SomerenDAL
             paraStudentId.Value = studentId;
             sqlParameters[1] = paraStudentId;
 
-            SqlParameter paraDate = new SqlParameter("@date", SqlDbType.VarChar);
-            paraDate.Value = DateTime.Now.ToString("hh/mm/ss/dd/mm/yyyy");
+            SqlParameter paraDate = new SqlParameter("@date", SqlDbType.BigInt);
+            paraDate.Value = DateTime.Now.Ticks;
             sqlParameters[2] = paraDate;
 
             ExecuteEditQuery(query, sqlParameters);
