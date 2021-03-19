@@ -77,14 +77,12 @@
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.dashboardToolStripMenuItem.Text = "Application";
-            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
             this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
-            this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
@@ -178,7 +176,6 @@
             this.lbl_Dashboard.Size = new System.Drawing.Size(185, 13);
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
-            this.lbl_Dashboard.Click += new System.EventHandler(this.label1_Click);
             // 
             // pnl_Dashboard
             // 
@@ -248,9 +245,9 @@
             this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.dataDisplayGridView);
-            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 27);
+            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 40);
             this.pnl_DisplayData.Name = "pnl_DisplayData";
-            this.pnl_DisplayData.Size = new System.Drawing.Size(952, 463);
+            this.pnl_DisplayData.Size = new System.Drawing.Size(952, 450);
             this.pnl_DisplayData.TabIndex = 4;
             // 
             // btngetRapport
@@ -301,9 +298,9 @@
             this.pnl_Order.Controls.Add(this.btnSubmitOrder);
             this.pnl_Order.Controls.Add(this.cmbDrinks);
             this.pnl_Order.Controls.Add(this.cmbStudents);
-            this.pnl_Order.Location = new System.Drawing.Point(12, 37);
+            this.pnl_Order.Location = new System.Drawing.Point(12, 40);
             this.pnl_Order.Name = "pnl_Order";
-            this.pnl_Order.Size = new System.Drawing.Size(938, 456);
+            this.pnl_Order.Size = new System.Drawing.Size(938, 453);
             this.pnl_Order.TabIndex = 5;
             // 
             // btnSubmitOrder

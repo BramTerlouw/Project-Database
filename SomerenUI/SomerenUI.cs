@@ -195,6 +195,7 @@ namespace SomerenUI
             pnl_DisplayData.Show();
             btngetRapport.Show();
             RapportCalender.Show();
+            ClearDataGridView();
         }
 
         private void btngetRapport_Click(object sender, EventArgs e)
@@ -260,11 +261,6 @@ namespace SomerenUI
             }
         }
 
-        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           //
-        }
-
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // exit the application
@@ -275,11 +271,6 @@ namespace SomerenUI
         {
             // call the function showPanel with the parameter
             showPanel("pnl_Dashboard");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void img_Dashboard_Click(object sender, EventArgs e)
@@ -293,7 +284,6 @@ namespace SomerenUI
             showPanel("pnl_Students");
         }
         
-
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // call the function showPanel with the parameter
@@ -323,7 +313,5 @@ namespace SomerenUI
             // call the function showPanel with the parameter
             showPanel("pnl_Revenue");
         }
-
-        
     }
 }
