@@ -95,29 +95,30 @@ namespace SomerenUI
         
         private void show_pnl_Drinks()
         {
+            // Show modify and refresh button
             pnl_DisplayData.Show();
             btnModify.Show();
             btnRefresh.Show();
 
-            // fill a list with rooms by calling a function from the service layer
+            // fill a list with drinks by calling a function from the service layer
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             List<Drink> drinkList = drinkService.GetDrinks();
 
-            
-        
-            ClearDataGridView(); // clear the DataGridView and fill the column names
+
+            // clear the DataGridView and fill the column names
+            ClearDataGridView();
             generateGridLayout(drinkList.FirstOrDefault().dataGridList());
 
-            // Fill the DataGridView with all the rooms using a foreach
+            // Fill the DataGridView with all the drinks using a foreach
             foreach (var drink in drinkList)
             {
                 FillDataInGridView(drink.dataGrid(drink, soldDrinks(drink.Id)));
             }
-            
         }
         
         private int soldDrinks(int id)
         {
+            // get the amount of times sold per drink for the drink data grid
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             int amount = drinkService.GetSold(id);
             return amount;
@@ -125,12 +126,14 @@ namespace SomerenUI
         
         private void btnModify_Click(object sender, EventArgs e)
         {
+            // When clicked on modify, new modify form is shown
             var Drinks_Modify = new Drinks_Modify();
             Drinks_Modify.ShowDialog();
         }
         
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            // Button to refresh the drink panel
             showPanel("pnl_Drinks");
         }
 
@@ -140,37 +143,41 @@ namespace SomerenUI
         private void show_pnl_Order(){
             pnl_Order.Show();
 
+            // get all the drinks and students
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             List<Drink> drinkList = drinkService.GetDrinks();
             SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
             List<Student> studentList = studService.GetStudents();
 
+            // Fill each combobox with either drinks or students
             cmbDrinks.Items.Clear();
             cmbStudents.Items.Clear();
             foreach (Drink drink in drinkList)
             {
                 cmbDrinks.Items.Add(drink.type);
             }
-            cmbDrinks.SelectedIndex = 0;
+            cmbDrinks.SelectedIndex = 0; // selected index to 0
 
             foreach (Student student in studentList)
             {
                 cmbStudents.Items.Add(student.Name);
             }
-            cmbStudents.SelectedIndex = 0;
+            cmbStudents.SelectedIndex = 0; // selected index to 0
         }
         
         private void btnSubmitOrder_Click(object sender, EventArgs e)
         {
+            // get the selected index
             int studentId = cmbStudents.SelectedIndex + 1;
             int drinkId = cmbDrinks.SelectedIndex + 1;
 
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
             try
             {
+                // first decrease the stock of the drink, then add transaction to sold table
                 drinkService.decreaseStock(drinkId);
                 drinkService.addTransaction(studentId, drinkId);
-                MessageBox.Show("Transaction succeeded");
+                MessageBox.Show("Transaction succeeded"); // display message
             }
             catch (Exception ex)
             {
@@ -184,6 +191,7 @@ namespace SomerenUI
 
         private void show_pnl_Revenue()
         {
+            // Show calender and rapport button
             pnl_DisplayData.Show();
             btngetRapport.Show();
             RapportCalender.Show();
@@ -191,14 +199,18 @@ namespace SomerenUI
 
         private void btngetRapport_Click(object sender, EventArgs e)
         {
+            // get the start and end date of selected range
             DateTime start = RapportCalender.SelectionRange.Start;
             DateTime end = RapportCalender.SelectionRange.End;
+            
+            // get rapport and convert date to amount of ticks
             try
             {
                 SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
                 Sold sold = drinkService.getRapport(start.Ticks, end.Ticks);
 
-                ClearDataGridView(); // clear the DataGridView and fill the column names
+                // clear the DataGridView and fill the column names
+                ClearDataGridView();
                 generateGridLayout(sold.dataGridList());
 
                 // Fill the DataGridView with all the rooms using a foreach
@@ -302,11 +314,13 @@ namespace SomerenUI
 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Order");
         } 
 
         private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Revenue");
         }
 

@@ -6,6 +6,7 @@
         public readonly double omzet;
         public readonly int aantal_klanten;
 
+        // constructor with 3 parameters
         public Sold(int v1, double v2, int v3)
         {
             afzet = v1;

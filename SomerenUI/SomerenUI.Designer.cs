@@ -50,6 +50,8 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
+            this.btngetRapport = new System.Windows.Forms.Button();
+            this.RapportCalender = new System.Windows.Forms.MonthCalendar();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.dataDisplayGridView = new System.Windows.Forms.DataGridView();
@@ -57,8 +59,6 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
-            this.RapportCalender = new System.Windows.Forms.MonthCalendar();
-            this.btngetRapport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -184,9 +184,9 @@
             // 
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
             this.pnl_Dashboard.Controls.Add(this.img_Dashboard);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(12, 37);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(12, 40);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
-            this.pnl_Dashboard.Size = new System.Drawing.Size(938, 456);
+            this.pnl_Dashboard.Size = new System.Drawing.Size(938, 453);
             this.pnl_Dashboard.TabIndex = 2;
             // 
             // img_Dashboard
@@ -248,10 +248,26 @@
             this.pnl_DisplayData.Controls.Add(this.btnRefresh);
             this.pnl_DisplayData.Controls.Add(this.btnModify);
             this.pnl_DisplayData.Controls.Add(this.dataDisplayGridView);
-            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 37);
+            this.pnl_DisplayData.Location = new System.Drawing.Point(12, 27);
             this.pnl_DisplayData.Name = "pnl_DisplayData";
-            this.pnl_DisplayData.Size = new System.Drawing.Size(952, 453);
+            this.pnl_DisplayData.Size = new System.Drawing.Size(952, 463);
             this.pnl_DisplayData.TabIndex = 4;
+            // 
+            // btngetRapport
+            // 
+            this.btngetRapport.Location = new System.Drawing.Point(781, 377);
+            this.btngetRapport.Name = "btngetRapport";
+            this.btngetRapport.Size = new System.Drawing.Size(171, 23);
+            this.btngetRapport.TabIndex = 12;
+            this.btngetRapport.Text = "Get rapport";
+            this.btngetRapport.UseVisualStyleBackColor = true;
+            this.btngetRapport.Click += new System.EventHandler(this.btngetRapport_Click);
+            // 
+            // RapportCalender
+            // 
+            this.RapportCalender.Location = new System.Drawing.Point(781, 202);
+            this.RapportCalender.Name = "RapportCalender";
+            this.RapportCalender.TabIndex = 11;
             // 
             // btnRefresh
             // 
@@ -315,22 +331,6 @@
             this.cmbStudents.Name = "cmbStudents";
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
-            // 
-            // RapportCalender
-            // 
-            this.RapportCalender.Location = new System.Drawing.Point(781, 202);
-            this.RapportCalender.Name = "RapportCalender";
-            this.RapportCalender.TabIndex = 11;
-            // 
-            // btngetRapport
-            // 
-            this.btngetRapport.Location = new System.Drawing.Point(781, 377);
-            this.btngetRapport.Name = "btngetRapport";
-            this.btngetRapport.Size = new System.Drawing.Size(171, 23);
-            this.btngetRapport.TabIndex = 12;
-            this.btngetRapport.Text = "Get rapport";
-            this.btngetRapport.UseVisualStyleBackColor = true;
-            this.btngetRapport.Click += new System.EventHandler(this.btngetRapport_Click);
             // 
             // SomerenUI
             // 

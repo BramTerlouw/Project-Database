@@ -110,24 +110,27 @@ namespace SomerenDAL
         // Select query with count
         protected double ExecuteCountDouble(string query, SqlParameter[] sqlParameters)
         {
+            // new command and double value
             SqlCommand command = new SqlCommand();
             double value = 0;
+            
+            // Because we used Count() in our query we made a new execute query and used command.ExecuteScalar to perform the query for a double value
             try
             {
                 command.Connection = OpenConnection();
                 command.CommandText = query;
                 command.Parameters.AddRange(sqlParameters);
-                value = (double) command.ExecuteScalar();
+                value = (double) command.ExecuteScalar(); // get and cast
             }
             catch (Exception)
             {
-                throw new Exception("No revenue!");
+                throw new Exception("No revenue!"); // Or throw exception, program keeps running
             }
             finally
             {
-                CloseConnection();
+                CloseConnection(); // close connection
             }
-            return value;
+            return value; // return the value
         }
 
 
@@ -135,24 +138,27 @@ namespace SomerenDAL
         // Select query with count
         protected Int32 ExecuteCountInteger(string query, SqlParameter[] sqlParameters)
         {
+            // new command and int32 value
             SqlCommand command = new SqlCommand();
             Int32 value = 0;
+
+            // Because we used Count() in our query we made a new execute query and used command.ExecuteScalar to perform the query for a int32 value
             try
             {
                 command.Connection = OpenConnection();
                 command.CommandText = query;
                 command.Parameters.AddRange(sqlParameters);
-                value = (Int32)command.ExecuteScalar();
+                value = (Int32)command.ExecuteScalar(); // get and cast
             }
             catch (Exception)
             {
-                throw new Exception("No revenue!");
+                throw new Exception("No revenue!"); // or throw exception, program keeps running
             }
             finally
             {
-                CloseConnection();
+                CloseConnection(); // close connection
             }
-            return value;
+            return value; // return the value
         }
     }
 }
