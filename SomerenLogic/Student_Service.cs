@@ -18,14 +18,7 @@ namespace SomerenLogic
             }
             catch (Exception)
             {
-                //@todo make error class en leg error uit aan de gebruiker
-
-                // something went wrong connecting to the database, so we will add a fake student to the list to make sure the rest of the application continues working!
-                //List<Student> student = new List<Student>();
-                //for (int i = 0; i < 4; i++)
-                //    student.Add(new Student(474791, ("Mr. Test Student" + i), DateTime.Parse("1990-07-04")));
-
-                return null;
+                throw new Exception("Something went wrong!");
             }
         }
     }

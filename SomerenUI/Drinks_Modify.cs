@@ -24,11 +24,13 @@ namespace SomerenUI
         {
             try
             {
+                // check of both are filled or give an exception
                 if (String.IsNullOrEmpty(txtChangeStockDrink.Text))
                     throw new Exception("Empty drink id!");
                 else if (String.IsNullOrEmpty(txtChangeStockStock.Text))
                     throw new Exception("Empty stock amount!");
 
+                // get the values from the textboxes
                 int drinkId = int.Parse(txtChangeStockDrink.Text);
                 int stock = int.Parse(txtChangeStockStock.Text);
 
@@ -42,9 +44,11 @@ namespace SomerenUI
 
         private void btnChangeName_Click(object sender, EventArgs e)
         {
+            // get the values from the textboxes
             string oldName = txtChangeNameOld.Text;
             string newName = txtChangeNameNew.Text;
 
+            // modify name or give exception
             try
             {
                 drink_Service.ModifyName(oldName, newName);
@@ -53,22 +57,21 @@ namespace SomerenUI
             {
                 MessageBox.Show(ex.Message);
             }
-
-            
         }
 
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
             try
             {
+                // get all values
                 int id = int.Parse(txtAddId.Text);
                 string type = txtAddType.Text;
                 int amount = int.Parse(txtAddAmount.Text);
-                string price = txtAddPrice.Text;
+                double price = double.Parse(txtAddPrice.Text);
                 bool alcohol = bool.Parse(txtAddAlcohol.Text);
 
+                // add drink to database
                 drink_Service.addDrink(id, type, amount, price, alcohol);
-                
             }
             catch (Exception ex)
             {
@@ -79,6 +82,7 @@ namespace SomerenUI
 
         private void btnCloseModify_Click(object sender, EventArgs e)
         {
+            // close the modify form
             this.Close();
         }
     }

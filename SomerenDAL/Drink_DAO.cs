@@ -109,7 +109,7 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void addDrink(int id, string type, int amount, string price, bool alcohol)
+        public void addDrink(int id, string type, int amount, double price, bool alcohol)
         {
             // the query to add a drink
             string query = "INSERT INTO drinks VALUES(@id, @type, @amount, @price, @alcohol)";

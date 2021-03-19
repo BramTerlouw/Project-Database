@@ -66,7 +66,7 @@ namespace SomerenLogic
             dao.ModifyName(oldName, newName);
         }
 
-        public void addDrink(int id, string type, int amount, string price, bool alcohol)
+        public void addDrink(int id, string type, int amount, double price, bool alcohol)
         {
             // call to dao to modify drink
             dao.addDrink(id, type, amount, price, alcohol);

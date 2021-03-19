@@ -23,9 +23,7 @@ namespace SomerenLogic
             }
             catch (Exception)
             {
-                // something went wrong connecting to the database, so we will add a fake room to the list to make sure the rest of the application continues working!
-
-                return null;
+                throw new Exception("Something went wrong!");
             }
         }
     }
