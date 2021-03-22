@@ -228,6 +228,9 @@ namespace SomerenUI
 
         private void show_pnl_Activities()
         {
+            pnl_DisplayData.Show();
+            btnModifyActivities.Show();
+            btnRefreshActivity.Show();
             try
             {
                 SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
@@ -249,6 +252,18 @@ namespace SomerenUI
             }
         }
 
+        private void btnModifyActivities_Click(object sender, EventArgs e)
+        {
+            var activity_Modify = new Activities_Modify();
+            activity_Modify.ShowDialog();
+        }
+
+        private void btnRefreshActivity_Click(object sender, EventArgs e)
+        {
+            // refresh activity panel
+            showPanel("pnl_Activities");
+        }
+
 
 
 
@@ -263,6 +278,8 @@ namespace SomerenUI
             btnRefresh.Hide();
             btngetRapport.Hide();
             RapportCalender.Hide();
+            btnModifyActivities.Hide();
+            btnRefreshActivity.Hide();
         }
 
         public void showPanel(string panelName)
@@ -279,7 +296,7 @@ namespace SomerenUI
                   {"pnl_Drinks", () => show_pnl_Drinks()},
                   {"pnl_Order", () => show_pnl_Order()},
                   {"pnl_Revenue", () => show_pnl_Revenue()},
-                  {"pnl_Activities", () => show_pnl_Activities()},
+                  {"pnl_Activities", () => show_pnl_Activities()}
             };
 
             // depending on the panelname, call the function
@@ -346,5 +363,7 @@ namespace SomerenUI
             // call the function showPanel with the parameter
             showPanel("pnl_Activities");
         }
+
+        
     }
 }

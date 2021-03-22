@@ -25,5 +25,15 @@ namespace SomerenLogic
                 throw new Exception("Something went wrong!");
             }
         }
+
+        public void InsertActivity(int id, string description, int aantal_Students, int aantal_Begeleiders)
+        {
+            dao.InsertActivity(id, description, aantal_Students, aantal_Begeleiders);
+        }
+
+        public void DeleteActivity(int id)
+        {
+            dao.DeleteActivity(id);
+        }
     }
 }

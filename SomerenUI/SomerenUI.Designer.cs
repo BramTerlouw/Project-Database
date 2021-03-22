@@ -59,6 +59,8 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
+            this.btnModifyActivities = new System.Windows.Forms.Button();
+            this.btnRefreshActivity = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -239,6 +241,8 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnRefreshActivity);
+            this.pnl_DisplayData.Controls.Add(this.btnModifyActivities);
             this.pnl_DisplayData.Controls.Add(this.btngetRapport);
             this.pnl_DisplayData.Controls.Add(this.RapportCalender);
             this.pnl_DisplayData.Controls.Add(this.pictureBox1);
@@ -330,6 +334,26 @@
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
             // 
+            // btnModifyActivities
+            // 
+            this.btnModifyActivities.Location = new System.Drawing.Point(16, 395);
+            this.btnModifyActivities.Name = "btnModifyActivities";
+            this.btnModifyActivities.Size = new System.Drawing.Size(170, 31);
+            this.btnModifyActivities.TabIndex = 13;
+            this.btnModifyActivities.Text = "Modify Activities";
+            this.btnModifyActivities.UseVisualStyleBackColor = true;
+            this.btnModifyActivities.Click += new System.EventHandler(this.btnModifyActivities_Click);
+            // 
+            // btnRefreshActivity
+            // 
+            this.btnRefreshActivity.Location = new System.Drawing.Point(723, 395);
+            this.btnRefreshActivity.Name = "btnRefreshActivity";
+            this.btnRefreshActivity.Size = new System.Drawing.Size(59, 31);
+            this.btnRefreshActivity.TabIndex = 14;
+            this.btnRefreshActivity.Text = "Refresh";
+            this.btnRefreshActivity.UseVisualStyleBackColor = true;
+            this.btnRefreshActivity.Click += new System.EventHandler(this.btnRefreshActivity_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +442,8 @@
         private System.Windows.Forms.ComboBox cmbStudents;
         private System.Windows.Forms.MonthCalendar RapportCalender;
         private System.Windows.Forms.Button btngetRapport;
+        private System.Windows.Forms.Button btnModifyActivities;
+        private System.Windows.Forms.Button btnRefreshActivity;
     }
 }
 

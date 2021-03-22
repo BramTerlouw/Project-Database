@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities_Modify.Designer.cs">
+      <DependentUpon>Activities_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drinks_Modify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Activities_Modify.resx">
+      <DependentUpon>Activities_Modify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drinks_Modify.resx">
       <DependentUpon>Drinks_Modify.cs</DependentUpon>
     </EmbeddedResource>
