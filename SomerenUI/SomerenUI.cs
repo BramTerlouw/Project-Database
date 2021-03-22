@@ -226,10 +226,27 @@ namespace SomerenUI
 
 
 
-        private void show_pnl_Activitys()
+        private void show_pnl_Activities()
         {
-            SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
-            
+            try
+            {
+                SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
+                List<Activity> activities = activity_Service.GetActivities();
+
+                // clear the DataGridView and fill the column names
+                ClearDataGridView();
+                generateGridLayout(activities.FirstOrDefault().dataGridList());
+
+                // Fill the DataGridView with all the drinks using a foreach
+                foreach (var activity in activities)
+                {
+                    FillDataInGridView(activity.dataGrid(activity));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -262,6 +279,7 @@ namespace SomerenUI
                   {"pnl_Drinks", () => show_pnl_Drinks()},
                   {"pnl_Order", () => show_pnl_Order()},
                   {"pnl_Revenue", () => show_pnl_Revenue()},
+                  {"pnl_Activities", () => show_pnl_Activities()},
             };
 
             // depending on the panelname, call the function
@@ -321,6 +339,12 @@ namespace SomerenUI
         {
             // call the function showPanel with the parameter
             showPanel("pnl_Revenue");
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // call the function showPanel with the parameter
+            showPanel("pnl_Activities");
         }
     }
 }
