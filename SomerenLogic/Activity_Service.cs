@@ -35,5 +35,10 @@ namespace SomerenLogic
         {
             dao.DeleteActivity(id);
         }
+
+        public void ChangeActivity(int id, string description)
+        {
+            dao.ChangeActivity(id, description);
+        }
     }
 }

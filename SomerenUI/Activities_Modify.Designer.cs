@@ -44,6 +44,12 @@ namespace SomerenUI
             this.btnCloseActivityModify = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtChangeActivityId = new System.Windows.Forms.TextBox();
+            this.txtChangeActivityName = new System.Windows.Forms.TextBox();
+            this.lblChangeActivityId = new System.Windows.Forms.Label();
+            this.lblChangeActivityName = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnChangeActivity = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAddActivity1
@@ -148,7 +154,7 @@ namespace SomerenUI
             // 
             // btnCloseActivityModify
             // 
-            this.btnCloseActivityModify.Location = new System.Drawing.Point(490, 280);
+            this.btnCloseActivityModify.Location = new System.Drawing.Point(470, 392);
             this.btnCloseActivityModify.Name = "btnCloseActivityModify";
             this.btnCloseActivityModify.Size = new System.Drawing.Size(75, 23);
             this.btnCloseActivityModify.TabIndex = 12;
@@ -176,11 +182,69 @@ namespace SomerenUI
             this.label2.TabIndex = 14;
             this.label2.Text = "Delete activity";
             // 
+            // txtChangeActivityId
+            // 
+            this.txtChangeActivityId.Location = new System.Drawing.Point(445, 211);
+            this.txtChangeActivityId.Name = "txtChangeActivityId";
+            this.txtChangeActivityId.Size = new System.Drawing.Size(100, 20);
+            this.txtChangeActivityId.TabIndex = 15;
+            // 
+            // txtChangeActivityName
+            // 
+            this.txtChangeActivityName.Location = new System.Drawing.Point(445, 249);
+            this.txtChangeActivityName.Name = "txtChangeActivityName";
+            this.txtChangeActivityName.Size = new System.Drawing.Size(100, 20);
+            this.txtChangeActivityName.TabIndex = 16;
+            // 
+            // lblChangeActivityId
+            // 
+            this.lblChangeActivityId.AutoSize = true;
+            this.lblChangeActivityId.Location = new System.Drawing.Point(389, 211);
+            this.lblChangeActivityId.Name = "lblChangeActivityId";
+            this.lblChangeActivityId.Size = new System.Drawing.Size(19, 13);
+            this.lblChangeActivityId.TabIndex = 17;
+            this.lblChangeActivityId.Text = "Id:";
+            // 
+            // lblChangeActivityName
+            // 
+            this.lblChangeActivityName.AutoSize = true;
+            this.lblChangeActivityName.Location = new System.Drawing.Point(389, 252);
+            this.lblChangeActivityName.Name = "lblChangeActivityName";
+            this.lblChangeActivityName.Size = new System.Drawing.Size(35, 13);
+            this.lblChangeActivityName.TabIndex = 18;
+            this.lblChangeActivityName.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(389, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 18);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Change activity:";
+            // 
+            // btnChangeActivity
+            // 
+            this.btnChangeActivity.Location = new System.Drawing.Point(392, 284);
+            this.btnChangeActivity.Name = "btnChangeActivity";
+            this.btnChangeActivity.Size = new System.Drawing.Size(153, 23);
+            this.btnChangeActivity.TabIndex = 20;
+            this.btnChangeActivity.Text = "Change activity";
+            this.btnChangeActivity.UseVisualStyleBackColor = true;
+            this.btnChangeActivity.Click += new System.EventHandler(this.btnChangeActivity_Click);
+            // 
             // Activities_Modify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 315);
+            this.ClientSize = new System.Drawing.Size(577, 427);
+            this.Controls.Add(this.btnChangeActivity);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblChangeActivityName);
+            this.Controls.Add(this.lblChangeActivityId);
+            this.Controls.Add(this.txtChangeActivityName);
+            this.Controls.Add(this.txtChangeActivityId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCloseActivityModify);
@@ -220,5 +284,11 @@ namespace SomerenUI
         private System.Windows.Forms.Button btnCloseActivityModify;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtChangeActivityId;
+        private System.Windows.Forms.TextBox txtChangeActivityName;
+        private System.Windows.Forms.Label lblChangeActivityId;
+        private System.Windows.Forms.Label lblChangeActivityName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnChangeActivity;
     }
 }

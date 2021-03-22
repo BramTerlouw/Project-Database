@@ -80,5 +80,21 @@ namespace SomerenDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        public void ChangeActivity(int id, string description)
+        {
+            string query = "UPDATE activity SET description = @description WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
+            paraId.Value = id;
+            sqlParameters[0] = paraId;
+
+            SqlParameter paraDescription = new SqlParameter("@description", SqlDbType.Text);
+            paraDescription.Value = description;
+            sqlParameters[1] = paraDescription;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

@@ -42,5 +42,14 @@ namespace SomerenUI
         {
             this.Close();
         }
+
+        private void btnChangeActivity_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtChangeActivityId.Text);
+            string description = txtChangeActivityName.Text;
+
+            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+            activity_Service.ChangeActivity(id, description);
+        }
     }
 }
