@@ -226,6 +226,15 @@ namespace SomerenUI
 
 
 
+        private void show_pnl_Activitys()
+        {
+            SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
+            
+        }
+
+
+
+
         private void hide_pnl()
         {
             // Hide the panels below
