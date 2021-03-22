@@ -21,21 +21,45 @@ namespace SomerenUI
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
+            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+
+            if (String.IsNullOrEmpty(txtAddActivityId.Text) || String.IsNullOrEmpty(txtAddDescription.Text) || String.IsNullOrEmpty(txtAddActivityStudents.Text) 
+                || String.IsNullOrEmpty(txtAddActivityBegeleiders.Text))
+            {
+                MessageBox.Show("Field(s) empty!");
+                return;
+            }
+
             int id = int.Parse(txtAddActivityId.Text);
             string description = txtAddDescription.Text;
             int aantal_Students = int.Parse(txtAddActivityStudents.Text);
             int aantal_Begeleiders = int.Parse(txtAddActivityBegeleiders.Text);
 
-            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+
             activity_Service.InsertActivity(id, description, aantal_Students, aantal_Begeleiders);
         }
 
         private void btnDeleteActivity_Click(object sender, EventArgs e)
         {
+            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+
+            if (String.IsNullOrEmpty(txtDeleteId.Text))
+            {
+                MessageBox.Show("No id was given!");
+                return;
+            }
+
             int id = int.Parse(txtDeleteId.Text);
 
-            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
-            activity_Service.DeleteActivity(id);
+            string message = "Are you sure you want to delete this activity?";
+            string caption = "Deleting an activity";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(this, message, caption, buttons);
+
+            if (result == DialogResult.Yes)
+                activity_Service.DeleteActivity(id);
         }
 
         private void btnCloseActivityModify_Click(object sender, EventArgs e)
@@ -45,10 +69,17 @@ namespace SomerenUI
 
         private void btnChangeActivity_Click(object sender, EventArgs e)
         {
+            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+
+            if (String.IsNullOrEmpty(txtChangeActivityId.Text) || String.IsNullOrEmpty(txtChangeActivityName.Text))
+            {
+                MessageBox.Show("Field(s) empty!");
+                return;
+            }
+
             int id = int.Parse(txtChangeActivityId.Text);
             string description = txtChangeActivityName.Text;
 
-            SomerenLogic.Activity_Service activity_Service = new Activity_Service();
             activity_Service.ChangeActivity(id, description);
         }
     }
