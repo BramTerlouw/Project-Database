@@ -16,28 +16,31 @@ namespace SomerenLogic
         {
             try
             {
-                // get the list with rooms by calling a function from the DAL layer
+                // get the list with activities by calling a function from the DAL layer
                 List<Activity> activities = dao.Db_Get_All_Activities();
                 return activities;
             }
             catch (Exception)
             {
-                throw new Exception("Something went wrong!");
+                throw new Exception("Something went wrong!"); // or throw new exception
             }
         }
 
         public void InsertActivity(int id, string description, int aantal_Students, int aantal_Begeleiders)
         {
+            // insert an activity by calling function from DAL layer
             dao.InsertActivity(id, description, aantal_Students, aantal_Begeleiders);
         }
 
         public void DeleteActivity(int id)
         {
+            // delete an activity by calling a function from the DAL layer
             dao.DeleteActivity(id);
         }
 
         public void ChangeActivity(int id, string description)
         {
+            // changing a activity by calling a function from the DAL layer
             dao.ChangeActivity(id, description);
         }
     }

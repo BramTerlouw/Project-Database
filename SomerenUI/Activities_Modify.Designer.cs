@@ -136,7 +136,7 @@ namespace SomerenUI
             // lblDeleteActivity
             // 
             this.lblDeleteActivity.AutoSize = true;
-            this.lblDeleteActivity.Location = new System.Drawing.Point(389, 82);
+            this.lblDeleteActivity.Location = new System.Drawing.Point(371, 82);
             this.lblDeleteActivity.Name = "lblDeleteActivity";
             this.lblDeleteActivity.Size = new System.Drawing.Size(19, 13);
             this.lblDeleteActivity.TabIndex = 10;
@@ -144,9 +144,9 @@ namespace SomerenUI
             // 
             // btnDeleteActivity
             // 
-            this.btnDeleteActivity.Location = new System.Drawing.Point(392, 112);
+            this.btnDeleteActivity.Location = new System.Drawing.Point(374, 112);
             this.btnDeleteActivity.Name = "btnDeleteActivity";
-            this.btnDeleteActivity.Size = new System.Drawing.Size(153, 23);
+            this.btnDeleteActivity.Size = new System.Drawing.Size(171, 23);
             this.btnDeleteActivity.TabIndex = 11;
             this.btnDeleteActivity.Text = "Delete activity";
             this.btnDeleteActivity.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@ namespace SomerenUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(389, 28);
+            this.label2.Location = new System.Drawing.Point(371, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 18);
             this.label2.TabIndex = 14;
@@ -199,7 +199,7 @@ namespace SomerenUI
             // lblChangeActivityId
             // 
             this.lblChangeActivityId.AutoSize = true;
-            this.lblChangeActivityId.Location = new System.Drawing.Point(389, 211);
+            this.lblChangeActivityId.Location = new System.Drawing.Point(371, 216);
             this.lblChangeActivityId.Name = "lblChangeActivityId";
             this.lblChangeActivityId.Size = new System.Drawing.Size(19, 13);
             this.lblChangeActivityId.TabIndex = 17;
@@ -208,17 +208,17 @@ namespace SomerenUI
             // lblChangeActivityName
             // 
             this.lblChangeActivityName.AutoSize = true;
-            this.lblChangeActivityName.Location = new System.Drawing.Point(389, 252);
+            this.lblChangeActivityName.Location = new System.Drawing.Point(371, 252);
             this.lblChangeActivityName.Name = "lblChangeActivityName";
-            this.lblChangeActivityName.Size = new System.Drawing.Size(35, 13);
+            this.lblChangeActivityName.Size = new System.Drawing.Size(68, 13);
             this.lblChangeActivityName.TabIndex = 18;
-            this.lblChangeActivityName.Text = "label4";
+            this.lblChangeActivityName.Text = "New activity:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(389, 169);
+            this.label5.Location = new System.Drawing.Point(371, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 19;
@@ -226,9 +226,9 @@ namespace SomerenUI
             // 
             // btnChangeActivity
             // 
-            this.btnChangeActivity.Location = new System.Drawing.Point(392, 284);
+            this.btnChangeActivity.Location = new System.Drawing.Point(374, 284);
             this.btnChangeActivity.Name = "btnChangeActivity";
-            this.btnChangeActivity.Size = new System.Drawing.Size(153, 23);
+            this.btnChangeActivity.Size = new System.Drawing.Size(171, 23);
             this.btnChangeActivity.TabIndex = 20;
             this.btnChangeActivity.Text = "Change activity";
             this.btnChangeActivity.UseVisualStyleBackColor = true;

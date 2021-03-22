@@ -228,9 +228,11 @@ namespace SomerenUI
 
         private void show_pnl_Activities()
         {
+            // show panel and buttons
             pnl_DisplayData.Show();
             btnModifyActivities.Show();
             btnRefreshActivity.Show();
+            
             try
             {
                 SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
@@ -254,6 +256,7 @@ namespace SomerenUI
 
         private void btnModifyActivities_Click(object sender, EventArgs e)
         {
+            // open the activity modify form
             var activity_Modify = new Activities_Modify();
             activity_Modify.ShowDialog();
         }
