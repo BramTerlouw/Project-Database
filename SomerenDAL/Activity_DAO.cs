@@ -44,6 +44,41 @@ namespace SomerenDAL
             // return the list with activities
             return activities;
         }
+        
+        public List<ActivityForeignGroup> Db_Get_All_ActivityForeignGroup()
+        {
+            // the query for the database, selecting info from activity
+            string query = "SELECT activity.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id JOIN[group] ON activity_foreign_group.group_id = [group].id JOIN teacher ON[group].id = teacher.group_id";
+            
+            // an array for parameters
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // return a list with activities
+            return ReadTablesActivityForeignGroup(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<ActivityForeignGroup> ReadTablesActivityForeignGroup(DataTable dataTable)
+        {
+            List<ActivityForeignGroup> list = new List<ActivityForeignGroup>();
+
+            // retrieve all data and convert if needed using a foreach
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                ActivityForeignGroup s = new ActivityForeignGroup(
+                    Convert.ToInt32(dr["id"]),
+                    dr["description"].ToString(),
+                    dr["mentor_name"].ToString(),
+                    dr["date_start"].ToString(),
+                    dr["date_end"].ToString()
+                );
+
+                // add activity to the list
+                list.Add(s);
+            }
+
+            // return the list with activities
+            return list;
+        }
 
         public void InsertActivity(int id, string description, int aantal_Students, int aantal_Begeleiders)
         {

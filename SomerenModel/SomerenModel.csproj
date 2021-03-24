@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="ActivityForeignGroup.cs" />
     <Compile Include="Drink.cs" />
     <Compile Include="GroupForeignTeacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

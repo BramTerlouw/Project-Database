@@ -34,7 +34,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teachersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +41,7 @@
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupMentorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plannedActivitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
@@ -106,12 +106,6 @@
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
-            // lecturersToolStripMenuItem
-            // 
-            this.lecturersToolStripMenuItem.Name = "lecturersToolStripMenuItem";
-            this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.lecturersToolStripMenuItem.Text = "Lecturers";
-            // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
@@ -153,28 +147,34 @@
             this.revenueToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.revenueToolStripMenuItem.Text = "Revenue";
             this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
-            
             // 
             // groupMentorToolStripMenuItem
             // 
             this.groupMentorToolStripMenuItem.Name = "groupMentorToolStripMenuItem";
             this.groupMentorToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.groupMentorToolStripMenuItem.Text = "Set Mentor";
-            this.groupMentorToolStripMenuItem.Click += new System.EventHandler(this.groupMentorToolStripMenuItem_Click);
+            this.groupMentorToolStripMenuItem.Text = "group Mentor";
+            this.groupMentorToolStripMenuItem.Click += new System.EventHandler(this.groupMentorToolStripMenuItem_Click);            
+            // 
+            // plannedActivitiesToolStripMenuItem
+            // 
+            this.plannedActivitiesToolStripMenuItem.Name = "plannedActivitiesToolStripMenuItem";
+            this.plannedActivitiesToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.plannedActivitiesToolStripMenuItem.Text = "Planned Activities";
+            this.plannedActivitiesToolStripMenuItem.Click += new System.EventHandler(this.plannedActivitiesToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
             this.studentsToolStripMenuItem,
-            this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
             this.teachersToolStripMenuItem,
             this.drinksToolStripMenuItem,
             this.orderToolStripMenuItem,
             this.revenueToolStripMenuItem,
-            this.groupMentorToolStripMenuItem});
+            this.groupMentorToolStripMenuItem,
+            this.plannedActivitiesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(976, 24);
@@ -427,7 +427,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teachersToolStripMenuItem;
@@ -435,6 +434,7 @@
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem groupMentorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plannedActivitiesToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.Panel pnl_Dashboard;

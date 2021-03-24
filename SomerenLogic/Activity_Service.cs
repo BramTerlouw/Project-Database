@@ -43,5 +43,19 @@ namespace SomerenLogic
             // changing a activity by calling a function from the DAL layer
             dao.ChangeActivity(id, description);
         }
+
+        public List<ActivityForeignGroup> GetActivityForiegnGroup()
+        {
+            try
+            {
+                // get the list with activities by calling a function from the DAL layer
+                List<ActivityForeignGroup> s = dao.Db_Get_All_ActivityForeignGroup();
+                return s;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Something went wrong!"); // or throw new exception
+            }
+        }
     }
 }
