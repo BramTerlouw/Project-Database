@@ -41,6 +41,7 @@
             this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupMentorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
@@ -50,6 +51,8 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
+            this.btnRefreshActivity = new System.Windows.Forms.Button();
+            this.btnModifyActivities = new System.Windows.Forms.Button();
             this.btngetRapport = new System.Windows.Forms.Button();
             this.RapportCalender = new System.Windows.Forms.MonthCalendar();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -59,8 +62,6 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
-            this.btnModifyActivities = new System.Windows.Forms.Button();
-            this.btnRefreshActivity = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -152,6 +153,14 @@
             this.revenueToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.revenueToolStripMenuItem.Text = "Revenue";
             this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
+            
+            // 
+            // groupMentorToolStripMenuItem
+            // 
+            this.groupMentorToolStripMenuItem.Name = "groupMentorToolStripMenuItem";
+            this.groupMentorToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.groupMentorToolStripMenuItem.Text = "Set Mentor";
+            this.groupMentorToolStripMenuItem.Click += new System.EventHandler(this.groupMentorToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -164,7 +173,8 @@
             this.teachersToolStripMenuItem,
             this.drinksToolStripMenuItem,
             this.orderToolStripMenuItem,
-            this.revenueToolStripMenuItem});
+            this.revenueToolStripMenuItem,
+            this.groupMentorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(976, 24);
@@ -255,6 +265,26 @@
             this.pnl_DisplayData.Size = new System.Drawing.Size(952, 450);
             this.pnl_DisplayData.TabIndex = 4;
             // 
+            // btnRefreshActivity
+            // 
+            this.btnRefreshActivity.Location = new System.Drawing.Point(723, 395);
+            this.btnRefreshActivity.Name = "btnRefreshActivity";
+            this.btnRefreshActivity.Size = new System.Drawing.Size(59, 31);
+            this.btnRefreshActivity.TabIndex = 14;
+            this.btnRefreshActivity.Text = "Refresh";
+            this.btnRefreshActivity.UseVisualStyleBackColor = true;
+            this.btnRefreshActivity.Click += new System.EventHandler(this.btnRefreshActivity_Click);
+            // 
+            // btnModifyActivities
+            // 
+            this.btnModifyActivities.Location = new System.Drawing.Point(16, 395);
+            this.btnModifyActivities.Name = "btnModifyActivities";
+            this.btnModifyActivities.Size = new System.Drawing.Size(170, 31);
+            this.btnModifyActivities.TabIndex = 13;
+            this.btnModifyActivities.Text = "Modify Activities";
+            this.btnModifyActivities.UseVisualStyleBackColor = true;
+            this.btnModifyActivities.Click += new System.EventHandler(this.btnModifyActivities_Click);
+            // 
             // btngetRapport
             // 
             this.btngetRapport.Location = new System.Drawing.Point(781, 377);
@@ -334,26 +364,6 @@
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
             // 
-            // btnModifyActivities
-            // 
-            this.btnModifyActivities.Location = new System.Drawing.Point(16, 395);
-            this.btnModifyActivities.Name = "btnModifyActivities";
-            this.btnModifyActivities.Size = new System.Drawing.Size(170, 31);
-            this.btnModifyActivities.TabIndex = 13;
-            this.btnModifyActivities.Text = "Modify Activities";
-            this.btnModifyActivities.UseVisualStyleBackColor = true;
-            this.btnModifyActivities.Click += new System.EventHandler(this.btnModifyActivities_Click);
-            // 
-            // btnRefreshActivity
-            // 
-            this.btnRefreshActivity.Location = new System.Drawing.Point(723, 395);
-            this.btnRefreshActivity.Name = "btnRefreshActivity";
-            this.btnRefreshActivity.Size = new System.Drawing.Size(59, 31);
-            this.btnRefreshActivity.TabIndex = 14;
-            this.btnRefreshActivity.Text = "Refresh";
-            this.btnRefreshActivity.UseVisualStyleBackColor = true;
-            this.btnRefreshActivity.Click += new System.EventHandler(this.btnRefreshActivity_Click);
-            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +434,7 @@
         private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupMentorToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.Panel pnl_Dashboard;

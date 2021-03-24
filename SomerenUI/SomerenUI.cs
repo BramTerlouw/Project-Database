@@ -268,7 +268,31 @@ namespace SomerenUI
         }
 
 
+        private void show_pnl_Mentor()
+        {
+            // show panel and buttons
+            pnl_DisplayData.Show();
 
+            try
+            {
+                SomerenLogic.Group_Service group_Service = new SomerenLogic.Group_Service();
+                List<GroupForeignTeacher> listGroupForeignTeacher = group_Service.GetGroupForeignTeacher();
+
+                // clear the DataGridView and fill the column names
+                ClearDataGridView();
+                generateGridLayout(listGroupForeignTeacher.FirstOrDefault().dataGridList());
+
+                // Fill the DataGridView with all the drinks using a foreach
+                foreach (var s in listGroupForeignTeacher)
+                {
+                    FillDataInGridView(s.dataGrid(s));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void hide_pnl()
         {
@@ -299,7 +323,8 @@ namespace SomerenUI
                   {"pnl_Drinks", () => show_pnl_Drinks()},
                   {"pnl_Order", () => show_pnl_Order()},
                   {"pnl_Revenue", () => show_pnl_Revenue()},
-                  {"pnl_Activities", () => show_pnl_Activities()}
+                  {"pnl_Activities", () => show_pnl_Activities()},
+                  {"pnl_Mentor", () => show_pnl_Mentor()}
             };
 
             // depending on the panelname, call the function
@@ -367,6 +392,9 @@ namespace SomerenUI
             showPanel("pnl_Activities");
         }
 
-        
+        private void groupMentorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Mentor");
+        }
     }
 }
