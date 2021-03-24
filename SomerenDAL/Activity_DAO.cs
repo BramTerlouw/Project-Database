@@ -48,7 +48,7 @@ namespace SomerenDAL
         public List<ActivityForeignGroup> Db_Get_All_ActivityForeignGroup()
         {
             // the query for the database, selecting info from activity
-            string query = "SELECT activity.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id JOIN[group] ON activity_foreign_group.group_id = [group].id JOIN teacher ON[group].id = teacher.group_id";
+            string query = "SELECT activity_foreign_group.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end FROM activity_foreign_group JOIN activity ON activity_foreign_group.activity_id = activity.id JOIN group_foreign_teacher ON group_foreign_teacher.id = activity_foreign_group.group_id JOIN teacher ON group_foreign_teacher.teacher_id = teacher.id";
             
             // an array for parameters
             SqlParameter[] sqlParameters = new SqlParameter[0];
