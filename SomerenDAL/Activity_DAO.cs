@@ -14,8 +14,8 @@ namespace SomerenDAL
         public List<Activity> Db_Get_All_Activities()
         {
             // the query for the database, selecting info from activity
-            string query = "SELECT id, description, Aantal_Studenten, Aantal_Begeleiders from activity";
-            
+            string query = "SELECT id, description from activity"; // , Aantal_Studenten, Aantal_Begeleiders
+
             // an array for parameters
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
@@ -32,9 +32,9 @@ namespace SomerenDAL
             {
                 Activity activity = new Activity(
                     Convert.ToInt32(dr["id"]),
-                    dr["description"].ToString(),
-                    Convert.ToInt32(dr["Aantal_Studenten"]),
-                    Convert.ToInt32(dr["Aantal_Begeleiders"])
+                    dr["description"].ToString()//,
+                    //Convert.ToInt32(dr["Aantal_Studenten"]),
+                    //Convert.ToInt32(dr["Aantal_Begeleiders"])
                 );
 
                 // add activity to the list
@@ -142,6 +142,69 @@ namespace SomerenDAL
 
             // execute query
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        public int getAantalStudenten(int activityId)
+        {
+            string query = "SELECT COUNT(student.group_id) AS [amount] FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id " +
+                "JOIN student ON activity_foreign_group.group_id = student.group_id WHERE activity.id = @id";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
+            paraId.Value = activityId;
+            sqlParameters[0] = paraId;
+
+            int aantal =  ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
+            return aantal;
+        }
+
+        public int getAantalBegeleiders(int activityId)
+        {
+            string query = "SELECT COUNT(teacher_id) AS [amount] FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id " +
+                "JOIN group_foreign_teacher ON activity_foreign_group.group_id = group_foreign_teacher.group_id WHERE activity.id = @id";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
+            paraId.Value = activityId;
+            sqlParameters[0] = paraId;
+
+            int aantal = ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
+            return aantal;
+        }
+
+        private int ReadAmountActivity(DataTable dataTable)
+        {
+            int amount = 0;
+
+            // retrieve all data and convert if needed using a foreach
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                amount = Convert.ToInt32(dr["amount"]);
+            }
+
+            // return the list with drinks
+            return amount;
         }
     }
 }

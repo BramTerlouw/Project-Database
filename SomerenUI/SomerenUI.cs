@@ -245,7 +245,7 @@ namespace SomerenUI
                 // Fill the DataGridView with all the drinks using a foreach
                 foreach (var activity in activities)
                 {
-                    FillDataInGridView(activity.dataGrid(activity));
+                    FillDataInGridView(activity.dataGrid(activity, aantalStudentenActiviteit(activity.id), aantalBegeleidersActiviteit(activity.id)));
                 }
             }
             catch (Exception ex)
@@ -265,6 +265,18 @@ namespace SomerenUI
         {
             // refresh activity panel
             showPanel("pnl_Activities");
+        }
+
+        private int aantalStudentenActiviteit(int activityId)
+        {
+            SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
+            return activity_Service.getAantalStudenten(activityId);
+        }
+
+        private int aantalBegeleidersActiviteit(int activityId)
+        {
+            SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
+            return activity_Service.getAantalBegeleiders(activityId);
         }
 
 

@@ -57,5 +57,15 @@ namespace SomerenLogic
                 throw new Exception("Something went wrong!"); // or throw new exception
             }
         }
+
+        public int getAantalStudenten(int activityId)
+        {
+            return dao.getAantalStudenten(activityId);
+        }
+
+        public int getAantalBegeleiders(int activityId)
+        {
+            return dao.getAantalBegeleiders(activityId);
+        }
     }
 }

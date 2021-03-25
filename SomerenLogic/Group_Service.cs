@@ -17,7 +17,7 @@ namespace SomerenLogic
         {
             try
             {
-                // get the list with teachers by calling a function from the DAL layer
+                // get the list with mentors by calling a function from the DAL layer
                 List<GroupForeignTeacher> s = dao.Db_Get_All_GroupForeignTeacher();
                 return s; // return list
             }
