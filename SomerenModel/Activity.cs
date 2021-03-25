@@ -10,15 +10,11 @@ namespace SomerenModel
     {
         public readonly int id;
         public readonly string description;
-        //public readonly int aantal_Students;
-        //public readonly int aantal_Begeleiders;
 
-        public Activity(int v1, string v2 /*int v3, int v4*/)
+        public Activity(int v1, string v2)
         {
             id = v1;
             description = v2;
-            //aantal_Students = v3;
-            //aantal_Begeleiders = v4;
         }
 
         public string[] dataGridList()
@@ -29,7 +25,7 @@ namespace SomerenModel
 
         public string[] dataGrid(Activity activity, int studenten, int begeleiders)
         {
-            // return an array with all the teacher properties
+            // return an array with all the teacher properties and the amount of students and mentors
             return new string[] {
                 activity.id.ToString(),
                 activity.description,

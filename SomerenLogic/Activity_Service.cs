@@ -26,10 +26,10 @@ namespace SomerenLogic
             }
         }
 
-        public void InsertActivity(int id, string description, int aantal_Students, int aantal_Begeleiders)
+        public void InsertActivity(int id, string description)
         {
             // insert an activity by calling function from DAL layer
-            dao.InsertActivity(id, description, aantal_Students, aantal_Begeleiders);
+            dao.InsertActivity(id, description);
         }
 
         public void DeleteActivity(int id)
@@ -60,11 +60,13 @@ namespace SomerenLogic
 
         public int getAantalStudenten(int activityId)
         {
+            // get the amount of students that participate in this activity
             return dao.getAantalStudenten(activityId);
         }
 
         public int getAantalBegeleiders(int activityId)
         {
+            // get the amount of mentors per activity
             return dao.getAantalBegeleiders(activityId);
         }
     }

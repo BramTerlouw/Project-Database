@@ -45,10 +45,17 @@ namespace SomerenDAL
             return activities;
         }
         
+
+
+
+
+
         public List<ActivityForeignGroup> Db_Get_All_ActivityForeignGroup()
         {
             // the query for the database, selecting info from activity
-            string query = "SELECT activity_foreign_group.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end FROM activity_foreign_group JOIN activity ON activity_foreign_group.activity_id = activity.id JOIN group_foreign_teacher ON group_foreign_teacher.id = activity_foreign_group.group_id JOIN teacher ON group_foreign_teacher.teacher_id = teacher.id";
+            string query = "SELECT activity_foreign_group.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end " +
+                "FROM activity_foreign_group JOIN activity ON activity_foreign_group.activity_id = activity.id JOIN group_foreign_teacher " +
+                "ON group_foreign_teacher.id = activity_foreign_group.group_id JOIN teacher ON group_foreign_teacher.teacher_id = teacher.id";
             
             // an array for parameters
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -80,13 +87,13 @@ namespace SomerenDAL
             return list;
         }
 
-        public void InsertActivity(int id, string description, int aantal_Students, int aantal_Begeleiders)
+        public void InsertActivity(int id, string description)
         {
             // the query for inserting a activity
-            string query = "INSERT INTO activity VALUES(@id, @description, @aantal_Students, @aantal_Begeleiders)";
+            string query = "INSERT INTO activity VALUES(@id, @description)";
 
             // array with 4 parameters
-            SqlParameter[] sqlParameters = new SqlParameter[4];
+            SqlParameter[] sqlParameters = new SqlParameter[2];
 
             SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
             paraId.Value = id;
@@ -96,13 +103,6 @@ namespace SomerenDAL
             paraDescpription.Value = description;
             sqlParameters[1] = paraDescpription;
 
-            SqlParameter paraAantalStudents = new SqlParameter("@aantal_Students", SqlDbType.BigInt);
-            paraAantalStudents.Value = aantal_Students;
-            sqlParameters[2] = paraAantalStudents;
-
-            SqlParameter paraAantalBegeleiders = new SqlParameter("@aantal_Begeleiders", SqlDbType.BigInt);
-            paraAantalBegeleiders.Value = aantal_Begeleiders;
-            sqlParameters[3] = paraAantalBegeleiders;
 
             // execute query
             ExecuteEditQuery(query, sqlParameters);
@@ -146,55 +146,45 @@ namespace SomerenDAL
 
         
         
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         
         public int getAantalStudenten(int activityId)
         {
+            // query for counting the amount of students
             string query = "SELECT COUNT(student.group_id) AS [amount] FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id " +
                 "JOIN student ON activity_foreign_group.group_id = student.group_id WHERE activity.id = @id";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[1];
 
             SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
             paraId.Value = activityId;
             sqlParameters[0] = paraId;
 
-            int aantal =  ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
-            return aantal;
+            // return the amount
+            return  ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public int getAantalBegeleiders(int activityId)
         {
+            // query for counting the amount of mentors
             string query = "SELECT COUNT(teacher_id) AS [amount] FROM activity JOIN activity_foreign_group ON activity.id = activity_foreign_group.activity_id " +
                 "JOIN group_foreign_teacher ON activity_foreign_group.group_id = group_foreign_teacher.group_id WHERE activity.id = @id";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[1];
 
             SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
             paraId.Value = activityId;
             sqlParameters[0] = paraId;
 
-            int aantal = ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
-            return aantal;
+            // return the amount
+            return ReadAmountActivity(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private int ReadAmountActivity(DataTable dataTable)
         {
+            // value is zero before going through the foreach
             int amount = 0;
 
             // retrieve all data and convert if needed using a foreach

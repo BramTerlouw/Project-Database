@@ -269,15 +269,20 @@ namespace SomerenUI
 
         private int aantalStudentenActiviteit(int activityId)
         {
+            // get the amount of students that participate in this activity
             SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
             return activity_Service.getAantalStudenten(activityId);
         }
 
         private int aantalBegeleidersActiviteit(int activityId)
         {
+            // get the amount of mentors per activity
             SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
             return activity_Service.getAantalBegeleiders(activityId);
         }
+
+
+
 
 
         private void show_pnl_PlannedActivities()

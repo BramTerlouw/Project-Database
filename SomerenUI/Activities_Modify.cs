@@ -24,8 +24,7 @@ namespace SomerenUI
             SomerenLogic.Activity_Service activity_Service = new Activity_Service();
 
             // check for empty fields
-            if (String.IsNullOrEmpty(txtAddActivityId.Text) || String.IsNullOrEmpty(txtAddDescription.Text) || String.IsNullOrEmpty(txtAddActivityStudents.Text) 
-                || String.IsNullOrEmpty(txtAddActivityBegeleiders.Text))
+            if (String.IsNullOrEmpty(txtAddActivityId.Text) || String.IsNullOrEmpty(txtAddDescription.Text)) 
             {
                 MessageBox.Show("Field(s) empty!");
                 return; // when a field is empty, display message and return
@@ -34,11 +33,9 @@ namespace SomerenUI
             // get all values from the textboxes
             int id = int.Parse(txtAddActivityId.Text);
             string description = txtAddDescription.Text;
-            int aantal_Students = int.Parse(txtAddActivityStudents.Text);
-            int aantal_Begeleiders = int.Parse(txtAddActivityBegeleiders.Text);
 
             // insert the activity, reference to service layer
-            activity_Service.InsertActivity(id, description, aantal_Students, aantal_Begeleiders);
+            activity_Service.InsertActivity(id, description);
         }
 
         private void btnDeleteActivity_Click(object sender, EventArgs e)
