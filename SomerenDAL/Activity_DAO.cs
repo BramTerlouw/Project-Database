@@ -55,7 +55,7 @@ namespace SomerenDAL
             // the query for the database, selecting info from activity
             string query = "SELECT activity_foreign_group.id, activity.[description], teacher.[name] as [mentor_name], activity_foreign_group.date_start, activity_foreign_group.date_end " +
                 "FROM activity_foreign_group JOIN activity ON activity_foreign_group.activity_id = activity.id JOIN group_foreign_teacher " +
-                "ON group_foreign_teacher.id = activity_foreign_group.group_id JOIN teacher ON group_foreign_teacher.teacher_id = teacher.id";
+                "ON group_foreign_teacher.group_id = activity_foreign_group.group_id JOIN teacher ON group_foreign_teacher.teacher_id = teacher.id ORDER BY activity_foreign_group.date_start";
             
             // an array for parameters
             SqlParameter[] sqlParameters = new SqlParameter[0];

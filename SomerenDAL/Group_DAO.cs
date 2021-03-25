@@ -12,8 +12,7 @@ namespace SomerenDAL
         public List<GroupForeignTeacher> Db_Get_All_GroupForeignTeacher()
         {
             // the query for the database, selecting the id, location_id, type(docent or student room) and the room size
-            string query = "SELECT teacher.id, teacher.[name], teacher.lastname, teacher.group_id, [group].[name] as[group_name] " +
-                "FROM teacher JOIN group_foreign_teacher ON teacher.group_id = group_foreign_teacher.teacher_id JOIN[group] ON[group].id = group_foreign_teacher.group_id";
+            string query = "SELECT teacher.id, teacher.[name], teacher.lastname, teacher.group_id, [group].[name] as[group_name] FROM teacher JOIN[group] ON[group].id = teacher.group_id WHERE teacher.id IN(SELECT teacher_id FROM group_foreign_teacher)"; //"SELECT teacher.id, teacher.[name], teacher.lastname, teacher.group_id, [group].[name] as[group_name] " +"FROM teacher JOIN group_foreign_teacher ON teacher.group_id = group_foreign_teacher.teacher_id JOIN[group] ON[group].id = group_foreign_teacher.group_id";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // return a list with rooms

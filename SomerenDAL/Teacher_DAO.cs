@@ -41,5 +41,82 @@ namespace SomerenDAL
             // return the list with teachers
             return teachers;
         }
+
+        public void AddMentor(int groupId, int teacherId)
+        {
+            string query = "IF NOT EXISTS ( select teacher_id from group_foreign_teacher where teacher_id=10 ) BEGIN INSERT INTO group_foreign_teacher VALUES(5, 1); END"; //INSERT INTO group_foreign_teacher VALUES(@group, @teacher)
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraGroup = new SqlParameter("@group", SqlDbType.BigInt);
+            paraGroup.Value = groupId;
+            sqlParameters[0] = paraGroup;
+
+            SqlParameter paraTeacher = new SqlParameter("@teacher", SqlDbType.BigInt);
+            paraTeacher.Value = teacherId;
+            sqlParameters[1] = paraTeacher;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public int CheckExistingMentor(int teacherId)
+        {
+            string query = "SELECT COUNT(*) FROM group_foreign_teacher WHERE teacher_id = @teacher";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraTeacher = new SqlParameter("@teacher", SqlDbType.BigInt);
+            paraTeacher.Value = teacherId;
+            sqlParameters[0] = paraTeacher;
+
+            return ExecuteCountInteger(query, sqlParameters);
+        }
+
+        public void AssingGroupToTeacher(int groupId, int teacherId)
+        {
+            string query = "UPDATE teacher SET group_id = @group WHERE id = @teacher";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraGroup = new SqlParameter("@group", SqlDbType.BigInt);
+            paraGroup.Value = groupId;
+            sqlParameters[0] = paraGroup;
+
+            SqlParameter paraTeacher = new SqlParameter("@teacher", SqlDbType.BigInt);
+            paraTeacher.Value = teacherId;
+            sqlParameters[1] = paraTeacher;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void DeleteMentor(int groupId, int teacherId)
+        {
+            string query = "DELETE FROM group_foreign_teacher WHERE group_id = @group AND teacher_id = @teacher";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraGroup = new SqlParameter("@group", SqlDbType.BigInt);
+            paraGroup.Value = groupId;
+            sqlParameters[0] = paraGroup;
+
+            SqlParameter paraTeacher = new SqlParameter("@teacher", SqlDbType.BigInt);
+            paraTeacher.Value = teacherId;
+            sqlParameters[1] = paraTeacher;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void deleteGroupFromTeacher(int teacherId)
+        {
+            string query = "UPDATE teacher SET group_id = 0 WHERE id = @teacher ";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraTeacher = new SqlParameter("@teacher", SqlDbType.BigInt);
+            paraTeacher.Value = teacherId;
+            sqlParameters[0] = paraTeacher;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

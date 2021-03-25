@@ -315,6 +315,8 @@ namespace SomerenUI
         {
             // show panel and buttons
             pnl_DisplayData.Show();
+            btnRefreshMentor.Show();
+            btnModifyMentor.Show();
 
             try
             {
@@ -337,6 +339,24 @@ namespace SomerenUI
             }
         }
 
+        private void btnModifyMentor_Click(object sender, EventArgs e)
+        {
+            Mentor_Modify mentor_Modify = new Mentor_Modify();
+            mentor_Modify.ShowDialog();
+        }
+
+        private void btnRefreshMentor_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Mentor");
+        }
+
+
+
+
+
+
+
+
         private void hide_pnl()
         {
             // Hide the panels below
@@ -350,6 +370,8 @@ namespace SomerenUI
             RapportCalender.Hide();
             btnModifyActivities.Hide();
             btnRefreshActivity.Hide();
+            btnRefreshMentor.Hide();
+            btnModifyMentor.Hide();
         }
 
         public void showPanel(string panelName)
@@ -445,5 +467,7 @@ namespace SomerenUI
         {
             showPanel("pnl_Planned Activities");
         }
+
+        
     }
 }

@@ -59,6 +59,12 @@
     <Compile Include="Drinks_Modify.Designer.cs">
       <DependentUpon>Drinks_Modify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mentor_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor_Modify.Designer.cs">
+      <DependentUpon>Mentor_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="SomerenUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Drinks_Modify.resx">
       <DependentUpon>Drinks_Modify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor_Modify.resx">
+      <DependentUpon>Mentor_Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SomerenUI.resx">
       <DependentUpon>SomerenUI.cs</DependentUpon>

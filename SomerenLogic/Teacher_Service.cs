@@ -26,5 +26,21 @@ namespace SomerenLogic
                 throw new Exception("Something went wrong!");
             }
         }
+
+        public void AddMentor(int groupId, int teacherID)
+        {
+            if (dao.CheckExistingMentor(teacherID) == 0)
+            {
+                dao.AddMentor(groupId, teacherID);
+                dao.AssingGroupToTeacher(groupId, teacherID);
+            }
+            
+        }
+
+        public void DeleteMentor(int groupId, int teacherId)
+        {
+            dao.DeleteMentor(groupId, teacherId);
+            dao.deleteGroupFromTeacher(teacherId);
+        }
     }
 }

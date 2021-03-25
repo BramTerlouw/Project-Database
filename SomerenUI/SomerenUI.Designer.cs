@@ -62,6 +62,8 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
+            this.btnRefreshMentor = new System.Windows.Forms.Button();
+            this.btnModifyMentor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -151,14 +153,14 @@
             // groupMentorToolStripMenuItem
             // 
             this.groupMentorToolStripMenuItem.Name = "groupMentorToolStripMenuItem";
-            this.groupMentorToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.groupMentorToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.groupMentorToolStripMenuItem.Text = "group Mentor";
-            this.groupMentorToolStripMenuItem.Click += new System.EventHandler(this.groupMentorToolStripMenuItem_Click);            
+            this.groupMentorToolStripMenuItem.Click += new System.EventHandler(this.groupMentorToolStripMenuItem_Click);
             // 
             // plannedActivitiesToolStripMenuItem
             // 
             this.plannedActivitiesToolStripMenuItem.Name = "plannedActivitiesToolStripMenuItem";
-            this.plannedActivitiesToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.plannedActivitiesToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
             this.plannedActivitiesToolStripMenuItem.Text = "Planned Activities";
             this.plannedActivitiesToolStripMenuItem.Click += new System.EventHandler(this.plannedActivitiesToolStripMenuItem_Click);
             // 
@@ -251,6 +253,8 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnModifyMentor);
+            this.pnl_DisplayData.Controls.Add(this.btnRefreshMentor);
             this.pnl_DisplayData.Controls.Add(this.btnRefreshActivity);
             this.pnl_DisplayData.Controls.Add(this.btnModifyActivities);
             this.pnl_DisplayData.Controls.Add(this.btngetRapport);
@@ -364,6 +368,26 @@
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
             // 
+            // btnRefreshMentor
+            // 
+            this.btnRefreshMentor.Location = new System.Drawing.Point(723, 395);
+            this.btnRefreshMentor.Name = "btnRefreshMentor";
+            this.btnRefreshMentor.Size = new System.Drawing.Size(59, 31);
+            this.btnRefreshMentor.TabIndex = 15;
+            this.btnRefreshMentor.Text = "Refresh";
+            this.btnRefreshMentor.UseVisualStyleBackColor = true;
+            this.btnRefreshMentor.Click += new System.EventHandler(this.btnRefreshMentor_Click);
+            // 
+            // btnModifyMentor
+            // 
+            this.btnModifyMentor.Location = new System.Drawing.Point(15, 395);
+            this.btnModifyMentor.Name = "btnModifyMentor";
+            this.btnModifyMentor.Size = new System.Drawing.Size(170, 31);
+            this.btnModifyMentor.TabIndex = 16;
+            this.btnModifyMentor.Text = "Modify Mentors";
+            this.btnModifyMentor.UseVisualStyleBackColor = true;
+            this.btnModifyMentor.Click += new System.EventHandler(this.btnModifyMentor_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +479,8 @@
         private System.Windows.Forms.Button btngetRapport;
         private System.Windows.Forms.Button btnModifyActivities;
         private System.Windows.Forms.Button btnRefreshActivity;
+        private System.Windows.Forms.Button btnRefreshMentor;
+        private System.Windows.Forms.Button btnModifyMentor;
     }
 }
 
