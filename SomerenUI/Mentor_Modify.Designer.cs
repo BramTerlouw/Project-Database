@@ -94,7 +94,7 @@ namespace SomerenUI
             this.btnModifyMentor.TabIndex = 5;
             this.btnModifyMentor.Text = "Add mentor";
             this.btnModifyMentor.UseVisualStyleBackColor = true;
-            this.btnModifyMentor.Click += new System.EventHandler(this.btnModifyMentor_Click);
+            this.btnModifyMentor.Click += new System.EventHandler(this.btnAddMentor_Click);
             // 
             // lblDeleteMentorHeader
             // 
@@ -162,7 +162,7 @@ namespace SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 255);
+            this.ClientSize = new System.Drawing.Size(740, 515);
             this.Controls.Add(this.btnCloseModifyMentor);
             this.Controls.Add(this.txtDeleteMentorTeacher);
             this.Controls.Add(this.txtDeleteMentorGroup);

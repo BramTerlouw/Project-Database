@@ -29,12 +29,15 @@ namespace SomerenLogic
 
         public void AddMentor(int groupId, int teacherID)
         {
-            if (dao.CheckExistingMentor(teacherID) == 0)
+            if (dao.CheckExistingMentor(teacherID) > 0)
+            {
+                throw new Exception("This person is already a mentor");
+            }
+            else
             {
                 dao.AddMentor(groupId, teacherID);
                 dao.AssingGroupToTeacher(groupId, teacherID);
             }
-            
         }
 
         public void DeleteMentor(int groupId, int teacherId)

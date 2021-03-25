@@ -289,6 +289,8 @@ namespace SomerenUI
         {
             // show panel and buttons
             pnl_DisplayData.Show();
+            btnModifyRooster.Show();
+            btnRefreshRooster.Show();
 
             try
             {
@@ -310,7 +312,23 @@ namespace SomerenUI
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        private void btnRefreshRooster_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Planned Activities");
+        }
+
+        private void btnModifyRooster_Click(object sender, EventArgs e)
+        {
+            Rooster_Modify rooster_Modify = new Rooster_Modify();
+            rooster_Modify.ShowDialog();
+        }
+
+
+
+
+
+
         private void show_pnl_Mentor()
         {
             // show panel and buttons
@@ -372,6 +390,8 @@ namespace SomerenUI
             btnRefreshActivity.Hide();
             btnRefreshMentor.Hide();
             btnModifyMentor.Hide();
+            btnModifyRooster.Hide();
+            btnRefreshRooster.Hide();
         }
 
         public void showPanel(string panelName)

@@ -51,6 +51,8 @@
             this.lbl_Header_Name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_DisplayData = new System.Windows.Forms.Panel();
+            this.btnModifyMentor = new System.Windows.Forms.Button();
+            this.btnRefreshMentor = new System.Windows.Forms.Button();
             this.btnRefreshActivity = new System.Windows.Forms.Button();
             this.btnModifyActivities = new System.Windows.Forms.Button();
             this.btngetRapport = new System.Windows.Forms.Button();
@@ -62,8 +64,8 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.cmbDrinks = new System.Windows.Forms.ComboBox();
             this.cmbStudents = new System.Windows.Forms.ComboBox();
-            this.btnRefreshMentor = new System.Windows.Forms.Button();
-            this.btnModifyMentor = new System.Windows.Forms.Button();
+            this.btnModifyRooster = new System.Windows.Forms.Button();
+            this.btnRefreshRooster = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -253,6 +255,8 @@
             // 
             // pnl_DisplayData
             // 
+            this.pnl_DisplayData.Controls.Add(this.btnRefreshRooster);
+            this.pnl_DisplayData.Controls.Add(this.btnModifyRooster);
             this.pnl_DisplayData.Controls.Add(this.btnModifyMentor);
             this.pnl_DisplayData.Controls.Add(this.btnRefreshMentor);
             this.pnl_DisplayData.Controls.Add(this.btnRefreshActivity);
@@ -268,6 +272,26 @@
             this.pnl_DisplayData.Name = "pnl_DisplayData";
             this.pnl_DisplayData.Size = new System.Drawing.Size(952, 450);
             this.pnl_DisplayData.TabIndex = 4;
+            // 
+            // btnModifyMentor
+            // 
+            this.btnModifyMentor.Location = new System.Drawing.Point(15, 395);
+            this.btnModifyMentor.Name = "btnModifyMentor";
+            this.btnModifyMentor.Size = new System.Drawing.Size(170, 31);
+            this.btnModifyMentor.TabIndex = 16;
+            this.btnModifyMentor.Text = "Modify Mentors";
+            this.btnModifyMentor.UseVisualStyleBackColor = true;
+            this.btnModifyMentor.Click += new System.EventHandler(this.btnModifyMentor_Click);
+            // 
+            // btnRefreshMentor
+            // 
+            this.btnRefreshMentor.Location = new System.Drawing.Point(723, 395);
+            this.btnRefreshMentor.Name = "btnRefreshMentor";
+            this.btnRefreshMentor.Size = new System.Drawing.Size(59, 31);
+            this.btnRefreshMentor.TabIndex = 15;
+            this.btnRefreshMentor.Text = "Refresh";
+            this.btnRefreshMentor.UseVisualStyleBackColor = true;
+            this.btnRefreshMentor.Click += new System.EventHandler(this.btnRefreshMentor_Click);
             // 
             // btnRefreshActivity
             // 
@@ -368,25 +392,25 @@
             this.cmbStudents.Size = new System.Drawing.Size(318, 21);
             this.cmbStudents.TabIndex = 11;
             // 
-            // btnRefreshMentor
+            // btnModifyRooster
             // 
-            this.btnRefreshMentor.Location = new System.Drawing.Point(723, 395);
-            this.btnRefreshMentor.Name = "btnRefreshMentor";
-            this.btnRefreshMentor.Size = new System.Drawing.Size(59, 31);
-            this.btnRefreshMentor.TabIndex = 15;
-            this.btnRefreshMentor.Text = "Refresh";
-            this.btnRefreshMentor.UseVisualStyleBackColor = true;
-            this.btnRefreshMentor.Click += new System.EventHandler(this.btnRefreshMentor_Click);
+            this.btnModifyRooster.Location = new System.Drawing.Point(15, 395);
+            this.btnModifyRooster.Name = "btnModifyRooster";
+            this.btnModifyRooster.Size = new System.Drawing.Size(170, 31);
+            this.btnModifyRooster.TabIndex = 17;
+            this.btnModifyRooster.Text = "Swap activities";
+            this.btnModifyRooster.UseVisualStyleBackColor = true;
+            this.btnModifyRooster.Click += new System.EventHandler(this.btnModifyRooster_Click);
             // 
-            // btnModifyMentor
+            // btnRefreshRooster
             // 
-            this.btnModifyMentor.Location = new System.Drawing.Point(15, 395);
-            this.btnModifyMentor.Name = "btnModifyMentor";
-            this.btnModifyMentor.Size = new System.Drawing.Size(170, 31);
-            this.btnModifyMentor.TabIndex = 16;
-            this.btnModifyMentor.Text = "Modify Mentors";
-            this.btnModifyMentor.UseVisualStyleBackColor = true;
-            this.btnModifyMentor.Click += new System.EventHandler(this.btnModifyMentor_Click);
+            this.btnRefreshRooster.Location = new System.Drawing.Point(723, 395);
+            this.btnRefreshRooster.Name = "btnRefreshRooster";
+            this.btnRefreshRooster.Size = new System.Drawing.Size(59, 31);
+            this.btnRefreshRooster.TabIndex = 18;
+            this.btnRefreshRooster.Text = "Refresh";
+            this.btnRefreshRooster.UseVisualStyleBackColor = true;
+            this.btnRefreshRooster.Click += new System.EventHandler(this.btnRefreshRooster_Click);
             // 
             // SomerenUI
             // 
@@ -481,6 +505,8 @@
         private System.Windows.Forms.Button btnRefreshActivity;
         private System.Windows.Forms.Button btnRefreshMentor;
         private System.Windows.Forms.Button btnModifyMentor;
+        private System.Windows.Forms.Button btnModifyRooster;
+        private System.Windows.Forms.Button btnRefreshRooster;
     }
 }
 

@@ -44,7 +44,7 @@ namespace SomerenDAL
 
         public void AddMentor(int groupId, int teacherId)
         {
-            string query = "IF NOT EXISTS ( select teacher_id from group_foreign_teacher where teacher_id=10 ) BEGIN INSERT INTO group_foreign_teacher VALUES(5, 1); END"; //INSERT INTO group_foreign_teacher VALUES(@group, @teacher)
+            string query = "INSERT INTO group_foreign_teacher VALUES(@group, @teacher)";
 
             SqlParameter[] sqlParameters = new SqlParameter[2];
 

@@ -196,5 +196,79 @@ namespace SomerenDAL
             // return the list with drinks
             return amount;
         }
+
+
+
+
+
+        public string GetDateTimeByActivityStart(int activityId)
+        {
+            string query = "SELECT [date_start] FROM activity_foreign_group WHERE id = @activity";
+
+            // an array with parameters
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraactivity = new SqlParameter("@activity", SqlDbType.BigInt);
+            paraactivity.Value = activityId;
+            sqlParameters[0] = paraactivity;
+
+            return ReadDateTimeStart(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public string GetDateTimeByActivityEnd(int activityId)
+        {
+            string query = "SELECT [date_end] FROM activity_foreign_group WHERE id = @activity";
+
+            // an array with parameters
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraactivity = new SqlParameter("@activity", SqlDbType.BigInt);
+            paraactivity.Value = activityId;
+            sqlParameters[0] = paraactivity;
+
+            return ReadDateTimeEnd(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private string ReadDateTimeStart(DataTable datatable)
+        {
+            string start = "";
+            foreach (DataRow dr in datatable.Rows)
+            {
+                start = dr["date_start"].ToString();
+            }
+            return start;
+        }
+
+        private string ReadDateTimeEnd(DataTable datatable)
+        {
+            string end = "";
+            foreach (DataRow dr in datatable.Rows)
+            {
+                end = dr["date_end"].ToString();
+            }
+            return end;
+        }
+
+        public void SwapActivities(int activityid, string start, string end)
+        {
+            string query = "UPDATE activity_foreign_group SET[date_start] = @start, [date_end] = @end WHERE id = @id";
+
+            // an array with parameters
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+
+            SqlParameter paraId = new SqlParameter("@id", SqlDbType.BigInt);
+            paraId.Value = activityid;
+            sqlParameters[0] = paraId;
+
+            SqlParameter paraStart = new SqlParameter("@start", SqlDbType.DateTime);
+            paraStart.Value = start;
+            sqlParameters[1] = paraStart;
+
+            SqlParameter paraEnd = new SqlParameter("@end", SqlDbType.DateTime);
+            paraEnd.Value = end;
+            sqlParameters[2] = paraEnd;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

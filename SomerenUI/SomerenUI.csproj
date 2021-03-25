@@ -65,6 +65,12 @@
     <Compile Include="Mentor_Modify.Designer.cs">
       <DependentUpon>Mentor_Modify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rooster_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rooster_Modify.Designer.cs">
+      <DependentUpon>Rooster_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="SomerenUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor_Modify.resx">
       <DependentUpon>Mentor_Modify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooster_Modify.resx">
+      <DependentUpon>Rooster_Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SomerenUI.resx">
       <DependentUpon>SomerenUI.cs</DependentUpon>

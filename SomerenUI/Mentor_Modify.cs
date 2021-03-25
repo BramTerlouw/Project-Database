@@ -20,18 +20,25 @@ namespace SomerenUI
             InitializeComponent();
         }
 
-        private void btnModifyMentor_Click(object sender, EventArgs e)
+        private void btnAddMentor_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtAddMentorGroup.Text) || String.IsNullOrEmpty(txtAddMentorTeacher.Text))
             {
                 MessageBox.Show("Empty field(s)");
                 return;
             }
-            
-            int groupId = int.Parse(txtAddMentorGroup.Text);
-            int teacherId = int.Parse(txtAddMentorTeacher.Text);
 
-            teacher_Service.AddMentor(groupId, teacherId);
+            try
+            {
+                int groupId = int.Parse(txtAddMentorGroup.Text);
+                int teacherId = int.Parse(txtAddMentorTeacher.Text);
+
+                teacher_Service.AddMentor(groupId, teacherId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDeleteMonitor_Click(object sender, EventArgs e)

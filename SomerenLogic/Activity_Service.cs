@@ -69,5 +69,25 @@ namespace SomerenLogic
             // get the amount of mentors per activity
             return dao.getAantalBegeleiders(activityId);
         }
+
+        
+        
+        
+        
+        public string GetDateTimeActivityStart(int activityId)
+        {
+            return dao.GetDateTimeByActivityStart(activityId);
+        }
+
+        public string GetDateTimeActivityEnd(int activityId)
+        {
+            return dao.GetDateTimeByActivityEnd(activityId);
+        }
+
+
+        public void SwapActivities(int activityId, string start, string end)
+        {
+            dao.SwapActivities(activityId, start, end);
+        }
     }
 }
