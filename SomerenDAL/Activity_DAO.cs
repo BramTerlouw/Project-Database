@@ -14,7 +14,7 @@ namespace SomerenDAL
         public List<Activity> Db_Get_All_Activities()
         {
             // the query for the database, selecting info from activity
-            string query = "SELECT id, description from activity"; // , Aantal_Studenten, Aantal_Begeleiders
+            string query = "SELECT id, description from activity"; 
 
             // an array for parameters
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -32,9 +32,7 @@ namespace SomerenDAL
             {
                 Activity activity = new Activity(
                     Convert.ToInt32(dr["id"]),
-                    dr["description"].ToString()//,
-                    //Convert.ToInt32(dr["Aantal_Studenten"]),
-                    //Convert.ToInt32(dr["Aantal_Begeleiders"])
+                    dr["description"].ToString()
                 );
 
                 // add activity to the list
@@ -203,6 +201,7 @@ namespace SomerenDAL
 
         public string GetDateTimeByActivityStart(int activityId)
         {
+            // query for selecting the startdate
             string query = "SELECT [date_start] FROM activity_foreign_group WHERE id = @activity";
 
             // an array with parameters
@@ -212,11 +211,13 @@ namespace SomerenDAL
             paraactivity.Value = activityId;
             sqlParameters[0] = paraactivity;
 
+            // return the startdate
             return ReadDateTimeStart(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public string GetDateTimeByActivityEnd(int activityId)
         {
+            // query for selecting the enddate
             string query = "SELECT [date_end] FROM activity_foreign_group WHERE id = @activity";
 
             // an array with parameters
@@ -226,31 +227,33 @@ namespace SomerenDAL
             paraactivity.Value = activityId;
             sqlParameters[0] = paraactivity;
 
+            // return the end date
             return ReadDateTimeEnd(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private string ReadDateTimeStart(DataTable datatable)
         {
-            string start = "";
+            string start = ""; // empty string
             foreach (DataRow dr in datatable.Rows)
             {
-                start = dr["date_start"].ToString();
+                start = dr["date_start"].ToString(); // assign date to the string
             }
-            return start;
+            return start; // return
         }
 
         private string ReadDateTimeEnd(DataTable datatable)
         {
-            string end = "";
+            string end = ""; // empty string
             foreach (DataRow dr in datatable.Rows)
             {
-                end = dr["date_end"].ToString();
+                end = dr["date_end"].ToString(); // assign date to the string
             }
-            return end;
+            return end; // return
         }
 
         public void SwapActivities(int activityid, string start, string end)
         {
+            // query for updating the database and swap the dates 
             string query = "UPDATE activity_foreign_group SET[date_start] = @start, [date_end] = @end WHERE id = @id";
 
             // an array with parameters
@@ -268,6 +271,7 @@ namespace SomerenDAL
             paraEnd.Value = end;
             sqlParameters[2] = paraEnd;
 
+            // execute the quert
             ExecuteEditQuery(query, sqlParameters);
         }
     }

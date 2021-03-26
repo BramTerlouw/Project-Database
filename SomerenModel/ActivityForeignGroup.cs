@@ -2,12 +2,14 @@
 {
     public class ActivityForeignGroup
     {
+        // all the fields
         public readonly int id;
         public readonly string description;
         public readonly string mentor_name;
         public readonly string date_start;
         public readonly string date_end;
 
+        // constructor
         public ActivityForeignGroup(int v1, string v2, string v3, string v4, string v5)
         {
             id = v1;
@@ -25,7 +27,7 @@
 
         public string[] dataGrid(ActivityForeignGroup activityForeignGroup)
         {
-            // return array with all the room properties
+            // return array with all the rooster properties
             return new string[] {
                 activityForeignGroup.id.ToString(),
                 activityForeignGroup.description.ToString(),

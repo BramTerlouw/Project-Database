@@ -25,7 +25,7 @@
 
         public string[] dataGrid(GroupForeignTeacher groupForeignTeacher)
         {
-            // return array with all the room properties
+            // return array with all the mentor properties
             return new string[] {
                 groupForeignTeacher.id.ToString(),
                 groupForeignTeacher.name.ToString(),

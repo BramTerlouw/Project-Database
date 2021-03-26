@@ -76,17 +76,20 @@ namespace SomerenLogic
         
         public string GetDateTimeActivityStart(int activityId)
         {
+            // get the start date
             return dao.GetDateTimeByActivityStart(activityId);
         }
 
         public string GetDateTimeActivityEnd(int activityId)
         {
+            // get the end date
             return dao.GetDateTimeByActivityEnd(activityId);
         }
 
 
         public void SwapActivities(int activityId, string start, string end)
         {
+            // swap the dates
             dao.SwapActivities(activityId, start, end);
         }
     }
