@@ -13,6 +13,7 @@ namespace SomerenUI
         public SomerenUI()
         {
             InitializeComponent();
+            menuStrip1.Hide();
         }
 
         private void SomerenUI_Load(object sender, EventArgs e)
@@ -370,14 +371,124 @@ namespace SomerenUI
 
 
 
+        private void show_pnl_Register()
+        {
+            pnl_Register.Show();
+            pnl_Login.Hide();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            
+            // user information
+            string name = txtRegisterName.Text;
+            string email = txtRegisterEmail.Text;
+            
+
+            // password and repeat
+            string password = txtRegisterWachtwoord.Text;
+            string repeatPassword = txtRegisterRepeatWW.Text;
+
+            // question and answer
+            string question = txtRegisterQuestion.Text;
+            string answer = txtRegisterAnswer.Text;
+
+            // license key
+            string licenseKey = txtRegisterLicenseKey.Text;
+
+            bool userEmailExists = register_Service.CheckForExistence(email);
+
+            // validate the user
+            if (userEmailExists == true)
+            {
+                MessageBox.Show("User already exists!");
+                return;
+            }
+            if (licenseKey != "XsZAb-tgz3PsD-qYh69un-WQCEx")
+            {
+                MessageBox.Show("License Key don't match!");
+                return;
+            }
+            if (password != repeatPassword)
+            {
+                MessageBox.Show("Passwords don't match!");
+                return;
+            }
+
+            // add user
+            register_Service.InsertUser(name, email, SHA512(password), question, answer);
+
+            menuStrip1.Show();
+            pnl_Dashboard.Show();
+            menuStrip2.Hide();
+            pnl_Register.Hide();
+        }
+
+        private void LogouttoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuStrip1.Hide();
+            hide_pnl();
+            menuStrip2.Show();
+            pnl_Register.Show();
+        }
+
+        private string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+
+
+        private void show_pnl_Login()
+        {
+            pnl_Login.Show();
+            pnl_Register.Hide();
+        }
 
 
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+
+            // get the email and password from textboxes
+            string email = txtLoginEmail.Text;
+            string password = txtLoginPassword.Text;
+
+            // validate the user
+            bool validUser = register_Service.CheckUserLogin(email, SHA512(password));
+
+            // if validuser then show application and hide login and register and password forgotten
+            if (validUser == true)
+            {
+                menuStrip2.Hide();
+                pnl_Login.Hide();
+
+                menuStrip1.Show();
+                pnl_Dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wrong email or password!"); // show messagebox with message, application keeps running
+                return;
+            }
+        }
 
 
         private void hide_pnl()
         {
             // Hide the panels below
+            
             pnl_Dashboard.Hide();
             img_Dashboard.Hide();
             pnl_DisplayData.Hide();
@@ -392,6 +503,7 @@ namespace SomerenUI
             btnModifyMentor.Hide();
             btnModifyRooster.Hide();
             btnRefreshRooster.Hide();
+            pnl_Register.Hide();
         }
 
         public void showPanel(string panelName)
@@ -410,7 +522,9 @@ namespace SomerenUI
                   {"pnl_Revenue", () => show_pnl_Revenue()},
                   {"pnl_Activities", () => show_pnl_Activities()},
                   {"pnl_Mentor", () => show_pnl_Mentor()},
-                  {"pnl_Planned Activities", () => show_pnl_PlannedActivities()}
+                  {"pnl_Planned Activities", () => show_pnl_PlannedActivities()},
+                  {"pnl_Register", () => show_pnl_Register()},
+                  {"pnl_Login", () => show_pnl_Login()}
             };
 
             // depending on the panelname, call the function
@@ -488,6 +602,14 @@ namespace SomerenUI
             showPanel("pnl_Planned Activities");
         }
 
-        
+        private void RegistertoolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("pnl_Register");
+        }
+
+        private void LogintoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_Login");
+        }
     }
 }
