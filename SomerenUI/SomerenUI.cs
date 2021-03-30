@@ -561,7 +561,7 @@ namespace SomerenUI
             }
             else if (!hasMiniMaxChars.IsMatch(input))
             {
-                MessageBox.Show("Password should not be less than or greater than 12 characters");
+                MessageBox.Show("Password should be between 8 and 15 chars");
                 return false;
             }
             else if (!hasNumber.IsMatch(input))
