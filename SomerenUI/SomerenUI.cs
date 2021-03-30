@@ -374,12 +374,13 @@ namespace SomerenUI
         private void show_pnl_Register()
         {
             pnl_Register.Show();
+            pnl_ForgotPasswordPanel.Hide();
             pnl_Login.Hide();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            
             
             // user information
             string name = txtRegisterName.Text;
@@ -397,6 +398,7 @@ namespace SomerenUI
             // license key
             string licenseKey = txtRegisterLicenseKey.Text;
 
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
             bool userEmailExists = register_Service.CheckForExistence(email);
 
             // validate the user
@@ -453,6 +455,7 @@ namespace SomerenUI
         {
             pnl_Login.Show();
             pnl_Register.Hide();
+            pnl_ForgotPasswordPanel.Hide();
         }
 
 
@@ -482,6 +485,50 @@ namespace SomerenUI
                 MessageBox.Show("Wrong email or password!"); // show messagebox with message, application keeps running
                 return;
             }
+        }
+
+        private void pnl_ForgotPassword()
+        {
+            pnl_ForgotPasswordPanel.Show();
+            pnl_Register.Hide();
+            pnl_Login.Hide();
+        }
+
+        private void btnSubmitForgotPassword_Click(object sender, EventArgs e)
+        {
+            string email = txtForgotPasswordEmail.Text;
+            string password = txtForgotPassword.Text;
+            string repeatPassword = txtForgotRepeatPassword.Text;
+            string sQuestion = txtForgotPasswordSecretQuestion.Text;
+            string sAwnser = txtForgotPasswordSecretAwnser.Text;
+
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            bool validateQuestionAndAwnser = register_Service.CheckForExistenceSecretQuestion(email, sQuestion, sAwnser);
+
+            if (!validateQuestionAndAwnser)
+            {
+                MessageBox.Show("Wrong Secret question and or anwser");
+                return;
+            }
+
+            if (password != repeatPassword)
+            {
+                MessageBox.Show("passwords dont match");
+                return;
+            }
+
+            register_Service.updateUserPassword(email, SHA512(password));
+
+            MessageBox.Show("Updated password and succesfully logged in");
+
+            menuStrip2.Hide();
+            pnl_ForgotPasswordPanel.Hide();
+            pnl_Login.Hide();
+            pnl_Register.Hide();
+
+            menuStrip1.Show();
+            pnl_Dashboard.Show();
+
         }
 
 
@@ -524,7 +571,8 @@ namespace SomerenUI
                   {"pnl_Mentor", () => show_pnl_Mentor()},
                   {"pnl_Planned Activities", () => show_pnl_PlannedActivities()},
                   {"pnl_Register", () => show_pnl_Register()},
-                  {"pnl_Login", () => show_pnl_Login()}
+                  {"pnl_Login", () => show_pnl_Login()},
+                  {"pnl_ForgotPassword", () => pnl_ForgotPassword()}
             };
 
             // depending on the panelname, call the function
@@ -610,6 +658,11 @@ namespace SomerenUI
         private void LogintoolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("pnl_Login");
+        }
+
+        private void ForgotPasswordtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnl_ForgotPassword");
         }
     }
 }

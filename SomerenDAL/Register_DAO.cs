@@ -24,6 +24,27 @@ namespace SomerenDAL
             return ExecuteCountInteger(query, sqlParameters);
         }
 
+        public int CheckForExistenceSecretQuestion(string email, string sQ, string sA)
+        {
+            string query = "SELECT COUNT(*) FROM[user] WHERE email = @email AND secret_question = @sq AND secret_awnser = @sa";
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+
+            SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
+            paraEmail.Value = email;
+            sqlParameters[0] = paraEmail;
+
+            SqlParameter psq = new SqlParameter("@sq", SqlDbType.VarChar);
+            psq.Value = sQ;
+            sqlParameters[1] = psq; 
+            
+            SqlParameter psa = new SqlParameter("@sa", SqlDbType.VarChar);
+            psa.Value = sA;
+            sqlParameters[2] = psa;
+
+            return ExecuteCountInteger(query, sqlParameters);
+        }
+
         public void InsertUser(string v1, string v2, string v3, string v4, string v5)
         {
             string query = "INSERT INTO [user] VALUES(@name, @email, @password, @role, @SecretQuestion, @SecretAnswer)";
@@ -53,6 +74,22 @@ namespace SomerenDAL
             SqlParameter paraAnswer = new SqlParameter("@SecretAnswer", SqlDbType.VarChar);
             paraAnswer.Value = v5;
             sqlParameters[5] = paraAnswer;
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void UpdateUser(string v1, string v2)
+        {
+            string query = "UPDATE [user] SET password = @password WHERE email = @email";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+
+            SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
+            paraEmail.Value = v1;
+            sqlParameters[0] = paraEmail;
+
+            SqlParameter paraPassword = new SqlParameter("@password", SqlDbType.VarChar);
+            paraPassword.Value = v2;
+            sqlParameters[1] = paraPassword;
 
             ExecuteEditQuery(query, sqlParameters);
         }
