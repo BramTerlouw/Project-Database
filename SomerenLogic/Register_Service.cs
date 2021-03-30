@@ -46,7 +46,11 @@ namespace SomerenLogic
                 return true;
             else
                 return false;
-            
+        }
+
+        public string GetSecretQuestion(string email)
+        {
+            return dao.GetSecretQuestion(email);
         }
     }
 }

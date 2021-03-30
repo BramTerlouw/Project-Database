@@ -429,6 +429,7 @@ namespace SomerenUI
 
         private void LogouttoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // logout and show register panel
             menuStrip1.Hide();
             hide_pnl();
             menuStrip2.Show();
@@ -486,43 +487,107 @@ namespace SomerenUI
             }
         }
 
+
+
+
         private void pnl_ForgotPassword()
         {
+            // show the panel and hide others
             pnl_ForgotPasswordPanel.Show();
             pnl_Register.Hide();
             pnl_Login.Hide();
+            
+            // when switched between register, login and pw forgotten show this txtbox
+            txtForgotPasswordEmail.Show();
+
+            // clear textboxes for when you switch between register, login and pw forgotten
+            txtForgotPasswordEmail.Clear();
+            txtForgotPasswordSecretAwnser.Clear();
+            txtForgotPassword.Clear();
+            txtForgotRepeatPassword.Clear();
         }
 
-        private void btnSubmitForgotPassword_Click(object sender, EventArgs e)
+        private void btnForgotValidateEmail_Click(object sender, EventArgs e)
         {
-            string email = txtForgotPasswordEmail.Text;
-            string password = txtForgotPassword.Text;
-            string repeatPassword = txtForgotRepeatPassword.Text;
-            string sQuestion = txtForgotPasswordSecretQuestion.Text;
+            // get the question for the input email
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            lblSecretQuestion.Text = register_Service.GetSecretQuestion(txtForgotPasswordEmail.Text);
+
+            // when there is a result, show the next part of the panel with for answerring the secret question
+            if (!String.IsNullOrEmpty(lblSecretQuestion.Text))
+            {
+                label3.Show();
+                label12.Show();
+                lblSecretQuestion.Show();
+                txtForgotPasswordSecretAwnser.Show();
+                btnCheckQandA.Show();
+
+                // make the given email permanent so it cant be changed after the question was given
+                txtForgotPasswordEmail.Hide();
+                lblForgottenEmail.Text = txtForgotPasswordEmail.Text;
+                lblForgottenEmail.Show();
+            }
+            else
+            {
+                // give message showing there was nothing found with the given email
+                MessageBox.Show("No user found with this email!");
+            }
+        }
+
+
+
+        private void btnCheckQandA_Click(object sender, EventArgs e)
+        {
+            // get the email, question and given answer
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            string email = lblForgottenEmail.Text;
+            string sQuestion = lblSecretQuestion.Text;
             string sAwnser = txtForgotPasswordSecretAwnser.Text;
 
-            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            // validate the question and given answer
             bool validateQuestionAndAwnser = register_Service.CheckForExistenceSecretQuestion(email, sQuestion, sAwnser);
 
             if (!validateQuestionAndAwnser)
             {
+                // display error message when Q and A dont match
                 MessageBox.Show("Wrong Secret question and or anwser");
                 return;
             }
 
+            // show the final part where the user can enter a new password
+            label14.Show();
+            label17.Show();
+            txtForgotPassword.Show();
+            txtForgotRepeatPassword.Show();
+            btnSubmitForgotPassword.Show();
+        }
+
+        
+        
+        private void btnSubmitForgotPassword_Click(object sender, EventArgs e)
+        {
+            // get the email, password and repeated password
+            SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
+            string email = lblForgottenEmail.Text;
+            string password = txtForgotPassword.Text;
+            string repeatPassword = txtForgotRepeatPassword.Text;
+
+            // check passwords match
             if (password != repeatPassword)
             {
                 MessageBox.Show("passwords dont match");
                 return;
             }
 
+            // validate password
             if (!ValidatePassword(password))
                 return;
 
+            // update password
             register_Service.updateUserPassword(email, SHA512(password));
-
             MessageBox.Show("Updated password and succesfully logged in");
 
+            // hide these menus en show application
             menuStrip2.Hide();
             pnl_ForgotPasswordPanel.Hide();
             pnl_Login.Hide();
@@ -530,16 +595,21 @@ namespace SomerenUI
 
             menuStrip1.Show();
             pnl_Dashboard.Show();
-
         }
+
+
+
+
 
         private bool ValidatePassword(string password)
         {
+            // input = password
             var input = password;
 
+            // if empty give error in messagebox
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new Exception("Password should not be empty");
+                MessageBox.Show("Password should not be empty");
             }
 
             var hasNumber = new Regex(@"[0-9]+");
@@ -548,7 +618,7 @@ namespace SomerenUI
             var hasLowerChar = new Regex(@"[a-z]+");
             var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
 
-
+            // check each condition and if all good then return true, else give error with messagebox
             if (!hasLowerChar.IsMatch(input))
             {
                 MessageBox.Show("Password should contain At least one lower case letter");
@@ -582,10 +652,11 @@ namespace SomerenUI
         }
 
 
+
+
         private void hide_pnl()
         {
             // Hide the panels below
-            
             pnl_Dashboard.Hide();
             img_Dashboard.Hide();
             pnl_DisplayData.Hide();
@@ -601,6 +672,17 @@ namespace SomerenUI
             btnModifyRooster.Hide();
             btnRefreshRooster.Hide();
             pnl_Register.Hide();
+            label14.Hide();
+            label17.Hide();
+            txtForgotPassword.Hide();
+            txtForgotRepeatPassword.Hide();
+            btnSubmitForgotPassword.Hide();
+            label3.Hide();
+            label12.Hide();
+            lblSecretQuestion.Hide();
+            txtForgotPasswordSecretAwnser.Hide();
+            btnCheckQandA.Hide();
+            lblForgottenEmail.Hide();
         }
 
         public void showPanel(string panelName)
@@ -692,26 +774,31 @@ namespace SomerenUI
 
         private void groupMentorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Mentor");
         }
         
         private void plannedActivitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Planned Activities");
         }
 
         private void RegistertoolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Register");
         }
 
         private void LogintoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_Login");
         }
 
         private void ForgotPasswordtoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // call the function showPanel with the parameter
             showPanel("pnl_ForgotPassword");
         }
     }

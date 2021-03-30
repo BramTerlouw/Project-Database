@@ -1,4 +1,6 @@
-﻿namespace SomerenUI
+﻿using System.Windows.Forms;
+
+namespace SomerenUI
 {
     partial class SomerenUI
     {
@@ -90,7 +92,15 @@
             this.LogintoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ForgotPasswordtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Login = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtLoginPassword = new System.Windows.Forms.TextBox();
+            this.txtLoginEmail = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.pnl_ForgotPasswordPanel = new System.Windows.Forms.Panel();
+            this.lblSecretQuestion = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtForgotRepeatPassword = new System.Windows.Forms.TextBox();
@@ -100,17 +110,12 @@
             this.btnSubmitForgotPassword = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtForgotPasswordSecretQuestion = new System.Windows.Forms.TextBox();
             this.txtForgotPasswordEmail = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtLoginPassword = new System.Windows.Forms.TextBox();
-            this.txtLoginEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.btnForgotValidateEmail = new System.Windows.Forms.Button();
+            this.btnCheckQandA = new System.Windows.Forms.Button();
+            this.lblForgottenEmail = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -122,9 +127,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.pnl_Login.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnl_ForgotPasswordPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dashboardToolStripMenuItem
@@ -685,136 +690,6 @@
             this.pnl_Login.Size = new System.Drawing.Size(952, 450);
             this.pnl_Login.TabIndex = 21;
             // 
-            // pnl_ForgotPasswordPanel
-            // 
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label17);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label14);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotRepeatPassword);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPassword);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label12);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordSecretAwnser);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.btnSubmitForgotPassword);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label3);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label10);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordSecretQuestion);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordEmail);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.pictureBox4);
-            this.pnl_ForgotPasswordPanel.Controls.Add(this.label11);
-            this.pnl_ForgotPasswordPanel.Location = new System.Drawing.Point(9, 47);
-            this.pnl_ForgotPasswordPanel.Name = "pnl_ForgotPasswordPanel";
-            this.pnl_ForgotPasswordPanel.Size = new System.Drawing.Size(952, 450);
-            this.pnl_ForgotPasswordPanel.TabIndex = 21;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(367, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Repeat Password:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(367, 121);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 13);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Password:";
-            // 
-            // txtForgotRepeatPassword
-            // 
-            this.txtForgotRepeatPassword.Location = new System.Drawing.Point(478, 158);
-            this.txtForgotRepeatPassword.Name = "txtForgotRepeatPassword";
-            this.txtForgotRepeatPassword.Size = new System.Drawing.Size(146, 20);
-            this.txtForgotRepeatPassword.TabIndex = 16;
-            // 
-            // txtForgotPassword
-            // 
-            this.txtForgotPassword.Location = new System.Drawing.Point(478, 118);
-            this.txtForgotPassword.Name = "txtForgotPassword";
-            this.txtForgotPassword.Size = new System.Drawing.Size(146, 20);
-            this.txtForgotPassword.TabIndex = 15;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(39, 199);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 13);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Secret Awnser";
-            // 
-            // txtForgotPasswordSecretAwnser
-            // 
-            this.txtForgotPasswordSecretAwnser.Location = new System.Drawing.Point(157, 196);
-            this.txtForgotPasswordSecretAwnser.Name = "txtForgotPasswordSecretAwnser";
-            this.txtForgotPasswordSecretAwnser.Size = new System.Drawing.Size(146, 20);
-            this.txtForgotPasswordSecretAwnser.TabIndex = 13;
-            // 
-            // btnSubmitForgotPassword
-            // 
-            this.btnSubmitForgotPassword.Location = new System.Drawing.Point(355, 242);
-            this.btnSubmitForgotPassword.Name = "btnSubmitForgotPassword";
-            this.btnSubmitForgotPassword.Size = new System.Drawing.Size(269, 32);
-            this.btnSubmitForgotPassword.TabIndex = 12;
-            this.btnSubmitForgotPassword.Text = "Submit new password";
-            this.btnSubmitForgotPassword.UseVisualStyleBackColor = true;
-            this.btnSubmitForgotPassword.Click += new System.EventHandler(this.btnSubmitForgotPassword_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Secret Question";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 118);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Email:";
-            // 
-            // txtForgotPasswordSecretQuestion
-            // 
-            this.txtForgotPasswordSecretQuestion.Location = new System.Drawing.Point(157, 158);
-            this.txtForgotPasswordSecretQuestion.Name = "txtForgotPasswordSecretQuestion";
-            this.txtForgotPasswordSecretQuestion.Size = new System.Drawing.Size(146, 20);
-            this.txtForgotPasswordSecretQuestion.TabIndex = 7;
-            // 
-            // txtForgotPasswordEmail
-            // 
-            this.txtForgotPasswordEmail.Location = new System.Drawing.Point(157, 118);
-            this.txtForgotPasswordEmail.Name = "txtForgotPasswordEmail";
-            this.txtForgotPasswordEmail.Size = new System.Drawing.Size(146, 20);
-            this.txtForgotPasswordEmail.TabIndex = 4;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(805, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(130, 123);
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(195, 29);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Forgot password";
-            // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(34, 210);
@@ -877,6 +752,168 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "Login";
             // 
+            // pnl_ForgotPasswordPanel
+            // 
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.lblForgottenEmail);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.btnCheckQandA);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.btnForgotValidateEmail);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.lblSecretQuestion);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label17);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label14);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotRepeatPassword);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPassword);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label12);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordSecretAwnser);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.btnSubmitForgotPassword);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label3);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label10);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordEmail);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.pictureBox4);
+            this.pnl_ForgotPasswordPanel.Controls.Add(this.label11);
+            this.pnl_ForgotPasswordPanel.Location = new System.Drawing.Point(9, 47);
+            this.pnl_ForgotPasswordPanel.Name = "pnl_ForgotPasswordPanel";
+            this.pnl_ForgotPasswordPanel.Size = new System.Drawing.Size(952, 450);
+            this.pnl_ForgotPasswordPanel.TabIndex = 21;
+            // 
+            // lblSecretQuestion
+            // 
+            this.lblSecretQuestion.AutoSize = true;
+            this.lblSecretQuestion.Location = new System.Drawing.Point(147, 246);
+            this.lblSecretQuestion.Name = "lblSecretQuestion";
+            this.lblSecretQuestion.Size = new System.Drawing.Size(0, 13);
+            this.lblSecretQuestion.TabIndex = 19;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(454, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Repeat Password:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(454, 121);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Password:";
+            // 
+            // txtForgotRepeatPassword
+            // 
+            this.txtForgotRepeatPassword.Location = new System.Drawing.Point(565, 158);
+            this.txtForgotRepeatPassword.Name = "txtForgotRepeatPassword";
+            this.txtForgotRepeatPassword.Size = new System.Drawing.Size(146, 20);
+            this.txtForgotRepeatPassword.TabIndex = 16;
+            // 
+            // txtForgotPassword
+            // 
+            this.txtForgotPassword.Location = new System.Drawing.Point(565, 118);
+            this.txtForgotPassword.Name = "txtForgotPassword";
+            this.txtForgotPassword.Size = new System.Drawing.Size(146, 20);
+            this.txtForgotPassword.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(39, 280);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Secret Awnser";
+            // 
+            // txtForgotPasswordSecretAwnser
+            // 
+            this.txtForgotPasswordSecretAwnser.Location = new System.Drawing.Point(141, 277);
+            this.txtForgotPasswordSecretAwnser.Name = "txtForgotPasswordSecretAwnser";
+            this.txtForgotPasswordSecretAwnser.Size = new System.Drawing.Size(162, 20);
+            this.txtForgotPasswordSecretAwnser.TabIndex = 13;
+            // 
+            // btnSubmitForgotPassword
+            // 
+            this.btnSubmitForgotPassword.Location = new System.Drawing.Point(457, 198);
+            this.btnSubmitForgotPassword.Name = "btnSubmitForgotPassword";
+            this.btnSubmitForgotPassword.Size = new System.Drawing.Size(269, 32);
+            this.btnSubmitForgotPassword.TabIndex = 12;
+            this.btnSubmitForgotPassword.Text = "Submit new password";
+            this.btnSubmitForgotPassword.UseVisualStyleBackColor = true;
+            this.btnSubmitForgotPassword.Click += new System.EventHandler(this.btnSubmitForgotPassword_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 246);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Secret Question";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(39, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Email:";
+            // 
+            // txtForgotPasswordEmail
+            // 
+            this.txtForgotPasswordEmail.Location = new System.Drawing.Point(157, 118);
+            this.txtForgotPasswordEmail.Name = "txtForgotPasswordEmail";
+            this.txtForgotPasswordEmail.Size = new System.Drawing.Size(146, 20);
+            this.txtForgotPasswordEmail.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(195, 29);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Forgot password";
+            // 
+            // btnForgotValidateEmail
+            // 
+            this.btnForgotValidateEmail.Location = new System.Drawing.Point(45, 151);
+            this.btnForgotValidateEmail.Name = "btnForgotValidateEmail";
+            this.btnForgotValidateEmail.Size = new System.Drawing.Size(261, 32);
+            this.btnForgotValidateEmail.TabIndex = 20;
+            this.btnForgotValidateEmail.Text = "Validate email";
+            this.btnForgotValidateEmail.UseVisualStyleBackColor = true;
+            this.btnForgotValidateEmail.Click += new System.EventHandler(this.btnForgotValidateEmail_Click);
+            // 
+            // btnCheckQandA
+            // 
+            this.btnCheckQandA.Location = new System.Drawing.Point(42, 319);
+            this.btnCheckQandA.Name = "btnCheckQandA";
+            this.btnCheckQandA.Size = new System.Drawing.Size(261, 32);
+            this.btnCheckQandA.TabIndex = 21;
+            this.btnCheckQandA.Text = "Submit answer";
+            this.btnCheckQandA.UseVisualStyleBackColor = true;
+            this.btnCheckQandA.Click += new System.EventHandler(this.btnCheckQandA_Click);
+            // 
+            // lblForgottenEmail
+            // 
+            this.lblForgottenEmail.AutoSize = true;
+            this.lblForgottenEmail.Location = new System.Drawing.Point(160, 121);
+            this.lblForgottenEmail.Name = "lblForgottenEmail";
+            this.lblForgottenEmail.Size = new System.Drawing.Size(0, 13);
+            this.lblForgottenEmail.TabIndex = 22;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -913,10 +950,10 @@
             this.menuStrip2.PerformLayout();
             this.pnl_Login.ResumeLayout(false);
             this.pnl_Login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnl_ForgotPasswordPanel.ResumeLayout(false);
             this.pnl_ForgotPasswordPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1028,10 +1065,13 @@
         private System.Windows.Forms.Button btnSubmitForgotPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtForgotPasswordSecretQuestion;
         private System.Windows.Forms.TextBox txtForgotPasswordEmail;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblSecretQuestion;
+        private Button btnCheckQandA;
+        private Button btnForgotValidateEmail;
+        private Label lblForgottenEmail;
     }
 }
 

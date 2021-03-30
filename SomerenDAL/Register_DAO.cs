@@ -36,8 +36,8 @@ namespace SomerenDAL
 
             SqlParameter psq = new SqlParameter("@sq", SqlDbType.VarChar);
             psq.Value = sQ;
-            sqlParameters[1] = psq; 
-            
+            sqlParameters[1] = psq;
+
             SqlParameter psa = new SqlParameter("@sa", SqlDbType.VarChar);
             psa.Value = sA;
             sqlParameters[2] = psa;
@@ -111,5 +111,27 @@ namespace SomerenDAL
             return ExecuteCountInteger(query, sqlParameters);
         }
 
+        public string GetSecretQuestion(string email)
+        {
+            string query = "SELECT secret_question FROM [user] WHERE email = @email";
+            
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
+            paraEmail.Value = email;
+            sqlParameters[0] = paraEmail;
+
+            return ReadQuestion(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private string ReadQuestion(DataTable dataTable)
+        {
+            string secretQuestion = "";
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                secretQuestion = dr["secret_question"].ToString();
+            }
+            return secretQuestion;
+        }
     }
 }
