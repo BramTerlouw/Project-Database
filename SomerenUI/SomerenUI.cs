@@ -395,19 +395,15 @@ namespace SomerenUI
             string question = txtRegisterQuestion.Text;
             string answer = txtRegisterAnswer.Text;
 
-            // license key
-            string licenseKey = txtRegisterLicenseKey.Text;
-
             SomerenLogic.Register_Service register_Service = new SomerenLogic.Register_Service();
-            bool userEmailExists = register_Service.CheckForExistence(email);
 
             // validate the user
-            if (userEmailExists == true)
+            if (register_Service.CheckForExistence(email))
             {
                 MessageBox.Show("User already exists!");
                 return;
             }
-            if (licenseKey != "XsZAb-tgz3PsD-qYh69un-WQCEx")
+            if (txtRegisterLicenseKey.Text != "XsZAb-tgz3PsD-qYh69un-WQCEx")
             {
                 MessageBox.Show("License Key don't match!");
                 return;
@@ -469,10 +465,9 @@ namespace SomerenUI
             string password = txtLoginPassword.Text;
 
             // validate the user
-            bool validUser = register_Service.CheckUserLogin(email, SHA512(password));
 
             // if validuser then show application and hide login and register and password forgotten
-            if (validUser == true)
+            if (register_Service.CheckUserLogin(email, SHA512(password)))
             {
                 menuStrip2.Hide();
                 pnl_Login.Hide();
