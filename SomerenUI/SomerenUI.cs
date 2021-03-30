@@ -11,10 +11,13 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        private string role;
+        
         public SomerenUI()
         {
             InitializeComponent();
             menuStrip1.Hide();
+            role = "user";
         }
 
         private void SomerenUI_Load(object sender, EventArgs e)
@@ -99,8 +102,11 @@ namespace SomerenUI
         {
             // Show modify and refresh button
             pnl_DisplayData.Show();
-            btnModify.Show();
             btnRefresh.Show();
+
+            // only accesible when logged in as admin
+            if (role == "admin")
+                btnModify.Show();
 
             // fill a list with drinks by calling a function from the service layer
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
@@ -142,8 +148,11 @@ namespace SomerenUI
 
 
 
-        private void show_pnl_Order(){
-            pnl_Order.Show();
+        private void show_pnl_Order()
+        {
+            // only accesible when logged in as admin
+            if (role == "admin")
+                pnl_Order.Show();
 
             // get all the drinks and students
             SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
@@ -232,9 +241,12 @@ namespace SomerenUI
         {
             // show panel and buttons
             pnl_DisplayData.Show();
-            btnModifyActivities.Show();
             btnRefreshActivity.Show();
-            
+
+            // only accesible when logged in as admin
+            if (role == "admin")
+                btnModifyActivities.Show();
+
             try
             {
                 SomerenLogic.Activity_Service activity_Service = new SomerenLogic.Activity_Service();
@@ -291,8 +303,11 @@ namespace SomerenUI
         {
             // show panel and buttons
             pnl_DisplayData.Show();
-            btnModifyRooster.Show();
             btnRefreshRooster.Show();
+
+            // only accesible when logged in as admin
+            if (role == "admin")
+                btnModifyRooster.Show();
 
             try
             {
@@ -336,7 +351,10 @@ namespace SomerenUI
             // show panel and buttons
             pnl_DisplayData.Show();
             btnRefreshMentor.Show();
-            btnModifyMentor.Show();
+
+            // only accesible when logged in as admin
+            if (role == "admin")
+                btnModifyMentor.Show();
 
             try
             {
@@ -369,6 +387,9 @@ namespace SomerenUI
         {
             showPanel("pnl_Mentor");
         }
+
+
+
 
 
 
@@ -434,6 +455,9 @@ namespace SomerenUI
             hide_pnl();
             menuStrip2.Show();
             pnl_Register.Show();
+
+            // when logged out, role goes back to user, only way to get it to admin is by logging in or change password and log in
+            role = "user";
         }
 
         private string SHA512(string input)
@@ -457,6 +481,10 @@ namespace SomerenUI
             pnl_Login.Show();
             pnl_Register.Hide();
             pnl_ForgotPasswordPanel.Hide();
+
+            // clear fields when opened
+            txtLoginEmail.Clear();
+            txtLoginPassword.Clear();
         }
 
 
@@ -474,6 +502,7 @@ namespace SomerenUI
             // if validuser then show application and hide login and register and password forgotten
             if (register_Service.CheckUserLogin(email, SHA512(password)))
             {
+                role = register_Service.GetRole(email);
                 menuStrip2.Hide();
                 pnl_Login.Hide();
 
@@ -593,6 +622,7 @@ namespace SomerenUI
             pnl_Login.Hide();
             pnl_Register.Hide();
 
+            role = register_Service.GetRole(email);
             menuStrip1.Show();
             pnl_Dashboard.Show();
         }
@@ -616,7 +646,7 @@ namespace SomerenUI
             var hasUpperChar = new Regex(@"[A-Z]+");
             var hasMiniMaxChars = new Regex(@".{8,15}");
             var hasLowerChar = new Regex(@"[a-z]+");
-            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+            //var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
 
             // check each condition and if all good then return true, else give error with messagebox
             if (!hasLowerChar.IsMatch(input))
@@ -639,12 +669,11 @@ namespace SomerenUI
                 MessageBox.Show("Password should contain At least one numeric value");
                 return false;
             }
-
-            else if (!hasSymbols.IsMatch(input))
-            {
-                MessageBox.Show("Password should contain At least one special case characters");
-                return false;
-            }
+            //else if (!hasSymbols.IsMatch(input))
+            //{
+            //    MessageBox.Show("Password should contain At least one special case characters");
+            //    return false;
+            //}
             else
             {
                 return true;

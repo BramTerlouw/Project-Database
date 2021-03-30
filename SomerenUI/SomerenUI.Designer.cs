@@ -100,6 +100,9 @@ namespace SomerenUI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.pnl_ForgotPasswordPanel = new System.Windows.Forms.Panel();
+            this.lblForgottenEmail = new System.Windows.Forms.Label();
+            this.btnCheckQandA = new System.Windows.Forms.Button();
+            this.btnForgotValidateEmail = new System.Windows.Forms.Button();
             this.lblSecretQuestion = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -113,9 +116,6 @@ namespace SomerenUI
             this.txtForgotPasswordEmail = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnForgotValidateEmail = new System.Windows.Forms.Button();
-            this.btnCheckQandA = new System.Windows.Forms.Button();
-            this.lblForgottenEmail = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -537,6 +537,7 @@ namespace SomerenUI
             this.txtRegisterRepeatWW.Name = "txtRegisterRepeatWW";
             this.txtRegisterRepeatWW.Size = new System.Drawing.Size(146, 20);
             this.txtRegisterRepeatWW.TabIndex = 16;
+            this.txtRegisterRepeatWW.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -608,6 +609,7 @@ namespace SomerenUI
             this.txtRegisterWachtwoord.Name = "txtRegisterWachtwoord";
             this.txtRegisterWachtwoord.Size = new System.Drawing.Size(146, 20);
             this.txtRegisterWachtwoord.TabIndex = 7;
+            this.txtRegisterWachtwoord.UseSystemPasswordChar = true;
             // 
             // txtRegisterEmail
             // 
@@ -685,9 +687,9 @@ namespace SomerenUI
             this.pnl_Login.Controls.Add(this.txtLoginEmail);
             this.pnl_Login.Controls.Add(this.pictureBox3);
             this.pnl_Login.Controls.Add(this.label16);
-            this.pnl_Login.Location = new System.Drawing.Point(9, 50);
+            this.pnl_Login.Location = new System.Drawing.Point(9, 43);
             this.pnl_Login.Name = "pnl_Login";
-            this.pnl_Login.Size = new System.Drawing.Size(952, 450);
+            this.pnl_Login.Size = new System.Drawing.Size(952, 457);
             this.pnl_Login.TabIndex = 21;
             // 
             // btnLogin
@@ -724,6 +726,7 @@ namespace SomerenUI
             this.txtLoginPassword.Name = "txtLoginPassword";
             this.txtLoginPassword.Size = new System.Drawing.Size(146, 20);
             this.txtLoginPassword.TabIndex = 7;
+            this.txtLoginPassword.UseSystemPasswordChar = true;
             // 
             // txtLoginEmail
             // 
@@ -770,10 +773,38 @@ namespace SomerenUI
             this.pnl_ForgotPasswordPanel.Controls.Add(this.txtForgotPasswordEmail);
             this.pnl_ForgotPasswordPanel.Controls.Add(this.pictureBox4);
             this.pnl_ForgotPasswordPanel.Controls.Add(this.label11);
-            this.pnl_ForgotPasswordPanel.Location = new System.Drawing.Point(9, 47);
+            this.pnl_ForgotPasswordPanel.Location = new System.Drawing.Point(9, 43);
             this.pnl_ForgotPasswordPanel.Name = "pnl_ForgotPasswordPanel";
-            this.pnl_ForgotPasswordPanel.Size = new System.Drawing.Size(952, 450);
+            this.pnl_ForgotPasswordPanel.Size = new System.Drawing.Size(952, 454);
             this.pnl_ForgotPasswordPanel.TabIndex = 21;
+            // 
+            // lblForgottenEmail
+            // 
+            this.lblForgottenEmail.AutoSize = true;
+            this.lblForgottenEmail.Location = new System.Drawing.Point(160, 121);
+            this.lblForgottenEmail.Name = "lblForgottenEmail";
+            this.lblForgottenEmail.Size = new System.Drawing.Size(0, 13);
+            this.lblForgottenEmail.TabIndex = 22;
+            // 
+            // btnCheckQandA
+            // 
+            this.btnCheckQandA.Location = new System.Drawing.Point(42, 319);
+            this.btnCheckQandA.Name = "btnCheckQandA";
+            this.btnCheckQandA.Size = new System.Drawing.Size(261, 32);
+            this.btnCheckQandA.TabIndex = 21;
+            this.btnCheckQandA.Text = "Submit answer";
+            this.btnCheckQandA.UseVisualStyleBackColor = true;
+            this.btnCheckQandA.Click += new System.EventHandler(this.btnCheckQandA_Click);
+            // 
+            // btnForgotValidateEmail
+            // 
+            this.btnForgotValidateEmail.Location = new System.Drawing.Point(45, 151);
+            this.btnForgotValidateEmail.Name = "btnForgotValidateEmail";
+            this.btnForgotValidateEmail.Size = new System.Drawing.Size(261, 32);
+            this.btnForgotValidateEmail.TabIndex = 20;
+            this.btnForgotValidateEmail.Text = "Validate email";
+            this.btnForgotValidateEmail.UseVisualStyleBackColor = true;
+            this.btnForgotValidateEmail.Click += new System.EventHandler(this.btnForgotValidateEmail_Click);
             // 
             // lblSecretQuestion
             // 
@@ -807,6 +838,7 @@ namespace SomerenUI
             this.txtForgotRepeatPassword.Name = "txtForgotRepeatPassword";
             this.txtForgotRepeatPassword.Size = new System.Drawing.Size(146, 20);
             this.txtForgotRepeatPassword.TabIndex = 16;
+            this.txtForgotRepeatPassword.UseSystemPasswordChar = true;
             // 
             // txtForgotPassword
             // 
@@ -814,6 +846,7 @@ namespace SomerenUI
             this.txtForgotPassword.Name = "txtForgotPassword";
             this.txtForgotPassword.Size = new System.Drawing.Size(146, 20);
             this.txtForgotPassword.TabIndex = 15;
+            this.txtForgotPassword.UseSystemPasswordChar = true;
             // 
             // label12
             // 
@@ -885,34 +918,6 @@ namespace SomerenUI
             this.label11.Size = new System.Drawing.Size(195, 29);
             this.label11.TabIndex = 3;
             this.label11.Text = "Forgot password";
-            // 
-            // btnForgotValidateEmail
-            // 
-            this.btnForgotValidateEmail.Location = new System.Drawing.Point(45, 151);
-            this.btnForgotValidateEmail.Name = "btnForgotValidateEmail";
-            this.btnForgotValidateEmail.Size = new System.Drawing.Size(261, 32);
-            this.btnForgotValidateEmail.TabIndex = 20;
-            this.btnForgotValidateEmail.Text = "Validate email";
-            this.btnForgotValidateEmail.UseVisualStyleBackColor = true;
-            this.btnForgotValidateEmail.Click += new System.EventHandler(this.btnForgotValidateEmail_Click);
-            // 
-            // btnCheckQandA
-            // 
-            this.btnCheckQandA.Location = new System.Drawing.Point(42, 319);
-            this.btnCheckQandA.Name = "btnCheckQandA";
-            this.btnCheckQandA.Size = new System.Drawing.Size(261, 32);
-            this.btnCheckQandA.TabIndex = 21;
-            this.btnCheckQandA.Text = "Submit answer";
-            this.btnCheckQandA.UseVisualStyleBackColor = true;
-            this.btnCheckQandA.Click += new System.EventHandler(this.btnCheckQandA_Click);
-            // 
-            // lblForgottenEmail
-            // 
-            this.lblForgottenEmail.AutoSize = true;
-            this.lblForgottenEmail.Location = new System.Drawing.Point(160, 121);
-            this.lblForgottenEmail.Name = "lblForgottenEmail";
-            this.lblForgottenEmail.Size = new System.Drawing.Size(0, 13);
-            this.lblForgottenEmail.TabIndex = 22;
             // 
             // SomerenUI
             // 

@@ -13,14 +13,17 @@ namespace SomerenDAL
     {
         public int CheckForExistance(string email)
         {
+            // query for counting the users that match the email
             string query = "SELECT COUNT(*) FROM[user] WHERE email = @email";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[1];
 
             SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
             paraEmail.Value = email;
             sqlParameters[0] = paraEmail;
 
+            // return how much matches
             return ExecuteCountInteger(query, sqlParameters);
         }
 
@@ -28,6 +31,7 @@ namespace SomerenDAL
         {
             string query = "SELECT COUNT(*) FROM[user] WHERE email = @email AND secret_question = @sq AND secret_awnser = @sa";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[3];
 
             SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
@@ -42,13 +46,16 @@ namespace SomerenDAL
             psa.Value = sA;
             sqlParameters[2] = psa;
 
+            // return how many matches
             return ExecuteCountInteger(query, sqlParameters);
         }
 
         public void InsertUser(string v1, string v2, string v3, string v4, string v5)
         {
+            // query for inserting the new user
             string query = "INSERT INTO [user] VALUES(@name, @email, @password, @role, @SecretQuestion, @SecretAnswer)";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[6];
 
             SqlParameter paraName = new SqlParameter("@name", SqlDbType.VarChar);
@@ -75,12 +82,15 @@ namespace SomerenDAL
             paraAnswer.Value = v5;
             sqlParameters[5] = paraAnswer;
 
+            // insert
             ExecuteEditQuery(query, sqlParameters);
         }
         public void UpdateUser(string v1, string v2)
         {
+            // query for updating the password
             string query = "UPDATE [user] SET password = @password WHERE email = @email";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[2];
 
             SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
@@ -91,13 +101,16 @@ namespace SomerenDAL
             paraPassword.Value = v2;
             sqlParameters[1] = paraPassword;
 
+            // execute edit query
             ExecuteEditQuery(query, sqlParameters);
         }
 
         public int CheckUser(string email, string password)
         {
+            // query for counting users with specifik email and password
             string query = "SELECT COUNT(*) FROM[user] WHERE email = @email AND[password] = @password";
 
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[2];
 
             SqlParameter paraemail = new SqlParameter("@email", SqlDbType.VarChar);
@@ -108,30 +121,64 @@ namespace SomerenDAL
             paraPassword.Value = password;
             sqlParameters[1] = paraPassword;
 
+            // return the count
             return ExecuteCountInteger(query, sqlParameters);
         }
 
         public string GetSecretQuestion(string email)
         {
+            // query for selecting the secret question
             string query = "SELECT secret_question FROM [user] WHERE email = @email";
-            
+
+            // an array with parameters
             SqlParameter[] sqlParameters = new SqlParameter[1];
 
             SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
             paraEmail.Value = email;
             sqlParameters[0] = paraEmail;
 
+            // return the question
             return ReadQuestion(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private string ReadQuestion(DataTable dataTable)
         {
             string secretQuestion = "";
+            
+            // read the question and turn to string
             foreach (DataRow dr in dataTable.Rows)
             {
                 secretQuestion = dr["secret_question"].ToString();
             }
             return secretQuestion;
+        }
+
+        public string GetRole(string email)
+        {
+            // query for selecting the role of a specifik user
+            string query = "SELECT role FROM [user] WHERE email = @email";
+
+            // an array with parameters
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            SqlParameter paraEmail = new SqlParameter("@email", SqlDbType.VarChar);
+            paraEmail.Value = email;
+            sqlParameters[0] = paraEmail;
+
+            // return the role
+            return ReadRole(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private string ReadRole(DataTable dataTable)
+        {
+            string role = "";
+            
+            // read role and convert to string
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                role = dr["role"].ToString();
+            }
+            return role;
         }
     }
 }
