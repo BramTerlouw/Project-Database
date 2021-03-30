@@ -478,6 +478,7 @@ namespace SomerenUI
 
         private void show_pnl_Login()
         {
+            // show panel login
             pnl_Login.Show();
             pnl_Register.Hide();
             pnl_ForgotPasswordPanel.Hide();
